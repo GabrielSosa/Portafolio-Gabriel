@@ -988,22 +988,52 @@ body {
     grid-template-columns: 1fr;
     gap: 3rem;
     text-align: center;
+    padding: 0 var(--container-padding);
   }
 
   .hero-text {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: none;
   }
   
   .hero-image {
     order: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .hero-title {
     font-size: 2.8rem;
+    text-align: center;
+    width: 100%;
   }
   
   .hero-subtitle {
     font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    width: 100%;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .about-stats {
@@ -1052,25 +1082,57 @@ body {
 
   .hero-content {
     gap: 2.5rem;
+    padding: 0 var(--container-padding);
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-image {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .hero-title {
     font-size: 2.2rem;
     margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-subtitle {
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-description {
     font-size: 1rem;
-    margin-bottom: 1.8rem;
+    margin: 0 auto 1.8rem auto;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    line-height: 1.6;
   }
 
   .hero-actions {
     gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
   }
 
   .btn {
@@ -1122,7 +1184,8 @@ body {
     padding: 0.6rem 1.2rem;
     font-size: 0.85rem;
   }
-}  .timeline-item {
+
+  .timeline-item {
     padding-left: 3rem;
   }
 
@@ -1174,28 +1237,57 @@ body {
 
   .hero-content {
     gap: 2rem;
+    padding: 0 var(--container-padding);
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-image {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
   .hero-title {
     font-size: 1.8rem;
     line-height: 1.2;
     margin-bottom: 0.8rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-subtitle {
     font-size: 1.1rem;
     margin-bottom: 1rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-description {
     font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
     line-height: 1.6;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 0.5rem;
   }
 
   .hero-actions {
     flex-direction: column;
     gap: 0.8rem;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .btn {
@@ -1343,16 +1435,59 @@ body {
     font-size: 0.8rem;
   }
 
+  .hero-content {
+    gap: 1.5rem;
+    padding: 0 var(--container-padding);
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-image {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .hero-title {
     font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-subtitle {
     font-size: 1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-description {
     font-size: 0.9rem;
+    margin: 0 auto 1.2rem auto;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 0.3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
   }
 
   .avatar {
@@ -1367,6 +1502,8 @@ body {
   .btn {
     padding: 0.7rem 1rem;
     font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
   }
 
   .about-stats .stat {
