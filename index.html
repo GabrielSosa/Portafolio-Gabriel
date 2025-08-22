@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Sosa - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Fondo con formas geométricas -->
+    <div class="geometric-bg">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">G</div>
+        </div>
+        
+        <nav class="navigation">
+            <a href="#about" class="nav-item active" data-section="about">
+                <i class="fas fa-user"></i>
+                <span data-lang="navigation.about">ABOUT</span>
+            </a>
+            <a href="#resume" class="nav-item" data-section="resume">
+                <i class="fas fa-file-alt"></i>
+                <span data-lang="navigation.resume">RESUME</span>
+            </a>
+            <a href="#portfolio" class="nav-item" data-section="portfolio">
+                <i class="fas fa-briefcase"></i>
+                <span data-lang="navigation.portfolio">PORTFOLIO</span>
+            </a>
+            <a href="#blog" class="nav-item" data-section="blog">
+                <i class="fas fa-book"></i>
+                <span data-lang="navigation.blog">BLOG</span>
+            </a>
+            <a href="#contact" class="nav-item" data-section="contact">
+                <i class="fas fa-envelope"></i>
+                <span data-lang="navigation.contact">CONTACT</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Profile Header -->
+            <header class="profile-header">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Gabriel Sosa">
+                    </div>
+                    <div class="profile-info">
+                        <h1 data-lang="profile.name">Aditya Pratama</h1>
+                        <p class="subtitle" data-lang="profile.title">DevOps | SRE | Cloud Engineer</p>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <span class="label" data-lang="profile.email">EMAIL</span>
+                        <a href="mailto:gabrielsosa3093@gmail.com">gabrielsosa3093@gmail.com</a>
+                    </div>
+                    <div class="info-item">
+                        <span class="label" data-lang="profile.cv">CV</span>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i>
+                            <span data-lang="profile.download">download</span>
+                        </a>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label" data-lang="profile.location">LOCATION</span>
+                        <span data-lang="profile.locationValue">Tegucigalpa, 🇭🇳</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label" data-lang="profile.status">STATUS</span>
+                        <span class="status">🟢</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- About Section -->
+            <div id="about" class="section active">
+                <div class="about-content">
+                    <div class="section-header">
+                        <h2 data-lang="about.title">About Me</h2>
+                    </div>
+                    
+                    <p data-lang="about.paragraph1">A passionate and skilled DevOps, SRE, and Cloud Engineer with a strong background in infrastructure provisioning, automation, and monitoring. I have completed and been certified by Google Cloud for Associate Cloud Engineer and AWS for AWS Certified Cloud Practitioner.</p>
+                    
+                    <p data-lang="about.paragraph2">Have experience working with tools such as Jenkins, Terraform, and Ansible to streamline development processes and ensure efficient code deployment. Proficient in managing and monitoring cloud infrastructure services on AWS and GCP, as well as maintaining high availability in Kubernetes-based container clusters. Successfully implemented monitoring and logging tools like ELK, Grafana, and Datadog to ensure comprehensive visibility into system performance and implemented GitOps for managing infrastructure as code. My expertise also includes integrating automation testing into the CI/CD pipeline and developing scripts to automate tasks, improving efficiency and reducing manual effort.</p>
+                    
+                    <p data-lang="about.paragraph3">With a Bachelor's degree in Computer Science and a strong GPA, I am committed to continuous learning and professional growth. I am seeking opportunities to leverage my skills and contribute to the success of DevOps, SRE and cloud engineering projects.</p>
+                </div>
+
+                <!-- What I'm Doing Section -->
+                <div class="what-doing-section">
+                    <h3 data-lang="whatImDoing.title">What I'm Doing</h3>
+                    
+                    <div class="doing-grid">
+                        <div class="doing-item">
+                            <div class="doing-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h4 data-lang="whatImDoing.devops.title">DevOps</h4>
+                            <p data-lang="whatImDoing.devops.description">I enjoy to improve the speed and quality of delivery, automate and achieve CI/CD</p>
+                        </div>
+                        
+                        <div class="doing-item">
+                            <div class="doing-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4 data-lang="whatImDoing.cloudEngineer.title">Cloud Engineer</h4>
+                            <p data-lang="whatImDoing.cloudEngineer.description">I enjoy design, secure and maintenance of an organization's cloud-based infrastructure and application</p>
+                        </div>
+
+                        <div class="doing-item">
+                            <div class="doing-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h4 data-lang="whatImDoing.sre.title">SRE</h4>
+                            <p data-lang="whatImDoing.sre.description">I curious the processes and tools to ensure the scalability, reliability and availability of software systems</p>
+                        </div>
+                        
+                        <div class="doing-item">
+                            <div class="doing-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4 data-lang="whatImDoing.softwareDevelopment.title">Software Development</h4>
+                            <p data-lang="whatImDoing.softwareDevelopment.description">I enjoy learning software development either for personal or specific purposes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="status-indicator" data-lang="footer.status">🟢 All systems are operational.</span>
+            <div class="footer-links">
+                <a href="#" class="footer-link" data-lang="footer.statusLink">Status</a>
+                <a href="#" class="footer-link" data-lang="footer.uptime">Uptime</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

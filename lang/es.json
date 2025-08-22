@@ -1,0 +1,74 @@
+{
+  "navigation": {
+    "about": "ACERCA DE",
+    "resume": "CURRÍCULUM",
+    "portfolio": "PORTAFOLIO",
+    "blog": "BLOG",
+    "contact": "CONTACTO"
+  },
+  "profile": {
+    "name": "Gabriel Sosa",
+    "title": "DevOps | SRE | Ingeniero en la Nube",
+    "email": "EMAIL",
+    "cv": "CV",
+    "download": "descargar",
+    "location": "UBICACIÓN",
+    "locationValue": "Tegucigalpa, 🇭🇳",
+    "status": "ESTADO"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "paragraph1": "Un DevOps, SRE e Ingeniero en la Nube apasionado y habilidoso con una sólida experiencia en aprovisionamiento de infraestructura, automatización y monitoreo. He completado y sido certificado por Google Cloud como Associate Cloud Engineer y por AWS como AWS Certified Cloud Practitioner.",
+    "paragraph2": "Tengo experiencia trabajando con herramientas como Jenkins, Terraform y Ansible para optimizar procesos de desarrollo y asegurar el despliegue eficiente de código. Competente en la gestión y monitoreo de servicios de infraestructura en la nube en AWS y GCP, así como en mantener alta disponibilidad en clústeres de contenedores basados en Kubernetes. He implementado exitosamente herramientas de monitoreo y logging como ELK, Grafana y Datadog para asegurar visibilidad completa del rendimiento del sistema e implementado GitOps para gestionar infraestructura como código. Mi experiencia también incluye la integración de pruebas de automatización en el pipeline CI/CD y el desarrollo de scripts para automatizar tareas, mejorando la eficiencia y reduciendo el esfuerzo manual.",
+    "paragraph3": "Con una licenciatura en Ciencias de la Computación y un GPA sólido, estoy comprometido con el aprendizaje continuo y el crecimiento profesional. Busco oportunidades para aprovechar mis habilidades y contribuir al éxito de proyectos DevOps, SRE e ingeniería en la nube."
+  },
+  "whatImDoing": {
+    "title": "En Qué Trabajo",
+    "devops": {
+      "title": "DevOps",
+      "description": "Disfruto mejorar la velocidad y calidad de entrega, automatizar y lograr CI/CD"
+    },
+    "cloudEngineer": {
+      "title": "Ingeniero en la Nube",
+      "description": "Disfruto diseñar, asegurar y mantener la infraestructura y aplicaciones basadas en la nube de una organización"
+    },
+    "sre": {
+      "title": "SRE",
+      "description": "Me interesan los procesos y herramientas para asegurar la escalabilidad, confiabilidad y disponibilidad de sistemas de software"
+    },
+    "softwareDevelopment": {
+      "title": "Desarrollo de Software",
+      "description": "Disfruto aprender desarrollo de software ya sea para propósitos personales o específicos"
+    }
+  },
+  "resume": {
+    "title": "Currículum",
+    "education": "Educación",
+    "experience": "Experiencia",
+    "skills": "Habilidades"
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "projects": "Proyectos",
+    "categories": "Categorías"
+  },
+  "blog": {
+    "title": "Blog",
+    "posts": "Publicaciones Recientes",
+    "readMore": "Leer Más"
+  },
+  "contact": {
+    "title": "Contacto",
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Dirección de Email",
+      "message": "Tu Mensaje",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "status": "🟢 Todos los sistemas operativos.",
+    "statusLink": "Estado",
+    "uptime": "Tiempo Activo"
+  }
+}
