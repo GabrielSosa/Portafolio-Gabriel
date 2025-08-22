@@ -1,0 +1,53 @@
+{
+  "name": "gabriel-sosa-portfolio",
+  "version": "2.0.0",
+  "description": "Portfolio moderno de Gabriel Sosa - DevOps Engineer & Cloud Specialist",
+  "main": "index-new.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000 || python -m http.server 3000",
+    "serve": "npx http-server . -p 3000 -c-1 -o",
+    "build": "echo 'Portfolio built successfully - static files ready for deployment'",
+    "deploy": "echo 'Deploy to your preferred hosting platform'",
+    "lint": "echo 'Linting HTML, CSS, and JS files'",
+    "optimize": "echo 'Optimizing images and assets'"
+  },
+  "keywords": [
+    "portfolio",
+    "devops",
+    "cloud",
+    "engineer",
+    "aws",
+    "azure",
+    "kubernetes",
+    "docker",
+    "terraform",
+    "honduras",
+    "tegucigalpa"
+  ],
+  "author": {
+    "name": "Gabriel Sosa",
+    "email": "gabriel@ejemplo.com",
+    "url": "https://gabrielsosa.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GabrielSosa/Portafolio-Gabriel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GabrielSosa/Portafolio-Gabriel/issues"
+  },
+  "homepage": "https://gabrielsosa.dev",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
