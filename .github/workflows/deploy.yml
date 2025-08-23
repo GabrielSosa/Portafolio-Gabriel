@@ -1,4 +1,4 @@
-name: CI/CD to EC2 via ECR Public
+name: CI/CD to EC2 via ECR Private
 
 on:
   push:
@@ -17,35 +17,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Credenciales AWS (ECR Public usa us-east-1)
+      # Credenciales AWS para ECR Private
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-1  # ECR Private usa la región específica
 
-      # Login a ECR Public
-      - name: Login to Amazon ECR Public
-        id: login-ecr-public
+      # Login a ECR Private (NO public)
+      - name: Login to Amazon ECR Private
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
-        with:
-          registry-type: public
 
-      # Build & Push a ECR Public (latest y SHA)
+      # Build & Push a ECR Private
       - name: Build, tag and push image
         env:
-          REGISTRY: ${{ steps.login-ecr-public.outputs.registry }}   # public.ecr.aws
-          REGISTRY_ALIAS: ${{ secrets.ECR_PUBLIC_ALIAS }}            # tu alias
-          REPOSITORY: nginx-frontend
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}  # 455820317622.dkr.ecr.us-east-1.amazonaws.com
+          ECR_REPOSITORY: nginx-gsosa  # Tu repositorio real
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:latest \
-                       -t $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG .
-          docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:latest
-          docker push $REGISTRY/$REGISTRY_ALIAS/$REPOSITORY:$IMAGE_TAG
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:latest \
+                       -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-      # Despliegue en EC2 (actualiza solo frontend)
+      # Despliegue en EC2 
       - name: Deploy on EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -58,11 +55,14 @@ jobs:
             cd /home/ec2-user/app
             echo "IMAGE_TAG=${GITHUB_SHA}" > .env
 
-            # Para ECR Public NO es necesario login para pull (es público),
-            # pero si quieres evitar límites, podrías loguearte con AWS CLI:
-            # aws ecr-public get-login-password --region us-east-1 \
-            # | docker login --username AWS --password-stdin public.ecr.aws
+            # Para ECR Private SÍ necesitas login
+            aws ecr get-login-password --region us-east-1 \
+            | docker login --username AWS --password-stdin 455820317622.dkr.ecr.us-east-1.amazonaws.com
 
-            docker compose pull frontend
-            docker compose up -d frontend
+            # Actualiza la imagen usando el repositorio correcto
+            docker pull 455820317622.dkr.ecr.us-east-1.amazonaws.com/nginx-gsosa:${GITHUB_SHA}
+            
+            # Si usas docker-compose, actualiza tu docker-compose.yml para usar la nueva imagen
+            docker compose pull frontend || docker-compose pull frontend
+            docker compose up -d frontend || docker-compose up -d frontend
             docker image prune -af --filter "until=48h"
