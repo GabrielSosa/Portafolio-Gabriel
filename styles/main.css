@@ -357,7 +357,7 @@ body {
 
 /* Hero Section */
 .hero {
-  min-height: 70vh;
+  min-height: 110vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -545,8 +545,8 @@ body {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  margin: 2rem auto 0 auto;
-  padding: 1rem 0;
+  margin: 3rem auto 4rem auto;
+  padding: 1rem var(--container-padding);
   z-index: 10;
   overflow: hidden;
 }
@@ -557,7 +557,6 @@ body {
   padding: 0.8rem;
   animation: slide 20s linear infinite;
   justify-content: flex-start;
-  width: calc(200% + 1.5rem);
 }
 
 .tech-item {
@@ -580,13 +579,12 @@ body {
 
 @keyframes slide {
   from { transform: translateX(0); }
-  to { transform: translateX(-100%); }
+  to { transform: translateX(-50%); }
 }
 
 /* About Section */
 .about {
   background: var(--bg-secondary);
-  margin-top: 1rem;
 }
 
 .about-content {
@@ -1084,7 +1082,7 @@ body {
   }
 
   .hero {
-    min-height: 65vh;
+    min-height: 110vh;
     padding: 1.5rem 0;
   }
 
@@ -1185,7 +1183,7 @@ body {
   }
 
   .tech-stack {
-    margin: 1.5rem auto 0 auto;
+    margin: 2rem auto 3rem auto;
     padding: 0.8rem 0;
   }
 
@@ -1249,7 +1247,7 @@ body {
   }
 
   .hero {
-    min-height: 60vh;
+    min-height: 105vh;
     padding: 1rem 0;
   }
 
@@ -1407,7 +1405,7 @@ body {
   }
 
   .tech-stack {
-    margin: 1rem auto 0 auto;
+    margin: 1.5rem auto 2.5rem auto;
     padding: 0.6rem 0;
   }
 
