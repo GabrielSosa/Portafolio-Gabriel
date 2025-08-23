@@ -357,12 +357,14 @@ body {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   position: relative;
   overflow: hidden;
+  padding: 2rem 0;
 }
 
 .hero::before {
@@ -381,12 +383,13 @@ body {
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  flex: 1;
 }
 
 .hero-text {
@@ -405,20 +408,20 @@ body {
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 400;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .hero-description {
   font-size: 1.1rem;
   color: var(--text-muted);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   max-width: 500px;
 }
 
@@ -539,35 +542,39 @@ body {
 
 /* Tech Stack */
 .tech-stack {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 0 auto;
+  padding: 1rem 0;
+  z-index: 10;
+  overflow: hidden;
 }
 
 .tech-slider {
   display: flex;
-  gap: 2rem;
-  padding: 1rem;
-  overflow: hidden;
+  gap: 1.5rem;
+  padding: 0.8rem;
   animation: slide 20s linear infinite;
+  justify-content: flex-start;
+  width: calc(200% + 1.5rem);
 }
 
 .tech-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   background: var(--bg-card);
-  padding: 0.75rem 1.5rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 2rem;
   border: var(--border);
   white-space: nowrap;
   backdrop-filter: blur(10px);
+  font-size: 0.9rem;
 }
 
 .tech-item i {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--primary);
 }
 
@@ -579,6 +586,7 @@ body {
 /* About Section */
 .about {
   background: var(--bg-secondary);
+  margin-top: 1rem;
 }
 
 .about-content {
@@ -1076,8 +1084,8 @@ body {
   }
 
   .hero {
-    min-height: 90vh;
-    padding: 2rem 0;
+    min-height: 65vh;
+    padding: 1.5rem 0;
   }
 
   .hero-content {
@@ -1177,12 +1185,22 @@ body {
   }
 
   .tech-stack {
-    bottom: 1.5rem;
+    margin: 1.5rem auto 0 auto;
+    padding: 0.8rem 0;
+  }
+
+  .tech-slider {
+    gap: 1.2rem;
+    padding: 0.6rem;
   }
 
   .tech-item {
-    padding: 0.6rem 1.2rem;
+    padding: 0.5rem 1rem;
     font-size: 0.85rem;
+  }
+
+  .tech-item i {
+    font-size: 1rem;
   }
 
   .timeline-item {
@@ -1231,8 +1249,8 @@ body {
   }
 
   .hero {
-    min-height: 85vh;
-    padding: 1.5rem 0;
+    min-height: 60vh;
+    padding: 1rem 0;
   }
 
   .hero-content {
@@ -1389,21 +1407,22 @@ body {
   }
 
   .tech-stack {
-    bottom: 1rem;
+    margin: 1rem auto 0 auto;
+    padding: 0.6rem 0;
   }
 
   .tech-slider {
-    gap: 1rem;
-    padding: 0.8rem;
+    gap: 0.8rem;
+    padding: 0.6rem;
   }
 
   .tech-item {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
   }
 
   .tech-item i {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
