@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="en" data-theme="dark">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Gabriel Sosa - DevOps Engineer & Cloud Specialist from Tegucigalpa, Honduras">
     <title>Gabriel Sosa | DevOps Engineer</title>
     
@@ -19,7 +21,7 @@
     <div id="loading-screen" class="loading-screen">
         <div class="loader">
             <div class="loader-circle"></div>
-            <p>Cargando Portfolio...</p>
+            <p data-i18n="loading">Loading Portfolio...</p>
         </div>
     </div>
 
@@ -34,21 +36,21 @@
                 </div>
                 
                 <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active">Inicio</a></li>
-                    <li><a href="#about" class="nav-link">Sobre Mí</a></li>
-                    <li><a href="#experience" class="nav-link">Experiencia</a></li>
-                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
-                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
                 </ul>
 
                 <div class="nav-actions">
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Change theme">
                         <i class="fas fa-moon"></i>
                     </button>
-                    <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma">
-                        <span>ES</span>
+                    <button id="lang-toggle" class="lang-toggle" aria-label="Change language">
+                        <span>EN</span>
                     </button>
-                    <button class="nav-toggle" aria-label="Abrir menú">
+                    <button class="nav-toggle" aria-label="Open menu">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -64,24 +66,23 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
-                            Hola, soy <span class="highlight">Gabriel Sosa</span>
+                            <span data-i18n="hero.greeting">Hello, I'm</span> <span class="highlight">Gabriel Sosa</span>
                         </h1>
-                        <h2 class="hero-subtitle">
+                        <h2 class="hero-subtitle" data-i18n="hero.role">
                             DevOps Engineer & Cloud Specialist
                         </h2>
-                        <p class="hero-description">
-                            Especialista en infraestructura en la nube, automatización y DevOps 
-                            con experiencia en AWS, Azure, Kubernetes y tecnologías de contenedores.
+                        <p class="hero-description" data-i18n="hero.description">
+                            Cloud infrastructure specialist, automation and DevOps with experience in AWS, Azure, Kubernetes and container technologies.
                         </p>
                         
                         <div class="hero-actions">
                             <a href="#contact" class="btn btn-primary">
                                 <i class="fas fa-envelope"></i>
-                                Contáctame
+                                <span data-i18n="hero.contact_me">Contact Me</span>
                             </a>
                             <a href="#projects" class="btn btn-secondary">
                                 <i class="fas fa-eye"></i>
-                                Ver Proyectos
+                                <span data-i18n="hero.view_projects">View Projects</span>
                             </a>
                         </div>
                     </div>
@@ -91,7 +92,7 @@
                             <img src="./assets/images/Portada.png" alt="Gabriel Sosa" class="avatar">
                             <div class="avatar-status">
                                 <span class="status-dot"></span>
-                                <span class="status-text">Disponible para trabajar</span>
+                                <span class="status-text" data-i18n="hero.status">Available for work</span>
                             </div>
                         </div>
                     </div>
@@ -156,40 +157,37 @@
             <!-- About Section -->
             <section id="about" class="section about">
                 <div class="container">
-                    <h2 class="section-title">Sobre Mí</h2>
+                    <h2 class="section-title" data-i18n="about.title">About Me</h2>
                     
                     <div class="about-content">
                         <div class="about-text">
-                            <p class="about-intro">
-                                Soy un DevOps Engineer apasionado por la automatización y la infraestructura 
-                                en la nube, ubicado en <strong>Tegucigalpa, Honduras</strong>.
+                            <p class="about-intro" data-i18n="about.intro">
+                                I'm a DevOps Engineer passionate about automation and cloud infrastructure, located in <strong>Tegucigalpa, Honduras</strong>.
                             </p>
                             
-                            <p>
-                                Con experiencia en diseño, implementación y gestión de infraestructuras 
-                                escalables en AWS y Azure, especializado en contenedores, orquestación 
-                                con Kubernetes y prácticas de CI/CD.
+                            <p data-i18n="about.description">
+                                With experience in design, implementation and management of scalable infrastructures on AWS and Azure, specialized in containers, Kubernetes orchestration and CI/CD practices.
                             </p>
 
                             <div class="about-stats">
                                 <div class="stat">
                                     <h3>3+</h3>
-                                    <p>Años de Experiencia</p>
+                                    <p data-i18n="about.stats.experience">Years of Experience</p>
                                 </div>
                                 <div class="stat">
                                     <h3>15+</h3>
-                                    <p>Proyectos Completados</p>
+                                    <p data-i18n="about.stats.projects">Completed Projects</p>
                                 </div>
                                 <div class="stat">
                                     <h3>5+</h3>
-                                    <p>Certificaciones Cloud</p>
+                                    <p data-i18n="about.stats.certifications">Cloud Certifications</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="skills-grid">
                             <div class="skill-category">
-                                <h3>Cloud Platforms</h3>
+                                <h3 data-i18n="about.skills.cloud_platforms">Cloud Platforms</h3>
                                 <div class="skill-tags">
                                     <span class="skill-tag">AWS</span>
                                     <span class="skill-tag">Azure</span>
@@ -198,7 +196,7 @@
                             </div>
 
                             <div class="skill-category">
-                                <h3>DevOps & SRE</h3>
+                                <h3 data-i18n="about.skills.devops_sre">DevOps & SRE</h3>
                                 <div class="skill-tags">
                                     <span class="skill-tag">Docker</span>
                                     <span class="skill-tag">Kubernetes</span>
@@ -208,7 +206,7 @@
                             </div>
 
                             <div class="skill-category">
-                                <h3>Infrastructure as Code</h3>
+                                <h3 data-i18n="about.skills.infrastructure_code">Infrastructure as Code</h3>
                                 <div class="skill-tags">
                                     <span class="skill-tag">Terraform</span>
                                     <span class="skill-tag">Ansible</span>
@@ -217,7 +215,7 @@
                             </div>
 
                             <div class="skill-category">
-                                <h3>Monitoring</h3>
+                                <h3 data-i18n="about.skills.monitoring">Monitoring</h3>
                                 <div class="skill-tags">
                                     <span class="skill-tag">Prometheus</span>
                                     <span class="skill-tag">Grafana</span>
@@ -232,23 +230,22 @@
             <!-- Experience Section -->
             <section id="experience" class="section experience">
                 <div class="container">
-                    <h2 class="section-title">Experiencia</h2>
+                    <h2 class="section-title" data-i18n="experience.title">Experience</h2>
                     
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h3>Senior DevOps Engineer</h3>
-                                <h4>Tech Company</h4>
-                                <span class="timeline-date">2022 - Presente</span>
-                                <p>
-                                    Liderazgo en la migración de infraestructura legacy a contenedores 
-                                    y implementación de pipelines CI/CD automatizados.
+                                <h3 data-i18n="experience.jobs.0.title">Senior DevOps Engineer</h3>
+                                <h4 data-i18n="experience.jobs.0.company">Tech Company</h4>
+                                <span class="timeline-date" data-i18n="experience.jobs.0.period">2022 - Present</span>
+                                <p data-i18n="experience.jobs.0.description">
+                                    Leadership in legacy infrastructure migration to containers and implementation of automated CI/CD pipelines.
                                 </p>
                                 <ul>
-                                    <li>Reducción del tiempo de despliegue en 75%</li>
-                                    <li>Implementación de monitoreo proactivo</li>
-                                    <li>Automatización de procesos de backup y recovery</li>
+                                    <li data-i18n="experience.jobs.0.achievements.0">75% reduction in deployment time</li>
+                                    <li data-i18n="experience.jobs.0.achievements.1">Implementation of proactive monitoring</li>
+                                    <li data-i18n="experience.jobs.0.achievements.2">Automation of backup and recovery processes</li>
                                 </ul>
                             </div>
                         </div>
@@ -256,17 +253,16 @@
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <h3>Cloud Engineer</h3>
-                                <h4>Cloud Solutions Inc.</h4>
-                                <span class="timeline-date">2021 - 2022</span>
-                                <p>
-                                    Diseño e implementación de arquitecturas cloud-native 
-                                    para clientes empresariales.
+                                <h3 data-i18n="experience.jobs.1.title">Cloud Engineer</h3>
+                                <h4 data-i18n="experience.jobs.1.company">Cloud Solutions Inc.</h4>
+                                <span class="timeline-date" data-i18n="experience.jobs.1.period">2021 - 2022</span>
+                                <p data-i18n="experience.jobs.1.description">
+                                    Design and implementation of cloud-native architectures for enterprise clients.
                                 </p>
                                 <ul>
-                                    <li>Migración de 20+ aplicaciones a AWS</li>
-                                    <li>Optimización de costos cloud (30% reducción)</li>
-                                    <li>Implementación de alta disponibilidad</li>
+                                    <li data-i18n="experience.jobs.1.achievements.0">Migration of 20+ applications to AWS</li>
+                                    <li data-i18n="experience.jobs.1.achievements.1">Cloud cost optimization (30% reduction)</li>
+                                    <li data-i18n="experience.jobs.1.achievements.2">High availability implementation</li>
                                 </ul>
                             </div>
                         </div>
@@ -277,7 +273,7 @@
             <!-- Projects Section -->
             <section id="projects" class="section projects">
                 <div class="container">
-                    <h2 class="section-title">Proyectos Destacados</h2>
+                    <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
                     
                     <div class="projects-grid">
                         <article class="project-card">
@@ -290,10 +286,9 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3>Multi-Cloud Kubernetes Platform</h3>
-                                <p>
-                                    Plataforma de contenedores distribuida en AWS y Azure 
-                                    con auto-escalamiento y alta disponibilidad.
+                                <h3 data-i18n="projects.items.0.title">Multi-Cloud Kubernetes Platform</h3>
+                                <p data-i18n="projects.items.0.description">
+                                    Distributed container platform on AWS and Azure with auto-scaling and high availability.
                                 </p>
                                 <div class="project-tech">
                                     <span class="tech-tag">Kubernetes</span>
@@ -313,10 +308,9 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3>Automated CI/CD Pipeline</h3>
-                                <p>
-                                    Pipeline completamente automatizado con testing, 
-                                    seguridad y despliegue para aplicaciones microservicios.
+                                <h3 data-i18n="projects.items.1.title">Automated CI/CD Pipeline</h3>
+                                <p data-i18n="projects.items.1.description">
+                                    Fully automated pipeline with testing, security and deployment for microservices applications.
                                 </p>
                                 <div class="project-tech">
                                     <span class="tech-tag">GitLab CI</span>
@@ -336,10 +330,9 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3>Observability Stack</h3>
-                                <p>
-                                    Stack completo de monitoreo con métricas, logs y 
-                                    trazas distribuidas para aplicaciones cloud-native.
+                                <h3 data-i18n="projects.items.2.title">Observability Stack</h3>
+                                <p data-i18n="projects.items.2.description">
+                                    Complete monitoring stack with metrics, logs and distributed traces for cloud-native applications.
                                 </p>
                                 <div class="project-tech">
                                     <span class="tech-tag">Prometheus</span>
@@ -355,14 +348,14 @@
             <!-- Contact Section -->
             <section id="contact" class="section contact">
                 <div class="container">
-                    <h2 class="section-title">¡Conectemos!</h2>
+                    <h2 class="section-title" data-i18n="contact.title">Let's Connect!</h2>
                     
                     <div class="contact-content">
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
-                                    <h3>Ubicación</h3>
+                                    <h3 data-i18n="contact.info.location">Location</h3>
                                     <p>Tegucigalpa, Honduras</p>
                                 </div>
                             </div>
@@ -370,7 +363,7 @@
                             <div class="contact-item">
                                 <i class="fas fa-phone"></i>
                                 <div>
-                                    <h3>Teléfono</h3>
+                                    <h3 data-i18n="contact.info.phone">Phone</h3>
                                     <p>+504 XXXX-XXXX</p>
                                 </div>
                             </div>
@@ -378,7 +371,7 @@
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <div>
-                                    <h3>Email</h3>
+                                    <h3 data-i18n="contact.info.email">Email</h3>
                                     <p>gabriel@ejemplo.com</p>
                                 </div>
                             </div>
@@ -398,23 +391,23 @@
 
                         <form class="contact-form" id="contact-form">
                             <div class="form-group">
-                                <label for="name">Nombre</label>
+                                <label for="name" data-i18n="contact.form.name">Name</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email" data-i18n="contact.form.email">Email</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="message">Mensaje</label>
+                                <label for="message" data-i18n="contact.form.message">Message</label>
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
                             
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-paper-plane"></i>
-                                Enviar Mensaje
+                                <span data-i18n="contact.form.send">Send Message</span>
                             </button>
                         </form>
                     </div>
@@ -425,13 +418,14 @@
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-                <p>&copy; 2025 Gabriel Sosa. Todos los derechos reservados.</p>
-                <p>Hecho con ❤️ en Tegucigalpa, Honduras</p>
+                <p>&copy; 2025 Gabriel Sosa. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <p data-i18n="footer.made_with">Made with ❤️ in Tegucigalpa, Honduras</p>
             </div>
         </footer>
     </div>
 
     <!-- Scripts -->
+    <script src="./scripts/i18n-simple.js"></script>
     <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>

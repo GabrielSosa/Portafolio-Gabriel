@@ -1,9 +1,7 @@
 // Modern Portfolio App
 class ModernPortfolio {
   constructor() {
-    this.currentLang = localStorage.getItem('portfolio-lang') || 'es';
     this.currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
-    this.translations = new Map();
     this.isLoading = true;
     
     this.init();
@@ -15,14 +13,15 @@ class ModernPortfolio {
       
       // Inicializar componentes principales
       this.initTheme();
-      await this.loadTranslations();
       this.initNavigation();
       this.initScrollEffects();
       this.initContactForm();
       this.initAnimations();
       
       // Simular carga y mostrar contenido
-      setTimeout(() => this.hideLoading(), 1500);
+      setTimeout(() => {
+        this.hideLoading();
+      }, 1500);
       
       console.log('✅ Portfolio initialized successfully!');
     } catch (error) {
@@ -73,133 +72,6 @@ class ModernPortfolio {
     if (icon) {
       icon.className = this.currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
-  }
-
-  // Sistema de traducciones
-  async loadTranslations() {
-    try {
-      const translations = {
-        es: {
-          nav: {
-            home: 'Inicio',
-            about: 'Sobre Mí',
-            experience: 'Experiencia',
-            projects: 'Proyectos',
-            contact: 'Contacto'
-          },
-          hero: {
-            greeting: 'Hola, soy',
-            title: 'DevOps Engineer & Cloud Specialist',
-            description: 'Especialista en infraestructura en la nube, automatización y DevOps con experiencia en AWS, Azure, Kubernetes y tecnologías de contenedores.',
-            cta1: 'Contáctame',
-            cta2: 'Ver Proyectos',
-            status: 'Disponible para trabajar'
-          },
-          about: {
-            title: 'Sobre Mí',
-            intro: 'Soy un DevOps Engineer apasionado por la automatización y la infraestructura en la nube, ubicado en Tegucigalpa, Honduras.',
-            description: 'Con experiencia en diseño, implementación y gestión de infraestructuras escalables en AWS y Azure, especializado en contenedores, orquestación con Kubernetes y prácticas de CI/CD.',
-            stats: {
-              experience: 'Años de Experiencia',
-              projects: 'Proyectos Completados',
-              certifications: 'Certificaciones Cloud'
-            }
-          },
-          contact: {
-            title: '¡Conectemos!',
-            location: 'Ubicación',
-            phone: 'Teléfono',
-            email: 'Email',
-            form: {
-              name: 'Nombre',
-              email: 'Email',
-              message: 'Mensaje',
-              send: 'Enviar Mensaje'
-            }
-          }
-        },
-        en: {
-          nav: {
-            home: 'Home',
-            about: 'About',
-            experience: 'Experience',
-            projects: 'Projects',
-            contact: 'Contact'
-          },
-          hero: {
-            greeting: 'Hi, I am',
-            title: 'DevOps Engineer & Cloud Specialist',
-            description: 'Cloud infrastructure specialist, automation and DevOps expert with experience in AWS, Azure, Kubernetes and container technologies.',
-            cta1: 'Contact Me',
-            cta2: 'View Projects',
-            status: 'Available for work'
-          },
-          about: {
-            title: 'About Me',
-            intro: 'I am a DevOps Engineer passionate about automation and cloud infrastructure, located in Tegucigalpa, Honduras.',
-            description: 'With experience in designing, implementing and managing scalable infrastructures on AWS and Azure, specialized in containers, Kubernetes orchestration and CI/CD practices.',
-            stats: {
-              experience: 'Years of Experience',
-              projects: 'Completed Projects',
-              certifications: 'Cloud Certifications'
-            }
-          },
-          contact: {
-            title: 'Let\'s Connect!',
-            location: 'Location',
-            phone: 'Phone',
-            email: 'Email',
-            form: {
-              name: 'Name',
-              email: 'Email',
-              message: 'Message',
-              send: 'Send Message'
-            }
-          }
-        }
-      };
-
-      this.translations.set('es', translations.es);
-      this.translations.set('en', translations.en);
-
-      this.initLanguageToggle();
-      this.updateContent();
-
-    } catch (error) {
-      console.error('Error loading translations:', error);
-    }
-  }
-
-  initLanguageToggle() {
-    const langToggle = document.getElementById('lang-toggle');
-    if (langToggle) {
-      langToggle.textContent = this.currentLang.toUpperCase();
-      
-      langToggle.addEventListener('click', () => {
-        this.currentLang = this.currentLang === 'es' ? 'en' : 'es';
-        localStorage.setItem('portfolio-lang', this.currentLang);
-        langToggle.textContent = this.currentLang.toUpperCase();
-        this.updateContent();
-      });
-    }
-  }
-
-  updateContent() {
-    const currentTranslations = this.translations.get(this.currentLang);
-    if (!currentTranslations) return;
-
-    // Actualizar elementos con data-lang
-    document.querySelectorAll('[data-lang]').forEach(element => {
-      const key = element.getAttribute('data-lang');
-      const value = this.getNestedValue(currentTranslations, key);
-      if (value) {
-        element.textContent = value;
-      }
-    });
-  }
-
-  getNestedValue(obj, path) {
-    return path.split('.').reduce((current, key) => current && current[key], obj);
   }
 
   // Navegación

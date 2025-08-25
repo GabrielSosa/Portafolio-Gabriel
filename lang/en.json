@@ -1,0 +1,100 @@
+﻿{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "role": "DevOps Engineer & Cloud Specialist",
+    "description": "Cloud infrastructure specialist, automation and DevOps with experience in AWS, Azure, Kubernetes and container technologies.",
+    "contact_me": "Contact Me",
+    "view_projects": "View Projects",
+    "status": "Available for work"
+  },
+  "about": {
+    "title": "About Me",
+    "intro": "I'm a DevOps Engineer passionate about automation and cloud infrastructure, located in <strong>Tegucigalpa, Honduras</strong>.",
+    "description": "With experience in design, implementation and management of scalable infrastructures on AWS and Azure, specialized in containers, Kubernetes orchestration and CI/CD practices.",
+    "stats": {
+      "experience": "Years of Experience",
+      "projects": "Completed Projects",
+      "certifications": "Cloud Certifications"
+    },
+    "skills": {
+      "cloud_platforms": "Cloud Platforms",
+      "devops_sre": "DevOps & SRE",
+      "infrastructure_code": "Infrastructure as Code",
+      "monitoring": "Monitoring"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "jobs": [
+      {
+        "title": "Senior DevOps Engineer",
+        "company": "Tech Company",
+        "period": "2022 - Present",
+        "description": "Leadership in legacy infrastructure migration to containers and implementation of automated CI/CD pipelines.",
+        "achievements": [
+          "75% reduction in deployment time",
+          "Implementation of proactive monitoring",
+          "Automation of backup and recovery processes"
+        ]
+      },
+      {
+        "title": "Cloud Engineer",
+        "company": "Cloud Solutions Inc.",
+        "period": "2021 - 2022",
+        "description": "Design and implementation of cloud-native architectures for enterprise clients.",
+        "achievements": [
+          "Migration of 20+ applications to AWS",
+          "Cloud cost optimization (30% reduction)",
+          "High availability implementation"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "items": [
+      {
+        "title": "Multi-Cloud Kubernetes Platform",
+        "description": "Distributed container platform on AWS and Azure with auto-scaling and high availability."
+      },
+      {
+        "title": "Automated CI/CD Pipeline",
+        "description": "Fully automated pipeline with testing, security and deployment for microservices applications."
+      },
+      {
+        "title": "Observability Stack",
+        "description": "Complete monitoring stack with metrics, logs and distributed traces for cloud-native applications."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Connect!",
+    "info": {
+      "location": "Location",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "made_with": "Made with ❤️ in Tegucigalpa, Honduras"
+  },
+  "loading": "Loading Portfolio...",
+  "meta": {
+    "title": "Gabriel Sosa | DevOps Engineer",
+    "description": "Gabriel Sosa - DevOps Engineer & Cloud Specialist from Tegucigalpa, Honduras"
+  }
+}
