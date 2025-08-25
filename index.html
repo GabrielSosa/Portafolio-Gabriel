@@ -84,6 +84,10 @@
                                 <i class="fas fa-eye"></i>
                                 <span data-i18n="hero.view_projects">View Projects</span>
                             </a>
+                            <button id="download-cv-btn" class="btn btn-cv">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-i18n="hero.download_cv">Download CV</span>
+                            </button>
                         </div>
                     </div>
                     
@@ -501,11 +505,15 @@
     <!-- EmailJS Library -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+    <!-- jsPDF Library for CV generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
     <!-- Scripts -->
     <script src="./scripts/i18n-simple.js"></script>
     <script src="./scripts/anti-spam.js"></script>
     <script src="./scripts/contact-form.js"></script>
     <script src="./scripts/emailjs-setup.js"></script>
+    <script src="./scripts/cv-generator.js"></script>
     <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>

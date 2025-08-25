@@ -17,6 +17,7 @@ class ModernPortfolio {
       this.initScrollEffects();
       this.initContactForm();
       this.initAnimations();
+      this.initCVButton();
       
       // Simular carga y mostrar contenido
       setTimeout(() => {
@@ -234,6 +235,18 @@ class ModernPortfolio {
       notification.style.animation = 'slideOutRight 0.3s ease';
       setTimeout(() => notification.remove(), 300);
     }, 4000);
+  }
+
+  // Inicializar botón CV
+  initCVButton() {
+    const cvButton = document.getElementById('download-cv-btn');
+    if (cvButton) {
+      cvButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Abrir CV en nueva pestaña
+        window.open('./cv.html', '_blank');
+      });
+    }
   }
 
   // Animaciones especiales
