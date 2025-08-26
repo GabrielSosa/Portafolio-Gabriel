@@ -321,6 +321,7 @@
       if (window.I18n) {
         await window.I18n.changeLanguage(lang);
         const data = window.I18n.getCurrentTranslations().cv;
+        const experienceData = window.I18n.getCurrentTranslations().experience;
         
         // Actualizar título de la página y idioma del documento
         document.title = data.title;
@@ -346,6 +347,66 @@
           if (sectionTitles[0]) sectionTitles[0].textContent = data.sections.experience;
           if (sectionTitles[1]) sectionTitles[1].textContent = data.sections.education;
           if (sectionTitles[2]) sectionTitles[2].textContent = data.sections.skills;
+        }
+        
+        // Actualizar experiencias dinámicamente
+        if (experienceData && experienceData.jobs) {
+          const experienceSection = document.querySelector('.section');
+          
+          // Limpiar experiencias existentes
+          const roles = experienceSection.querySelectorAll('.role');
+          roles.forEach(role => role.remove());
+          
+          // Generar nuevas experiencias
+          experienceData.jobs.forEach((job, index) => {
+            const article = document.createElement('article');
+            article.className = 'role';
+            if (index === 2) article.className += ' page-break';
+            
+            article.innerHTML = `
+              <h3><span class="company">${job.company}</span> — ${job.title}</h3>
+              <div class="role-meta">${job.period}</div>
+              <div class="location muted">${job.location}</div>
+              <ul class="bullets">
+                ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                ${job.technologies && job.technologies.length > 0 ? 
+                  `<li><strong>${lang === 'es' ? 'Tecnologías' : 'Technologies'}:</strong> ${job.technologies.join(', ')}.</li>` : 
+                  ''}
+              </ul>
+            `;
+            
+            experienceSection.appendChild(article);
+          });
+        }
+        
+        // Actualizar educación
+        if (data.education) {
+          const eduSection = document.querySelectorAll('.section')[1];
+          const eduArticles = eduSection.querySelectorAll('article');
+          data.education.forEach((edu, index) => {
+            if (eduArticles[index]) {
+              const article = eduArticles[index];
+              if (edu.honors) {
+                article.querySelector('h3').innerHTML = `${edu.institution} — <span class="company">${edu.degree}</span>`;
+                article.querySelector('.muted').innerHTML = `Honduras · ${edu.date} · <strong>${edu.honors}</strong>`;
+              } else {
+                article.querySelector('h3').textContent = `${edu.institution} — ${edu.degree}`;
+                article.querySelector('.muted').textContent = `Honduras · ${edu.date}`;
+              }
+            }
+          });
+        }
+        
+        // Actualizar skills
+        if (data.skills) {
+          const skillsSection = document.querySelectorAll('.section')[2];
+          const skillsList = skillsSection.querySelector('ul');
+          skillsList.innerHTML = '';
+          data.skills.forEach(skill => {
+            const li = document.createElement('li');
+            li.textContent = skill;
+            skillsList.appendChild(li);
+          });
         }
       }
     };

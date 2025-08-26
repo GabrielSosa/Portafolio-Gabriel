@@ -415,6 +415,90 @@
     "made_with": "Made with ❤️ in Tegucigalpa, Honduras"
   },
   "loading": "Loading Portfolio...",
+  "cv": {
+    "title": "Gabriel Sosa — CV",
+    "subtitle": "Software Developer · Full Stack",
+    "summary": "<strong>Over 8 years</strong> of experience as a Software Developer. I led the development of 2 migrations, achieving a <strong>40%</strong> improvement in product delivery and a <strong>25%</strong> improvement in banking operations performance.",
+    "sections": {
+      "experience": "Professional Experience",
+      "education": "Education / Certifications",
+      "skills": "Additional Skills"
+    },
+    "buttons": {
+      "print": "🖨️ Print",
+      "download": "📄 Download PDF"
+    },
+    "experiences": [
+      {
+        "company": "Stefanini Group",
+        "title": "Full Stack Developer",
+        "period": "Feb 2022 – Present",
+        "location": "San Salvador, El Salvador",
+        "achievements": [
+          "Implemented CI/CD practices reducing errors and <strong>deployment times by >80%</strong>.",
+          "Led teams from initial phase to production with development best practices.",
+          "Analysis in Azure Application Insights and presentations to identify service improvements.",
+          "Execution and deployment of <strong>12 key projects</strong> for Banco Agrícola, improving operational productivity by <strong>70%</strong> using Java (Spring Boot), TypeScript (Angular 17) and Python (pandas).",
+          "Definition of architecture and design patterns for interfaces.",
+          "Continuous improvements with Azure indicators throughout the development cycle."
+        ]
+      },
+      {
+        "company": "Banco FICENSA",
+        "title": "Senior Developer",
+        "period": "Dec 2020 – Feb 2022",
+        "location": "Tegucigalpa, Honduras",
+        "achievements": [
+          "Development of new modules leading their complete implementation in the ATM system.",
+          "Creation of internal products to optimize processes.",
+          "Implementation of ETLs, stored procedures and log analysis.",
+          "Coordination with suppliers to incorporate new products.",
+          "Technologies: Java 8, Angular, Docker, Jenkins, DB2, RPG ILE.",
+          "Introduction of <strong>CI/CD</strong> in bank developments."
+        ]
+      },
+      {
+        "company": "Banco Atlántida",
+        "title": "Developer",
+        "period": "Jan 2018 – Dec 2020",
+        "location": "Tegucigalpa, Honduras",
+        "achievements": [
+          "Corporate banking maintenance: monitoring and incident resolution.",
+          "Banking <em>core</em> migration from IBS to SAP; microservices in Docker and Kubernetes.",
+          "Technologies: Java Spring Boot, GeneXus 16, RPG ILE, SAP HANA, Db2, Docker, Kubernetes.",
+          "Microservices architecture with OpenShift deployment.",
+          "Migration of <strong>Jteller</strong> (RPG) cashier to new Java architecture.",
+          "Deployment of new architecture on Node.js server."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "UNAH",
+        "degree": "Systems Engineering",
+        "date": "August 2017",
+        "honors": "Cum Laude: 83%"
+      },
+      {
+        "institution": "CERTIPROF",
+        "degree": "Scrum Foundations Professional Certificate (SFPC)",
+        "date": "June 2020"
+      },
+      {
+        "institution": "GOOGLE",
+        "degree": "Google Digital Leader",
+        "date": "June 2024"
+      }
+    ],
+    "skills": [
+      "Coordination and execution of software projects; end-to-end team leadership.",
+      "Full Stack: .NET/C#, PHP, Java, JavaScript (Angular, React), Tailwind CSS, Python.",
+      "Databases: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.",
+      "Reporting and dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.",
+      "APIs and microservices; cloud: AWS, Azure, GCP.",
+      "Languages: Native Spanish; Advanced English (B1)."
+    ]
+  },
   "meta": {
     "title": "Gabriel Sosa | Cloud Engineer & Full Stack Developer",
     "description": "Gabriel Sosa - Cloud Engineer and Full Stack Developer specialized in AWS, Azure, React and Node.js from Tegucigalpa, Honduras"
