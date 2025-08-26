@@ -399,14 +399,97 @@
 
   </main>
 
-  <!-- jsPDF Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- jsPDF Library con fallbacks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" 
+          onerror="this.onerror=null;this.src='https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js'"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+          onerror="this.onerror=null;this.src='https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js'"></script>
+  
+  <!-- Verificación de librerías -->
+  <script>
+    // Verificar y cargar librerías PDF con retries
+    let libraryRetries = 0;
+    const maxRetries = 3;
+    
+    function checkLibraries() {
+      const hasJsPDF = window.jspdf && window.jspdf.jsPDF;
+      const hasHtml2Canvas = window.html2canvas;
+      
+      if (!hasJsPDF || !hasHtml2Canvas) {
+        libraryRetries++;
+        console.warn(`Intento ${libraryRetries}: Librerías PDF no cargadas completamente`);
+        
+        if (libraryRetries < maxRetries) {
+          setTimeout(checkLibraries, 1000);
+        } else {
+          console.error('No se pudieron cargar las librerías PDF después de varios intentos');
+          // Deshabilitar botón de descarga si las librerías fallan
+          const downloadBtn = document.getElementById('download-btn');
+          if (downloadBtn) {
+            downloadBtn.disabled = true;
+            downloadBtn.textContent = '❌ PDF no disponible';
+            downloadBtn.title = 'Las librerías de PDF no se pudieron cargar';
+          }
+        }
+        return false;
+      }
+      
+      console.log('✅ Librerías PDF cargadas correctamente');
+      return true;
+    }
+    
+    // Verificar después de que el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(checkLibraries, 500);
+    });
+  </script>
   
   <!-- i18n System -->
   <script src="./scripts/i18n-simple.js"></script>
 
   <script>
+    // Detección de navegador y capacidades
+    const BrowserSupport = {
+      isIE: navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > -1,
+      isEdge: navigator.userAgent.indexOf('Edge/') !== -1,
+      isFirefox: navigator.userAgent.indexOf('Firefox') !== -1,
+      isChrome: navigator.userAgent.indexOf('Chrome') !== -1,
+      isSafari: navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1,
+      isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+      
+      supportsDownload: function() {
+        const a = document.createElement('a');
+        return typeof a.download !== 'undefined';
+      },
+      
+      supportsBlob: function() {
+        try {
+          return !!new Blob();
+        } catch (e) {
+          return false;
+        }
+      },
+      
+      supportsCanvas: function() {
+        const canvas = document.createElement('canvas');
+        return !!(canvas.getContext && canvas.getContext('2d'));
+      }
+    };
+    
+    // Log de compatibilidad para debugging
+    console.log('🔍 Detección de navegador:', {
+      userAgent: navigator.userAgent,
+      isIE: BrowserSupport.isIE,
+      isEdge: BrowserSupport.isEdge,
+      isFirefox: BrowserSupport.isFirefox,
+      isChrome: BrowserSupport.isChrome,
+      isSafari: BrowserSupport.isSafari,
+      isMobile: BrowserSupport.isMobile,
+      supportsDownload: BrowserSupport.supportsDownload(),
+      supportsBlob: BrowserSupport.supportsBlob(),
+      supportsCanvas: BrowserSupport.supportsCanvas()
+    });
+    
     // Función para mapear tecnologías a iconos
     const getTechIcon = (tech) => {
       const techIcons = {
@@ -861,13 +944,75 @@
         if (text !== node.nodeValue) node.nodeValue = text;
       }
     };
+    
+    // Función para mostrar notificaciones
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      const bgColor = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#3b82f6';
+      
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${bgColor};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        z-index: 10000;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        animation: slideInDown 0.3s ease-out;
+      `;
+      notification.textContent = message;
+      
+      // Agregar animación CSS
+      if (!document.getElementById('notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+          @keyframes slideInDown {
+            from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      document.body.appendChild(notification);
+      
+      // Remover notificación después de 5 segundos
+      setTimeout(() => {
+        if (notification.parentNode) {
+          document.body.removeChild(notification);
+        }
+      }, 5000);
+    }
 
-    // Función para descargar PDF
+    // Función para descargar PDF mejorada para compatibilidad entre navegadores
     const downloadPDF = async () => {
       const downloadBtn = document.getElementById('download-btn');
       const originalText = downloadBtn.textContent;
       
+      // Verificar compatibilidad del navegador
+      if (!BrowserSupport.supportsCanvas()) {
+        showNotification('❌ Tu navegador no soporta la generación de PDFs. Por favor actualízalo.', 'error');
+        return;
+      }
+      
+      if (!BrowserSupport.supportsBlob() && !BrowserSupport.supportsDownload()) {
+        showNotification('❌ Tu navegador no soporta descargas de archivos. Por favor actualízalo.', 'error');
+        return;
+      }
+      
       try {
+        // Verificar que las librerías estén cargadas
+        if (!window.jspdf || !window.html2canvas) {
+          throw new Error('PDF libraries not loaded');
+        }
+        
         // Cambiar texto del botón mientras se genera
         downloadBtn.textContent = '⏳ Generando PDF...';
         downloadBtn.disabled = true;
@@ -940,12 +1085,24 @@
           'lift-and-shift': 'lift-and-\u200Bshift'
         });
         
-        // Capturar primera página
+        // Capturar primera página con configuración mejorada para compatibilidad
         const canvas1 = await html2canvas(tempContainer1, {
-          scale: 2,
+          scale: window.devicePixelRatio || 2, // Usar DPR del dispositivo o fallback a 2
           useCORS: true,
+          allowTaint: false, // Prevenir problemas con CORS
           logging: false,
-          backgroundColor: '#ffffff'
+          backgroundColor: '#ffffff',
+          removeContainer: false, // No remover automáticamente
+          imageTimeout: 15000, // Timeout para imágenes
+          onclone: function(clonedDoc) {
+            // Asegurar que el documento clonado tenga los estilos correctos
+            const clonedStyle = clonedDoc.createElement('style');
+            clonedStyle.textContent = `
+              * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif !important; }
+              .pdf-container { hyphens: auto !important; word-break: normal !important; }
+            `;
+            clonedDoc.head.appendChild(clonedStyle);
+          }
         });
         
         const imgData1 = canvas1.toDataURL('image/png');
@@ -987,12 +1144,23 @@
           'lift-and-shift': 'lift-and-\u200Bshift'
         });
         
-        // Capturar segunda página
+        // Capturar segunda página con la misma configuración mejorada
         const canvas2 = await html2canvas(tempContainer2, {
-          scale: 2,
+          scale: window.devicePixelRatio || 2,
           useCORS: true,
+          allowTaint: false,
           logging: false,
-          backgroundColor: '#ffffff'
+          backgroundColor: '#ffffff',
+          removeContainer: false,
+          imageTimeout: 15000,
+          onclone: function(clonedDoc) {
+            const clonedStyle = clonedDoc.createElement('style');
+            clonedStyle.textContent = `
+              * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif !important; }
+              .pdf-container { hyphens: auto !important; word-break: normal !important; }
+            `;
+            clonedDoc.head.appendChild(clonedStyle);
+          }
         });
         
         const imgData2 = canvas2.toDataURL('image/png');
@@ -1002,19 +1170,92 @@
         pdf.addImage(imgData2, 'PNG', 0, 0, imgWidth, imgHeight2);
         
         // Limpiar contenedores temporales
-        document.body.removeChild(tempContainer1);
-        document.body.removeChild(tempContainer2);
+        if (tempContainer1 && tempContainer1.parentNode) {
+          document.body.removeChild(tempContainer1);
+        }
+        if (tempContainer2 && tempContainer2.parentNode) {
+          document.body.removeChild(tempContainer2);
+        }
         
         // Restaurar estilos
         toolbar.style.display = originalToolbarDisplay;
         sheet.style.transform = originalTransform;
         
-        // Descargar el PDF
-        pdf.save('Gabriel_Sosa_CV.pdf');
+        // Descargar el PDF con mejor compatibilidad
+        const fileName = 'Gabriel_Sosa_CV.pdf';
+        
+        // Método mejorado para descarga compatible con todos los navegadores
+        try {
+          // Método moderno (Chrome, Firefox, Edge)
+          pdf.save(fileName);
+          showNotification('✅ CV descargado exitosamente', 'success');
+        } catch (saveError) {
+          console.warn('Método save() falló, usando método alternativo:', saveError);
+          // Método alternativo para navegadores más antiguos
+          const pdfOutput = pdf.output('blob');
+          
+          if (navigator.msSaveBlob) {
+            // Internet Explorer / Edge Legacy
+            navigator.msSaveBlob(pdfOutput, fileName);
+            showNotification('✅ CV descargado exitosamente', 'success');
+          } else if (BrowserSupport.supportsBlob() && BrowserSupport.supportsDownload()) {
+            // Fallback universal
+            const url = window.URL.createObjectURL(pdfOutput);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = fileName;
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            showNotification('✅ CV descargado exitosamente', 'success');
+            
+            // Limpiar el objeto URL después de un breve delay
+            setTimeout(() => {
+              window.URL.revokeObjectURL(url);
+            }, 1000);
+          } else {
+            // Si nada funciona, al menos mostrar el PDF en nueva ventana
+            const pdfDataUri = pdf.output('dataurlstring');
+            window.open(pdfDataUri, '_blank');
+            showNotification('💡 PDF abierto en nueva ventana. Usa Ctrl+S para guardarlo.', 'info');
+          }
+        }
         
       } catch (error) {
         console.error('Error generando PDF:', error);
-        alert('Error al generar el PDF. Por favor intenta de nuevo.');
+        
+        // Mostrar mensaje de error más específico
+        let errorMessage = 'Error al generar el PDF. ';
+        
+        if (error.message.includes('PDF libraries not loaded')) {
+          errorMessage += 'Las librerías de PDF no se cargaron correctamente. Por favor recarga la página.';
+        } else if (error.name === 'NetworkError') {
+          errorMessage += 'Error de conectividad. Verifica tu conexión a internet.';
+        } else if (error.message.includes('html2canvas')) {
+          errorMessage += 'Error al capturar el contenido. Intenta de nuevo.';
+        } else if (BrowserSupport.isIE || BrowserSupport.isEdge) {
+          errorMessage += 'Tu navegador tiene compatibilidad limitada. Intenta con Chrome o Firefox.';
+        } else if (BrowserSupport.isSafari) {
+          errorMessage += 'Safari puede tener problemas. Intenta permitir descargas o usa Chrome.';
+        } else {
+          errorMessage += 'Por favor intenta de nuevo o usa un navegador actualizado.';
+        }
+        
+        // Usar el nuevo sistema de notificaciones
+        showNotification(errorMessage, 'error');
+        
+        // También limpiar contenedores en caso de error
+        const containers = [
+          document.querySelector('[style*="pdf-container"]'),
+          ...document.querySelectorAll('.pdf-container')
+        ];
+        containers.forEach(container => {
+          if (container && container.parentNode) {
+            container.parentNode.removeChild(container);
+          }
+        });
       } finally {
         // Restaurar botón
         downloadBtn.textContent = originalText;

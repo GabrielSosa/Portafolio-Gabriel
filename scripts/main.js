@@ -237,19 +237,26 @@ class ModernPortfolio {
     }, 4000);
   }
 
-  // Inicializar botón CV
+  // Inicializar botón CV (usando el nuevo CVGenerator si está disponible)
   initCVButton() {
-    const cvButton = document.getElementById('download-cv-btn');
-    if (cvButton) {
-      cvButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Obtener el idioma actual
-        const currentLang = localStorage.getItem('portfolio-lang') || 'en';
-        
-        // Abrir CV en nueva pestaña con parámetro de idioma
-        window.open(`./cv.html?lang=${currentLang}`, '_blank');
-      });
+    // El CV Generator se encarga de esto ahora
+    // Solo mantener como fallback si CVGenerator no está disponible
+    if (typeof window.CVGenerator === 'undefined') {
+      console.log('🔄 Usando método tradicional de CV (CVGenerator no disponible)');
+      const cvButton = document.getElementById('download-cv-btn');
+      if (cvButton) {
+        cvButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          // Obtener el idioma actual
+          const currentLang = localStorage.getItem('portfolio-lang') || 'en';
+          
+          // Abrir CV en nueva pestaña con parámetro de idioma
+          window.open(`./cv.html?lang=${currentLang}`, '_blank');
+        });
+      }
+    } else {
+      console.log('✅ CVGenerator disponible, manejará la descarga de CV');
     }
   }
 
