@@ -239,50 +239,6 @@
       "print": "🖨️ Imprimir",
       "download": "📄 Descargar PDF"
     },
-    "experiences": [
-      {
-        "company": "Stefanini Group",
-        "title": "Desarrollador Full Stack",
-        "period": "Feb 2022 – Actualidad",
-        "location": "San Salvador, El Salvador",
-        "achievements": [
-          "Implementé prácticas de CI/CD reduciendo errores y <strong>tiempos de despliegue en >80%</strong>.",
-          "Lideré equipos desde la fase inicial hasta producción con mejores prácticas de desarrollo.",
-          "Análisis en Azure Application Insights y presentaciones para identificar mejoras del servicio.",
-          "Ejecución y despliegue de <strong>12 proyectos</strong> clave para Banco Agrícola, mejorando la productividad operativa en <strong>70%</strong> usando Java (Spring Boot), TypeScript (Angular 17) y Python (pandas).",
-          "Definición de arquitectura y patrones de diseño para interfaces.",
-          "Mejoras continuas con indicadores de Azure a lo largo del ciclo de desarrollo."
-        ]
-      },
-      {
-        "company": "Banco FICENSA",
-        "title": "Desarrollador Senior",
-        "period": "Dic 2020 – Feb 2022",
-        "location": "Tegucigalpa, Honduras",
-        "achievements": [
-          "Desarrollo de nuevos módulos liderando su implementación completa en el sistema de Autobancos.",
-          "Creación de productos internos para optimizar procesos.",
-          "Implementación de ETLs, procedimientos almacenados y análisis de logs.",
-          "Coordinación con proveedores para incorporar nuevos productos.",
-          "Tecnologías: Java 8, Angular, Docker, Jenkins, DB2, RPG ILE.",
-          "Introducción de <strong>CI/CD</strong> en los desarrollos del banco."
-        ]
-      },
-      {
-        "company": "Banco Atlántida",
-        "title": "Desarrollador",
-        "period": "Ene 2018 – Dic 2020",
-        "location": "Tegucigalpa, Honduras",
-        "achievements": [
-          "Mantenimiento a la banca empresarial: monitoreo y resolución de incidencias.",
-          "Migración del <em>core</em> bancario de IBS a SAP; microservicios en Docker y Kubernetes.",
-          "Tecnologías: Java Spring Boot, GeneXus 16, RPG ILE, SAP HANA, Db2, Docker, Kubernetes.",
-          "Arquitectura de microservicios con despliegue en OpenShift.",
-          "Migración de la caja <strong>Jteller</strong> (RPG) a nueva arquitectura en Java.",
-          "Despliegue de nueva arquitectura en servidor Node.js."
-        ]
-      }
-    ],
     "education": [
       {
         "institution": "UNAH",

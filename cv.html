@@ -215,8 +215,17 @@
             <li>Reduced cloud costs by 40% through optimization and rightsizing</li>
             <li>Implemented CI/CD pipelines that reduced deployment time by 80%</li>
             <li>Designed multi-region architectures with automated disaster recovery</li>
-            <li><strong>Technologies:</strong> AWS, React, Node.js, Terraform, Kubernetes, Docker, PostgreSQL, Python.</li>
           </ul>
+          <div style="margin-top:3mm">
+            <span class="tag">AWS</span>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Docker</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Python</span>
+          </div>
         </article>
 
         <article class="role">
@@ -229,8 +238,18 @@
             <li>Implemented automated ETLs and real-time log analysis for critical applications using cloud technologies</li>
             <li>Facilitated secure integrations with external providers improving banking connectivity and regulatory compliance</li>
             <li>Established CI/CD pipelines from scratch, reducing banking module deployment time from days to hours</li>
-            <li><strong>Technologies:</strong> Java 8, Angular, Docker, Jenkins, DB2, RPG ILE, CI/CD, ETL, Cloud Integration.</li>
           </ul>
+          <div style="margin-top:3mm">
+            <span class="tag">Java 8</span>
+            <span class="tag">Angular</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">DB2</span>
+            <span class="tag">RPG ILE</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">ETL</span>
+            <span class="tag">Cloud Integration</span>
+          </div>
         </article>
 
         <article class="role page-break">
@@ -243,8 +262,18 @@
             <li>Implemented critical Jteller application migration from RPG legacy to modern Java with Node.js backend</li>
             <li>Optimized enterprise banking operations through proactive monitoring and automated incident resolution</li>
             <li>Established containerization and orchestration standards that reduced deployment time by 70%</li>
-            <li><strong>Technologies:</strong> Java Spring Boot, Node.js, Docker, Kubernetes, OpenShift, SAP HANA, DB2, RPG ILE, Microservices.</li>
           </ul>
+          <div style="margin-top:3mm">
+            <span class="tag">Java Spring Boot</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">OpenShift</span>
+            <span class="tag">SAP HANA</span>
+            <span class="tag">DB2</span>
+            <span class="tag">RPG ILE</span>
+            <span class="tag">Microservices</span>
+          </div>
         </article>
       </div>
     </section>
@@ -277,17 +306,6 @@
         <li>APIs and microservices; cloud: AWS, Azure, GCP.</li>
         <li>Languages: Native Spanish; Advanced English (B1).</li>
       </ul>
-      <div aria-hidden="true" style="margin-top:4mm">
-        <span class="tag">Java / Spring Boot</span>
-        <span class="tag">Angular 17</span>
-        <span class="tag">Python / pandas</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Azure</span>
-        <span class="tag">GCP</span>
-        <span class="tag">AWS</span>
-      </div>
     </section>
 
   </main>
@@ -406,10 +424,12 @@
             <div class="location muted">${job.location}</div>
             <ul class="bullets">
               ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
-              ${job.technologies && job.technologies.length > 0 ? 
-                `<li><strong>${lang === 'es' ? 'Tecnologías' : 'Technologies'}:</strong> ${job.technologies.join(', ')}.</li>` : 
-                ''}
             </ul>
+            ${job.technologies && job.technologies.length > 0 ? 
+              `<div style="margin-top:3mm">
+                ${job.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+              </div>` : 
+              ''}
           `;
           
           experienceSection.appendChild(article);
