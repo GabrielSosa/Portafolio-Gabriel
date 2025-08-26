@@ -232,7 +232,7 @@
           "Designed and deployed multi-region cloud architectures with automated disaster recovery capabilities, ensuring 99.9% availability and RTO under 15 minutes"
         ],
         "technologies": [
-          "AWS",
+          "Azure",
           "React",
           "Node.js",
           "Terraform",
@@ -265,7 +265,7 @@
           "RPG ILE",
           "CI/CD",
           "ETL",
-          "Cloud Integration"
+          "AWS"
         ]
       },
       {

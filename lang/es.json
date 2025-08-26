@@ -97,7 +97,7 @@
           "Diseñé e implementé pipelines CI/CD robustos con AWS CodePipeline, Jenkins y GitLab CI que redujeron el tiempo de deployment de 4 horas a 45 minutos (reducción del 80%), incluyendo testing automatizado y rollback capabilities",
           "Arquitecté soluciones multi-región altamente disponibles con recuperación automática ante desastres (RTO < 15 minutos, RPO < 5 minutos) utilizando AWS Auto Scaling, ELB, RDS Multi-AZ y S3 Cross-Region Replication"
         ],
-        "technologies": ["AWS", "React", "Node.js", "Terraform", "Kubernetes", "Docker", "PostgreSQL", "Python"]
+        "technologies": ["Azure", "React", "Node.js", "Terraform", "Kubernetes", "Docker", "PostgreSQL", "Python"]
       },
       {
         "title": "Senior Cloud Developer",
@@ -113,7 +113,7 @@
           "Establecí pipelines CI/CD desde cero para el entorno bancario, reduciendo el deployment time de módulos críticos de 3-5 días a 2-4 horas, incluyendo pruebas de regresión automatizadas y validación de compliance",
           "Lideré el desarrollo de 45+ aplicaciones web full stack con Java 8/Spring Boot y Angular, incluyendo portales de banca empresarial, sistemas de reportería gerencial y dashboards operativos en tiempo real"
         ],
-        "technologies": ["Java 8", "Angular", "Docker", "Jenkins", "DB2", "RPG ILE", "CI/CD", "ETL", "Cloud Integration"]
+        "technologies": ["Java 8", "Angular", "Docker", "Jenkins", "DB2", "RPG ILE", "CI/CD", "ETL", "AWS"]
       },
       {
         "title": "Backend Developer",
