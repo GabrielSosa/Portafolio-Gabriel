@@ -228,8 +228,6 @@
   "loading": "Cargando Portafolio...",
   "cv": {
     "title": "Gabriel Sosa — CV",
-    "subtitle": "Desarrollador de Software · Full Stack",
-    "summary": "<strong>Más de 8 años</strong> de experiencia como Desarrollador de Software. Lideré el desarrollo de 2 migraciones, logrando un <strong>40%</strong> de mejora en la entrega de productos y un <strong>25%</strong> en rendimiento en las operaciones bancarias.",
     "sections": {
       "experience": "Experiencia profesional",
       "education": "Educación / Certificaciones",
@@ -258,12 +256,12 @@
       }
     ],
     "skills": [
-      "Coordinación y ejecución de proyectos de software; liderazgo de equipos end-to-end.",
-      "Full Stack: .NET/C#, PHP, Java, JavaScript (Angular, React), Tailwind CSS, Python.",
-      "Bases de datos: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.",
-      "Reportería y dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.",
-      "APIs y microservicios; nube: AWS, Azure, GCP.",
-      "Idiomas: Español nativo; Inglés avanzado (B1)."
+      "Liderazgo técnico de equipos multidisciplinarios de hasta 15 desarrolladores; gestión de stakeholders y comunicación efectiva con C-level executives.",
+      "Arquitectura y diseño de soluciones tecnológicas end-to-end; toma de decisiones críticas en proyectos de $500K+ con impacto directo en el negocio.",
+      "Gestión de proyectos complejos con metodologías ágiles (Scrum, Kanban); entrega consistente de proyectos dentro del presupuesto y cronograma establecido.",
+      "Mentoría y desarrollo de talento técnico; implementación de mejores prácticas de desarrollo y procesos de calidad que aumentaron la productividad del equipo en 35%.",
+      "Análisis estratégico de costos y ROI en transformaciones digitales; optimización de procesos que generaron ahorros de $200K+ anuales en operaciones.",
+      "Comunicación técnica avanzada bilingüe (español nativo, inglés avanzado B1+); presentaciones ejecutivas y documentación técnica para audiencias diversas."
     ]
   },
   "meta": {

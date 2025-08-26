@@ -49,6 +49,7 @@
     .subtitle{ color:var(--muted); font-weight:600 }
     .contacts{ justify-self:end; text-align:right; font-size: 12.3px; color:#0f172a }
     .contacts a{ color:inherit; text-decoration:none; border-bottom: 1px dotted #94a3b8 }
+    .contacts i{ color: #0ea5e9; margin-right: 4px; font-size: 11px; width: 12px; text-align: center; }
 
     .summary{ margin-top: 5mm; font-size: 13.6px; color:#0f172a; }
 
@@ -180,6 +181,13 @@
         text-decoration: none !important; 
       }
       
+      /* Mantener iconos de contacto visibles en impresión */
+      .contacts i { 
+        color: #0ea5e9 !important; 
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
       /* Ajustar tamaños de fuente para mejor legibilidad en impresión */
       .name { font-size: 24px; }
       .section-title { font-size: 14px; }
@@ -209,14 +217,16 @@
         <div class="subtitle">Software Developer · Full Stack</div>
       </div>
       <div class="contacts">
-        Tegucigalpa, Honduras · <a href="https://linkedin.com/in/gabrielsosar">linkedin.com/in/gabrielsosar</a><br />
-        <a href="tel:+50495153072">+504 9515-3072</a> · <a href="mailto:gabrielsosa3093@gmail.com">gabrielsosa3093@gmail.com</a>
+        <i class="fas fa-map-marker-alt" style="color: #0ea5e9; margin-right: 4px;"></i>Tegucigalpa, Honduras ·  <i class="fab fa-linkedin" style="color: #0ea5e9; margin-right: 4px;"></i><a href="https://linkedin.com/in/gabrielsosar">GabrielSosaR</a><br />
+       
+        <i class="fas fa-phone" style="color: #0ea5e9; margin-right: 4px;"></i><a href="tel:+50495153072">+504 9515-3072</a> · 
+        <i class="fas fa-envelope" style="color: #0ea5e9; margin-right: 4px;"></i><a href="mailto:gabriel@gsosa.dev">gabriel@gsosa.dev</a>
       </div>
     </header>
 
     <!-- SUMMARY -->
     <section class="summary">
-      <p><strong>Over 8 years</strong> of experience as a Software Developer. I led the development of 2 migrations, achieving a <strong>40%</strong> improvement in product delivery and a <strong>25%</strong> improvement in banking operations performance.</p>
+      <p>Cloud infrastructure specialist and full stack developer with experience in AWS, Azure, Kubernetes and modern web applications. I combine cloud expertise with end-to-end development to create complete solutions.</p>
     </section>
 
     <!-- EXPERIENCE -->
@@ -322,14 +332,13 @@
     <!-- SKILLS -->
     <section class="section">
       <h2 class="section-title">Additional Skills</h2>
-      <ul>
-        <li>Coordination and execution of software projects; end-to-end team leadership.</li>
-        <li>Full Stack: .NET/C#, PHP, Java, JavaScript (Angular, React), Tailwind CSS, Python.</li>
-        <li>Databases: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.</li>
-        <li>Reporting and dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.</li>
-        <li>APIs and microservices; cloud: AWS, Azure, GCP.</li>
-        <li>Languages: Native Spanish; Advanced English (B1).</li>
-      </ul>
+      <!-- Las skills se cargan dinámicamente desde JSON como lista de bullets -->
+      <div id="skills-content">
+        <article class="role" style="margin-bottom:0">
+          <ul class="bullets">
+          </ul>
+        </article>
+      </div>
     </section>
 
   </main>
@@ -462,6 +471,20 @@
       
       console.log('Cargando contenido CV:', data);
       
+      // Cargar datos del hero también
+      let heroData = null;
+      try {
+        if (!window.I18n) {
+          const response = await fetch(`./lang/${lang}.json`);
+          const translations = await response.json();
+          heroData = translations.hero;
+        } else {
+          heroData = window.I18n.getCurrentTranslations().hero;
+        }
+      } catch (error) {
+        console.error('Error cargando datos del hero:', error);
+      }
+      
       // Actualizar título de la página y idioma del documento
       document.title = data.title || 'Gabriel Sosa — CV';
       document.documentElement.lang = lang;
@@ -472,13 +495,21 @@
       if (printBtn && data.buttons) printBtn.innerHTML = data.buttons.print;
       if (downloadBtn && data.buttons) downloadBtn.innerHTML = data.buttons.download;
       
-      // Actualizar header
+      // Actualizar header con datos del hero
       const subtitle = document.querySelector('.subtitle');
-      if (subtitle && data.subtitle) subtitle.textContent = data.subtitle;
+      if (subtitle && heroData && heroData.role) {
+        subtitle.textContent = heroData.role;
+      } else if (subtitle && data.subtitle) {
+        subtitle.textContent = data.subtitle;
+      }
       
-      // Actualizar summary
+      // Actualizar summary con hero.description
       const summaryP = document.querySelector('.summary p');
-      if (summaryP && data.summary) summaryP.innerHTML = data.summary;
+      if (summaryP && heroData && heroData.description) {
+        summaryP.innerHTML = heroData.description;
+      } else if (summaryP && data.summary) {
+        summaryP.innerHTML = data.summary;
+      }
         
       // Actualizar títulos de sección
       const sectionTitles = document.querySelectorAll('.section-title');
@@ -577,7 +608,7 @@
       // Actualizar skills
       if (data.skills) {
         const skillsSection = document.querySelectorAll('.section')[2];
-        const skillsList = skillsSection.querySelector('ul');
+        const skillsList = skillsSection.querySelector('.bullets');
         skillsList.innerHTML = '';
         data.skills.forEach(skill => {
           const li = document.createElement('li');

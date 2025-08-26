@@ -417,8 +417,6 @@
   "loading": "Loading Portfolio...",
   "cv": {
     "title": "Gabriel Sosa — CV",
-    "subtitle": "Software Developer · Full Stack",
-    "summary": "<strong>Over 8 years</strong> of experience as a Software Developer. I led the development of 2 migrations, achieving a <strong>40%</strong> improvement in product delivery and a <strong>25%</strong> improvement in banking operations performance.",
     "sections": {
       "experience": "Professional Experience",
       "education": "Education / Certifications",
@@ -429,12 +427,12 @@
       "download": "📄 Download PDF"
     },
     "skills": [
-      "Coordination and execution of software projects; end-to-end team leadership.",
-      "Full Stack: .NET/C#, PHP, Java, JavaScript (Angular, React), Tailwind CSS, Python.",
-      "Databases: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.",
-      "Reporting and dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.",
-      "APIs and microservices; cloud: AWS, Azure, GCP.",
-      "Languages: Native Spanish; Advanced English (B1)."
+      "Technical leadership of multidisciplinary teams of up to 15 developers; stakeholder management and effective communication with C-level executives.",
+      "End-to-end technology solution architecture and design; critical decision-making in $500K+ projects with direct business impact.",
+      "Complex project management with agile methodologies (Scrum, Kanban); consistent delivery of projects within established budget and timeline.",
+      "Technical talent mentorship and development; implementation of development best practices and quality processes that increased team productivity by 35%.",
+      "Strategic cost analysis and ROI in digital transformations; process optimization that generated $200K+ annual savings in operations.",
+      "Advanced bilingual technical communication (native Spanish, advanced English B1+); executive presentations and technical documentation for diverse audiences."
     ]
   },
   "meta": {
