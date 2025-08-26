@@ -25,29 +25,64 @@ Portfolio personal moderno y responsive para Gabriel Sosa, DevOps Engineer & Clo
 - **Font Awesome**: Iconografía.
 - **Google Fonts**: Tipografía (Inter).
 
-## 📁 Estructura del Proyecto
+# 🌟 Portafolio Profesional de Gabriel Sosa
+
+## 🚀 Descripción
+
+Portfolio personal moderno y responsive para Gabriel Sosa, DevOps Engineer & Cloud Specialist. Desarrollado con tecnologías web nativas, optimizado para despliegue con Docker y con soporte completo para múltiples navegadores.
+
+## ✨ Características
+
+- **🎨 Diseño Moderno**: Interfaz limpia y profesional con animaciones suaves
+- **📱 Totalmente Responsive**: Optimizado para todos los dispositivos
+- **🌙 Tema Oscuro/Claro**: Alternancia de temas persistente
+- **🌐 Multi-idioma**: Soporte completo para Español e Inglés (i18n)
+- **📄 Generación de CV en PDF**: Descarga avanzada con separación silábica inteligente
+- **⚡ Alto Rendimiento**: Carga rápida y optimización completa
+- **🔒 SEO & Seguridad**: Headers de seguridad y estructura semántica
+- **🐳 Docker Ready**: Contenerización con Nginx para despliegue en cualquier entorno
+
+## �️ Stack Tecnológico
+
+- **Frontend**: HTML5, CSS3 (Grid, Flexbox, Custom Properties), JavaScript ES6+
+- **Librerías**: jsPDF, html2canvas, EmailJS, Font Awesome
+- **Containerización**: Docker + Nginx Alpine
+- **Fonts**: Inter (Google Fonts)
+- **Icons**: Font Awesome 6.4.0
+
+## �📁 Estructura del Proyecto
 
 ```
-.
-├── Dockerfile
-├── index.html
-├── cv.html
-├── README.md
-├── assets/
+📂 portafolio-gabriel/
+├── 🐳 Dockerfile                 # Configuración Docker optimizada
+├── ⚙️  nginx.conf                # Configuración Nginx personalizada
+├── 🏠 index.html                 # Página principal del portafolio
+├── 📄 cv.html                    # CV interactivo con generación PDF
+├── 📋 README.md                  # Documentación del proyecto
+│
+├── 📁 assets/                    # Recursos multimedia
 │   ├── favicon.svg
 │   ├── icons/
 │   └── images/
-├── lang/
-│   ├── en.json
-│   └── es.json
-├── scripts/
-│   ├── anti-spam.js
-│   ├── contact-form.js
-│   ├── emailjs-setup.js
-│   ├── i18n-simple.js
-│   └── main.js
-└── styles/
-    └── main.css
+│       ├── gabo.png              # Foto de perfil
+│       ├── profile.svg           # Avatar alternativo
+│       └── project*.svg/png      # Imágenes de proyectos
+│
+├── 🌐 lang/                      # Sistema de internacionalización
+│   ├── en.json                   # Traducciones en inglés
+│   └── es.json                   # Traducciones en español
+│
+├── 📜 scripts/                   # JavaScript modular
+│   ├── anti-spam.js              # Protección anti-spam
+│   ├── contact-form.js           # Formulario de contacto
+│   ├── cv-generator.js           # Generación de CV mejorada
+│   ├── emailjs-setup.js          # Configuración EmailJS
+│   ├── i18n-simple.js            # Sistema de internacionalización
+│   └── main.js                   # Funcionalidad principal
+│
+└── 🎨 styles/                    # Estilos CSS
+    ├── main.css                  # Estilos principales
+    └── certifications-fallback.css  # CSS de respaldo para certificaciones
 ```
 
 ## 🚀 Instalación y Uso
