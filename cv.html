@@ -55,9 +55,9 @@
     .section-title{ font-size: 14.8px; text-transform: uppercase; letter-spacing: .12em; color:#0f172a; font-weight: 800; border-left: 4px solid var(--accent); padding-left: 8px; margin-bottom: 5mm }
 
     /* Experience cards */
-    .role{ display:grid; grid-template-columns: 1fr auto; gap: 2mm; margin-bottom: 6mm; }
+    .role{ display:block; margin-bottom: 6mm; }
     .role h3{ font-size: 14.6px; margin-bottom: 1mm; }
-    .role-meta{ text-align:right; font-size: 12.2px; color: var(--muted); align-self: start; }
+    .role-meta{ text-align:right; font-size: 12.2px; color: var(--muted); margin-bottom: 2mm; }
     .company{ font-weight:700; }
     .location{ color: var(--muted); margin-bottom: 2mm; }
     .bullets{ margin-top: 2mm; padding-left: 1rem; }
@@ -203,51 +203,45 @@
       <h2 class="section-title">Experiencia profesional</h2>
 
       <article class="role">
-        <div>
-          <h3><span class="company">Stefanini Group</span> — Desarrollador Full Stack</h3>
-          <div class="location muted">San Salvador, El Salvador</div>
-          <ul class="bullets">
-            <li>Implementé prácticas de CI/CD reduciendo errores y <strong>tiempos de despliegue en &gt;80%</strong>.</li>
-            <li>Lideré equipos desde la fase inicial hasta producción con mejores prácticas de desarrollo.</li>
-            <li>Análisis en Azure Application Insights y presentaciones para identificar mejoras del servicio.</li>
-            <li>Ejecución y despliegue de <strong>12 proyectos</strong> clave para Banco Agrícola, mejorando la productividad operativa en <strong>70%</strong> usando Java (Spring Boot), TypeScript (Angular&nbsp;17) y Python (pandas).</li>
-            <li>Definición de arquitectura y patrones de diseño para interfaces.</li>
-            <li>Mejoras continuas con indicadores de Azure a lo largo del ciclo de desarrollo.</li>
-          </ul>
-        </div>
+        <h3><span class="company">Stefanini Group</span> — Desarrollador Full Stack</h3>
         <div class="role-meta">Feb 2022 – Actualidad</div>
+        <div class="location muted">San Salvador, El Salvador</div>
+        <ul class="bullets">
+          <li>Implementé prácticas de CI/CD reduciendo errores y <strong>tiempos de despliegue en &gt;80%</strong>.</li>
+          <li>Lideré equipos desde la fase inicial hasta producción con mejores prácticas de desarrollo.</li>
+          <li>Análisis en Azure Application Insights y presentaciones para identificar mejoras del servicio.</li>
+          <li>Ejecución y despliegue de <strong>12 proyectos</strong> clave para Banco Agrícola, mejorando la productividad operativa en <strong>70%</strong> usando Java (Spring Boot), TypeScript (Angular&nbsp;17) y Python (pandas).</li>
+          <li>Definición de arquitectura y patrones de diseño para interfaces.</li>
+          <li>Mejoras continuas con indicadores de Azure a lo largo del ciclo de desarrollo.</li>
+        </ul>
       </article>
 
       <article class="role">
-        <div>
-          <h3><span class="company">Banco FICENSA</span> — Desarrollador Senior</h3>
-          <div class="location muted">Tegucigalpa, Honduras</div>
-          <ul class="bullets">
-            <li>Desarrollo de nuevos módulos liderando su implementación completa en el sistema de Autobancos.</li>
-            <li>Creación de productos internos para optimizar procesos.</li>
-            <li>Implementación de ETLs, procedimientos almacenados y análisis de logs.</li>
-            <li>Coordinación con proveedores para incorporar nuevos productos.</li>
-            <li>Tecnologías: Java 8, Angular, Docker, Jenkins, DB2, RPG ILE.</li>
-            <li>Introducción de <strong>CI/CD</strong> en los desarrollos del banco.</li>
-          </ul>
-        </div>
+        <h3><span class="company">Banco FICENSA</span> — Desarrollador Senior</h3>
         <div class="role-meta">Dic 2020 – Feb 2022</div>
+        <div class="location muted">Tegucigalpa, Honduras</div>
+        <ul class="bullets">
+          <li>Desarrollo de nuevos módulos liderando su implementación completa en el sistema de Autobancos.</li>
+          <li>Creación de productos internos para optimizar procesos.</li>
+          <li>Implementación de ETLs, procedimientos almacenados y análisis de logs.</li>
+          <li>Coordinación con proveedores para incorporar nuevos productos.</li>
+          <li>Tecnologías: Java 8, Angular, Docker, Jenkins, DB2, RPG ILE.</li>
+          <li>Introducción de <strong>CI/CD</strong> en los desarrollos del banco.</li>
+        </ul>
       </article>
 
       <article class="role page-break">
-        <div>
-          <h3><span class="company">Banco Atlántida</span> — Desarrollador</h3>
-          <div class="location muted">Tegucigalpa, Honduras</div>
-          <ul class="bullets">
-            <li>Mantenimiento a la banca empresarial: monitoreo y resolución de incidencias.</li>
-            <li>Migración del <em>core</em> bancario de IBS a SAP; microservicios en Docker y Kubernetes.</li>
-            <li>Tecnologías: Java Spring Boot, GeneXus 16, RPG ILE, SAP HANA, Db2, Docker, Kubernetes.</li>
-            <li>Arquitectura de microservicios con despliegue en OpenShift.</li>
-            <li>Migración de la caja <strong>Jteller</strong> (RPG) a nueva arquitectura en Java.</li>
-            <li>Despliegue de nueva arquitectura en servidor Node.js.</li>
-          </ul>
-        </div>
+        <h3><span class="company">Banco Atlántida</span> — Desarrollador</h3>
         <div class="role-meta">Ene 2018 – Dic 2020</div>
+        <div class="location muted">Tegucigalpa, Honduras</div>
+        <ul class="bullets">
+          <li>Mantenimiento a la banca empresarial: monitoreo y resolución de incidencias.</li>
+          <li>Migración del <em>core</em> bancario de IBS a SAP; microservicios en Docker y Kubernetes.</li>
+          <li>Tecnologías: Java Spring Boot, GeneXus 16, RPG ILE, SAP HANA, Db2, Docker, Kubernetes.</li>
+          <li>Arquitectura de microservicios con despliegue en OpenShift.</li>
+          <li>Migración de la caja <strong>Jteller</strong> (RPG) a nueva arquitectura en Java.</li>
+          <li>Despliegue de nueva arquitectura en servidor Node.js.</li>
+        </ul>
       </article>
     </section>
 
