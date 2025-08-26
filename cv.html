@@ -291,8 +291,93 @@
   <!-- jsPDF Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+  <!-- i18n System -->
+  <script src="./scripts/i18n-simple.js"></script>
 
   <script>
+    // Función para obtener el idioma del localStorage o URL
+    const getLanguage = () => {
+      // Primero, verificar si viene de una URL con parámetro de idioma
+      const urlParams = new URLSearchParams(window.location.search);
+      const langFromUrl = urlParams.get('lang');
+      if (langFromUrl && (langFromUrl === 'es' || langFromUrl === 'en')) {
+        return langFromUrl;
+      }
+      
+      // Segundo, verificar localStorage (del portfolio principal)
+      const savedLang = localStorage.getItem('portfolio-lang');
+      if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+        return savedLang;
+      }
+      
+      // Por defecto, inglés
+      return 'en';
+    };
+
+    // Función para actualizar el contenido del CV
+    const updateCV = async (lang) => {
+      // Usar el sistema i18n existente si está disponible
+      if (window.I18n) {
+        await window.I18n.changeLanguage(lang);
+        const data = window.I18n.getCurrentTranslations().cv;
+        
+        // Actualizar título de la página y idioma del documento
+        document.title = data.title;
+        document.documentElement.lang = lang;
+        
+        // Actualizar botones de la toolbar
+        const printBtn = document.querySelector('.toolbar button[onclick="window.print()"]');
+        const downloadBtn = document.getElementById('download-btn');
+        if (printBtn && data.buttons) printBtn.innerHTML = data.buttons.print;
+        if (downloadBtn && data.buttons) downloadBtn.innerHTML = data.buttons.download;
+        
+        // Actualizar header
+        const subtitle = document.querySelector('.subtitle');
+        if (subtitle && data.subtitle) subtitle.textContent = data.subtitle;
+        
+        // Actualizar summary
+        const summaryP = document.querySelector('.summary p');
+        if (summaryP && data.summary) summaryP.innerHTML = data.summary;
+        
+        // Actualizar títulos de sección
+        const sectionTitles = document.querySelectorAll('.section-title');
+        if (data.sections) {
+          if (sectionTitles[0]) sectionTitles[0].textContent = data.sections.experience;
+          if (sectionTitles[1]) sectionTitles[1].textContent = data.sections.education;
+          if (sectionTitles[2]) sectionTitles[2].textContent = data.sections.skills;
+        }
+      }
+    };
+
+    // Inicializar CV con el idioma correcto
+    const initCV = async () => {
+      const lang = getLanguage();
+      
+      // Asegurar que el sistema i18n esté inicializado
+      if (!window.I18n) {
+        // Esperar a que i18n se inicialice
+        await new Promise(resolve => {
+          const checkI18n = () => {
+            if (window.I18n) {
+              resolve();
+            } else {
+              setTimeout(checkI18n, 100);
+            }
+          };
+          checkI18n();
+        });
+      }
+      
+      await updateCV(lang);
+      
+      // Escuchar cambios en localStorage para sincronizar con el portfolio
+      window.addEventListener('storage', async (e) => {
+        if (e.key === 'portfolio-lang') {
+          await updateCV(e.newValue || 'en');
+        }
+      });
+    };
     const fitToViewport = () => {
       const sheet = document.querySelector('.sheet');
       if(!sheet) return;
@@ -431,7 +516,10 @@
       }
     };
 
-    window.addEventListener('load', fitToViewport);
+    window.addEventListener('load', async () => {
+      await initCV();
+      fitToViewport();
+    });
     window.addEventListener('resize', fitToViewport);
   </script>
 </body>

@@ -243,8 +243,12 @@ class ModernPortfolio {
     if (cvButton) {
       cvButton.addEventListener('click', (e) => {
         e.preventDefault();
-        // Abrir CV en nueva pestaña
-        window.open('./cv.html', '_blank');
+        
+        // Obtener el idioma actual
+        const currentLang = localStorage.getItem('portfolio-lang') || 'en';
+        
+        // Abrir CV en nueva pestaña con parámetro de idioma
+        window.open(`./cv.html?lang=${currentLang}`, '_blank');
       });
     }
   }
