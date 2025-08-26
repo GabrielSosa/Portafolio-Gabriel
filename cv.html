@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -176,8 +176,8 @@
 </head>
 <body>
   <div class="toolbar">
-    <button onclick="window.print()" title="Imprimir CV">🖨️ Imprimir</button>
-    <button onclick="downloadPDF()" title="Descargar CV como PDF" id="download-btn">📄 Descargar PDF</button>
+    <button onclick="window.print()" title="Print CV">🖨️ Print</button>
+    <button onclick="downloadPDF()" title="Download CV as PDF" id="download-btn">📄 Download PDF</button>
   </div>
 
   <main class="sheet" role="document">
@@ -185,7 +185,7 @@
     <header class="header">
       <div>
         <h1 class="name">Gabriel Alexander Sosa Ramírez</h1>
-        <div class="subtitle">Desarrollador de Software · Full Stack</div>
+        <div class="subtitle">Software Developer · Full Stack</div>
       </div>
       <div class="contacts">
         Tegucigalpa, Honduras · <a href="https://linkedin.com/in/gabrielsosar">linkedin.com/in/gabrielsosar</a><br />
@@ -195,83 +195,87 @@
 
     <!-- SUMMARY -->
     <section class="summary">
-      <p><strong>Más de 8 años</strong> de experiencia como Desarrollador de Software. Lideré el desarrollo de 2 migraciones, logrando un <strong>40%</strong> de mejora en la entrega de productos y un <strong>25%</strong> en rendimiento en las operaciones bancarias.</p>
+      <p><strong>Over 8 years</strong> of experience as a Software Developer. I led the development of 2 migrations, achieving a <strong>40%</strong> improvement in product delivery and a <strong>25%</strong> improvement in banking operations performance.</p>
     </section>
 
     <!-- EXPERIENCE -->
     <section class="section">
-      <h2 class="section-title">Experiencia profesional</h2>
+      <h2 class="section-title">Professional Experience</h2>
+      <!-- Las experiencias se cargan dinámicamente desde JSON -->
+      
+      <!-- Fallback content mientras carga JavaScript -->
+      <div id="experience-fallback">
+        <article class="role">
+          <h3><span class="company">Stefanini Group S.A.</span> — Senior Cloud Engineer & Full Stack Developer</h3>
+          <div class="role-meta">2022 - Present</div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Successfully migrated 25+ legacy applications to AWS with 99.9% uptime</li>
+            <li>Developed 15+ full stack web applications with Java/Python/Angular/Node.js</li>
+            <li>Reduced cloud costs by 40% through optimization and rightsizing</li>
+            <li>Implemented CI/CD pipelines that reduced deployment time by 80%</li>
+            <li>Designed multi-region architectures with automated disaster recovery</li>
+            <li><strong>Technologies:</strong> AWS, React, Node.js, Terraform, Kubernetes, Docker, PostgreSQL, Python.</li>
+          </ul>
+        </article>
 
-      <article class="role">
-        <h3><span class="company">Stefanini Group</span> — Desarrollador Full Stack</h3>
-        <div class="role-meta">Feb 2022 – Actualidad</div>
-        <div class="location muted">San Salvador, El Salvador</div>
-        <ul class="bullets">
-          <li>Implementé prácticas de CI/CD reduciendo errores y <strong>tiempos de despliegue en &gt;80%</strong>.</li>
-          <li>Lideré equipos desde la fase inicial hasta producción con mejores prácticas de desarrollo.</li>
-          <li>Análisis en Azure Application Insights y presentaciones para identificar mejoras del servicio.</li>
-          <li>Ejecución y despliegue de <strong>12 proyectos</strong> clave para Banco Agrícola, mejorando la productividad operativa en <strong>70%</strong> usando Java (Spring Boot), TypeScript (Angular&nbsp;17) y Python (pandas).</li>
-          <li>Definición de arquitectura y patrones de diseño para interfaces.</li>
-          <li>Mejoras continuas con indicadores de Azure a lo largo del ciclo de desarrollo.</li>
-        </ul>
-      </article>
+        <article class="role">
+          <h3><span class="company">Banco FICENSA</span> — Senior Cloud Developer</h3>
+          <div class="role-meta">2020 - 2022</div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Developed and implemented cloud-ready modules for ATM systems processing 10,000+ daily transactions</li>
+            <li>Designed and integrated software products that optimized internal processes reducing operational times by 45%</li>
+            <li>Implemented automated ETLs and real-time log analysis for critical applications using cloud technologies</li>
+            <li>Facilitated secure integrations with external providers improving banking connectivity and regulatory compliance</li>
+            <li>Established CI/CD pipelines from scratch, reducing banking module deployment time from days to hours</li>
+            <li><strong>Technologies:</strong> Java 8, Angular, Docker, Jenkins, DB2, RPG ILE, CI/CD, ETL, Cloud Integration.</li>
+          </ul>
+        </article>
 
-      <article class="role">
-        <h3><span class="company">Banco FICENSA</span> — Desarrollador Senior</h3>
-        <div class="role-meta">Dic 2020 – Feb 2022</div>
-        <div class="location muted">Tegucigalpa, Honduras</div>
-        <ul class="bullets">
-          <li>Desarrollo de nuevos módulos liderando su implementación completa en el sistema de Autobancos.</li>
-          <li>Creación de productos internos para optimizar procesos.</li>
-          <li>Implementación de ETLs, procedimientos almacenados y análisis de logs.</li>
-          <li>Coordinación con proveedores para incorporar nuevos productos.</li>
-          <li>Tecnologías: Java 8, Angular, Docker, Jenkins, DB2, RPG ILE.</li>
-          <li>Introducción de <strong>CI/CD</strong> en los desarrollos del banco.</li>
-        </ul>
-      </article>
-
-      <article class="role page-break">
-        <h3><span class="company">Banco Atlántida</span> — Desarrollador</h3>
-        <div class="role-meta">Ene 2018 – Dic 2020</div>
-        <div class="location muted">Tegucigalpa, Honduras</div>
-        <ul class="bullets">
-          <li>Mantenimiento a la banca empresarial: monitoreo y resolución de incidencias.</li>
-          <li>Migración del <em>core</em> bancario de IBS a SAP; microservicios en Docker y Kubernetes.</li>
-          <li>Tecnologías: Java Spring Boot, GeneXus 16, RPG ILE, SAP HANA, Db2, Docker, Kubernetes.</li>
-          <li>Arquitectura de microservicios con despliegue en OpenShift.</li>
-          <li>Migración de la caja <strong>Jteller</strong> (RPG) a nueva arquitectura en Java.</li>
-          <li>Despliegue de nueva arquitectura en servidor Node.js.</li>
-        </ul>
-      </article>
+        <article class="role page-break">
+          <h3><span class="company">Banco Atlántida</span> — Backend Developer</h3>
+          <div class="role-meta">2018 - 2020</div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Executed complete banking core migration from IBS to SAP with zero service interruptions</li>
+            <li>Developed containerized microservices architecture with Docker and orchestrated with Kubernetes on OpenShift</li>
+            <li>Implemented critical Jteller application migration from RPG legacy to modern Java with Node.js backend</li>
+            <li>Optimized enterprise banking operations through proactive monitoring and automated incident resolution</li>
+            <li>Established containerization and orchestration standards that reduced deployment time by 70%</li>
+            <li><strong>Technologies:</strong> Java Spring Boot, Node.js, Docker, Kubernetes, OpenShift, SAP HANA, DB2, RPG ILE, Microservices.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <!-- EDUCATION -->
     <section class="section">
-      <h2 class="section-title">Educación / Certificaciones</h2>
+      <h2 class="section-title">Education / Certifications</h2>
       <article style="margin-bottom:5mm">
-        <h3>UNAH — <span class="company">Ingeniería en Sistemas</span></h3>
-        <div class="muted">Honduras · Agosto 2017 · <strong>Cum Laude: 83%</strong></div>
+        <h3>UNAH — <span class="company">Systems Engineering</span></h3>
+        <div class="muted">Honduras · August 2017 · <strong>Cum Laude: 83%</strong></div>
       </article>
       <article style="margin-bottom:4mm">
         <h3>CERTIPROF — Scrum Foundations Professional Certificate (SFPC)</h3>
-        <div class="muted">Honduras · Junio 2020</div>
+        <div class="muted">Honduras · June 2020</div>
       </article>
       <article>
         <h3>GOOGLE — Google Digital Leader</h3>
-        <div class="muted">Honduras · Junio 2024</div>
+        <div class="muted">Honduras · June 2024</div>
       </article>
     </section>
 
     <!-- SKILLS -->
     <section class="section">
-      <h2 class="section-title">Skills adicionales</h2>
+      <h2 class="section-title">Additional Skills</h2>
       <ul>
-        <li>Coordinación y ejecución de proyectos de software; liderazgo de equipos end-to-end.</li>
+        <li>Coordination and execution of software projects; end-to-end team leadership.</li>
         <li>Full Stack: .NET/C#, PHP, Java, JavaScript (Angular, React), Tailwind CSS, Python.</li>
-        <li>Bases de datos: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.</li>
-        <li>Reportería y dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.</li>
-        <li>APIs y microservicios; nube: AWS, Azure, GCP.</li>
-        <li>Idiomas: Español nativo; Inglés avanzado (B1).</li>
+        <li>Databases: SQL Server, MySQL, PostgreSQL, DB2, MongoDB.</li>
+        <li>Reporting and dashboards: Power BI, Talend Studio, Tableau, Crystal Reports.</li>
+        <li>APIs and microservices; cloud: AWS, Azure, GCP.</li>
+        <li>Languages: Native Spanish; Advanced English (B1).</li>
       </ul>
       <div aria-hidden="true" style="margin-top:4mm">
         <span class="tag">Java / Spring Boot</span>
@@ -311,131 +315,190 @@
         return savedLang;
       }
       
-      // Por defecto, inglés
+      // Por defecto, inglés (en.json)
       return 'en';
     };
 
     // Función para actualizar el contenido del CV
     const updateCV = async (lang) => {
+      console.log('Actualizando CV con idioma:', lang);
+      
+      // Intentar cargar las traducciones manualmente si i18n no está disponible
+      if (!window.I18n) {
+        console.log('Sistema i18n no disponible, cargando manualmente...');
+        try {
+          const response = await fetch(`./lang/${lang}.json`);
+          const translations = await response.json();
+          
+          await loadCVContent(translations.cv, translations.experience, lang);
+          return;
+        } catch (error) {
+          console.error('Error cargando traducciones:', error);
+          return;
+        }
+      }
+      
       // Usar el sistema i18n existente si está disponible
-      if (window.I18n) {
-        await window.I18n.changeLanguage(lang);
-        const data = window.I18n.getCurrentTranslations().cv;
-        const experienceData = window.I18n.getCurrentTranslations().experience;
+      await window.I18n.changeLanguage(lang);
+      const data = window.I18n.getCurrentTranslations().cv;
+      const experienceData = window.I18n.getCurrentTranslations().experience;
+      
+      await loadCVContent(data, experienceData, lang);
+    };
+
+    // Función auxiliar para cargar el contenido del CV
+    const loadCVContent = async (data, experienceData, lang) => {
+      if (!data) {
+        console.error('No se encontraron datos del CV para el idioma:', lang);
+        return;
+      }
+      
+      console.log('Cargando contenido CV:', data);
+      
+      // Actualizar título de la página y idioma del documento
+      document.title = data.title || 'Gabriel Sosa — CV';
+      document.documentElement.lang = lang;
+      
+      // Actualizar botones de la toolbar
+      const printBtn = document.querySelector('.toolbar button[onclick="window.print()"]');
+      const downloadBtn = document.getElementById('download-btn');
+      if (printBtn && data.buttons) printBtn.innerHTML = data.buttons.print;
+      if (downloadBtn && data.buttons) downloadBtn.innerHTML = data.buttons.download;
+      
+      // Actualizar header
+      const subtitle = document.querySelector('.subtitle');
+      if (subtitle && data.subtitle) subtitle.textContent = data.subtitle;
+      
+      // Actualizar summary
+      const summaryP = document.querySelector('.summary p');
+      if (summaryP && data.summary) summaryP.innerHTML = data.summary;
         
-        // Actualizar título de la página y idioma del documento
-        document.title = data.title;
-        document.documentElement.lang = lang;
+      // Actualizar títulos de sección
+      const sectionTitles = document.querySelectorAll('.section-title');
+      if (data.sections) {
+        if (sectionTitles[0]) sectionTitles[0].textContent = data.sections.experience;
+        if (sectionTitles[1]) sectionTitles[1].textContent = data.sections.education;
+        if (sectionTitles[2]) sectionTitles[2].textContent = data.sections.skills;
+      }
+      
+      // Actualizar experiencias dinámicamente
+      // Priorizar experience.jobs que tiene más detalles
+      if (experienceData && experienceData.jobs) {
+        const experienceSection = document.querySelector('.section');
         
-        // Actualizar botones de la toolbar
-        const printBtn = document.querySelector('.toolbar button[onclick="window.print()"]');
-        const downloadBtn = document.getElementById('download-btn');
-        if (printBtn && data.buttons) printBtn.innerHTML = data.buttons.print;
-        if (downloadBtn && data.buttons) downloadBtn.innerHTML = data.buttons.download;
+        // Ocultar fallback content
+        const fallback = document.getElementById('experience-fallback');
+        if (fallback) fallback.style.display = 'none';
         
-        // Actualizar header
-        const subtitle = document.querySelector('.subtitle');
-        if (subtitle && data.subtitle) subtitle.textContent = data.subtitle;
+        // Limpiar experiencias existentes (excepto el fallback)
+        const roles = experienceSection.querySelectorAll('.role');
+        roles.forEach(role => role.remove());
         
-        // Actualizar summary
-        const summaryP = document.querySelector('.summary p');
-        if (summaryP && data.summary) summaryP.innerHTML = data.summary;
-        
-        // Actualizar títulos de sección
-        const sectionTitles = document.querySelectorAll('.section-title');
-        if (data.sections) {
-          if (sectionTitles[0]) sectionTitles[0].textContent = data.sections.experience;
-          if (sectionTitles[1]) sectionTitles[1].textContent = data.sections.education;
-          if (sectionTitles[2]) sectionTitles[2].textContent = data.sections.skills;
-        }
-        
-        // Actualizar experiencias dinámicamente
-        if (experienceData && experienceData.jobs) {
-          const experienceSection = document.querySelector('.section');
+        // Generar nuevas experiencias desde experience.jobs
+        experienceData.jobs.forEach((job, index) => {
+          const article = document.createElement('article');
+          article.className = 'role';
+          if (index === 2) article.className += ' page-break';
           
-          // Limpiar experiencias existentes
-          const roles = experienceSection.querySelectorAll('.role');
-          roles.forEach(role => role.remove());
+          article.innerHTML = `
+            <h3><span class="company">${job.company}</span> — ${job.title}</h3>
+            <div class="role-meta">${job.period}</div>
+            <div class="location muted">${job.location}</div>
+            <ul class="bullets">
+              ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+              ${job.technologies && job.technologies.length > 0 ? 
+                `<li><strong>${lang === 'es' ? 'Tecnologías' : 'Technologies'}:</strong> ${job.technologies.join(', ')}.</li>` : 
+                ''}
+            </ul>
+          `;
           
-          // Generar nuevas experiencias
-          experienceData.jobs.forEach((job, index) => {
-            const article = document.createElement('article');
-            article.className = 'role';
-            if (index === 2) article.className += ' page-break';
-            
-            article.innerHTML = `
-              <h3><span class="company">${job.company}</span> — ${job.title}</h3>
-              <div class="role-meta">${job.period}</div>
-              <div class="location muted">${job.location}</div>
-              <ul class="bullets">
-                ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
-                ${job.technologies && job.technologies.length > 0 ? 
-                  `<li><strong>${lang === 'es' ? 'Tecnologías' : 'Technologies'}:</strong> ${job.technologies.join(', ')}.</li>` : 
-                  ''}
-              </ul>
-            `;
-            
-            experienceSection.appendChild(article);
-          });
-        }
+          experienceSection.appendChild(article);
+        });
+      }
+      // Fallback: usar cv.experiences si experience.jobs no está disponible
+      else if (data.experiences) {
+        const experienceSection = document.querySelector('.section');
         
-        // Actualizar educación
-        if (data.education) {
-          const eduSection = document.querySelectorAll('.section')[1];
-          const eduArticles = eduSection.querySelectorAll('article');
-          data.education.forEach((edu, index) => {
-            if (eduArticles[index]) {
-              const article = eduArticles[index];
-              if (edu.honors) {
-                article.querySelector('h3').innerHTML = `${edu.institution} — <span class="company">${edu.degree}</span>`;
-                article.querySelector('.muted').innerHTML = `Honduras · ${edu.date} · <strong>${edu.honors}</strong>`;
-              } else {
-                article.querySelector('h3').textContent = `${edu.institution} — ${edu.degree}`;
-                article.querySelector('.muted').textContent = `Honduras · ${edu.date}`;
-              }
+        // Ocultar fallback content
+        const fallback = document.getElementById('experience-fallback');
+        if (fallback) fallback.style.display = 'none';
+        
+        // Limpiar experiencias existentes (excepto el fallback)
+        const roles = experienceSection.querySelectorAll('.role');
+        roles.forEach(role => role.remove());
+        
+        // Generar nuevas experiencias desde cv.experiences
+        data.experiences.forEach((job, index) => {
+          const article = document.createElement('article');
+          article.className = 'role';
+          if (index === 2) article.className += ' page-break';
+          
+          article.innerHTML = `
+            <h3><span class="company">${job.company}</span> — ${job.title}</h3>
+            <div class="role-meta">${job.period}</div>
+            <div class="location muted">${job.location}</div>
+            <ul class="bullets">
+              ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+            </ul>
+          `;
+          
+          experienceSection.appendChild(article);
+        });
+      }
+      
+      // Actualizar educación
+      if (data.education) {
+        const eduSection = document.querySelectorAll('.section')[1];
+        const eduArticles = eduSection.querySelectorAll('article');
+        data.education.forEach((edu, index) => {
+          if (eduArticles[index]) {
+            const article = eduArticles[index];
+            if (edu.honors) {
+              article.querySelector('h3').innerHTML = `${edu.institution} — <span class="company">${edu.degree}</span>`;
+              article.querySelector('.muted').innerHTML = `Honduras · ${edu.date} · <strong>${edu.honors}</strong>`;
+            } else {
+              article.querySelector('h3').textContent = `${edu.institution} — ${edu.degree}`;
+              article.querySelector('.muted').textContent = `Honduras · ${edu.date}`;
             }
-          });
-        }
-        
-        // Actualizar skills
-        if (data.skills) {
-          const skillsSection = document.querySelectorAll('.section')[2];
-          const skillsList = skillsSection.querySelector('ul');
-          skillsList.innerHTML = '';
-          data.skills.forEach(skill => {
-            const li = document.createElement('li');
-            li.textContent = skill;
-            skillsList.appendChild(li);
-          });
-        }
+          }
+        });
+      }
+      
+      // Actualizar skills
+      if (data.skills) {
+        const skillsSection = document.querySelectorAll('.section')[2];
+        const skillsList = skillsSection.querySelector('ul');
+        skillsList.innerHTML = '';
+        data.skills.forEach(skill => {
+          const li = document.createElement('li');
+          li.textContent = skill;
+          skillsList.appendChild(li);
+        });
       }
     };
 
     // Inicializar CV con el idioma correcto
     const initCV = async () => {
+      console.log('Inicializando CV...');
       const lang = getLanguage();
+      console.log('Idioma detectado:', lang);
       
-      // Asegurar que el sistema i18n esté inicializado
-      if (!window.I18n) {
-        // Esperar a que i18n se inicialice
-        await new Promise(resolve => {
-          const checkI18n = () => {
-            if (window.I18n) {
-              resolve();
-            } else {
-              setTimeout(checkI18n, 100);
-            }
-          };
-          checkI18n();
-        });
+      try {
+        await updateCV(lang);
+        console.log('CV actualizado correctamente');
+      } catch (error) {
+        console.error('Error inicializando CV:', error);
       }
-      
-      await updateCV(lang);
       
       // Escuchar cambios en localStorage para sincronizar con el portfolio
       window.addEventListener('storage', async (e) => {
         if (e.key === 'portfolio-lang') {
-          await updateCV(e.newValue || 'en');
+          console.log('Cambio de idioma detectado:', e.newValue);
+          try {
+            await updateCV(e.newValue || 'en');
+          } catch (error) {
+            console.error('Error cambiando idioma:', error);
+          }
         }
       });
     };
@@ -578,8 +641,12 @@
     };
 
     window.addEventListener('load', async () => {
-      await initCV();
-      fitToViewport();
+      console.log('Página cargada, inicializando CV...');
+      // Esperar un poco para que todos los scripts se carguen
+      setTimeout(async () => {
+        await initCV();
+        fitToViewport();
+      }, 500);
     });
     window.addEventListener('resize', fitToViewport);
   </script>
