@@ -227,7 +227,24 @@
       .contacts{ justify-self:start; text-align:left }
       .sheet{ margin:0; border-radius:0 }
     }
-  </style>
+          @media print {
+          .pdf-container * {
+            hyphens: auto !important;
+            -webkit-hyphens: auto !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+            -webkit-hyphenate-limit-before: 3 !important;
+            -webkit-hyphenate-limit-after: 2 !important;
+            hyphenate-limit-chars: 6 3 2 !important;
+            text-align: justify !important;
+          }
+          
+          .pdf-container p, .pdf-container li, .pdf-container div {
+            hyphens: auto !important;
+            -webkit-hyphens: auto !important;
+          }
+        }
+      </style>
 </head>
 <body>
   <div class="toolbar">
@@ -682,7 +699,9 @@
       console.log('Idioma detectado:', lang);
       
       try {
-        await updateCV(lang);
+  await updateCV(lang);
+  // precargar hyphenators para mejor experiencia en PDF
+  loadHyphenators().then(h => console.log('Hyphenators ready', Object.keys(h))).catch(e => console.warn('Hyphenators preload failed', e));
         console.log('CV actualizado correctamente');
       } catch (error) {
         console.error('Error inicializando CV:', error);
@@ -709,6 +728,138 @@
       const scale = Math.min(1, (vw - pad) / desired);
       sheet.style.transformOrigin = 'top center';
       sheet.style.transform = `scale(${scale})`;
+    };
+
+    // Cargar Hypher (hyphenation) dinámicamente y patrones para en/es si es posible
+    const loadHyphenators = async () => {
+      if (window.__hyphenators) return window.__hyphenators;
+      window.__hyphenators = window.__hyphenators || {};
+      try {
+        // Cargar Hypher (constructor)
+        if (!window.Hypher) {
+          await new Promise((res, rej) => {
+            const s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/hypher@0.2.5/dist/hypher.min.js';
+            s.onload = res; s.onerror = rej; document.head.appendChild(s);
+          });
+        }
+
+        // Cargar patterns para english y spanish
+        const patterns = {
+          en: 'https://cdn.jsdelivr.net/npm/hyphenation.en-us@1.0.2/index.js',
+          es: 'https://cdn.jsdelivr.net/npm/hyphenation.es@1.0.2/index.js'
+        };
+
+        for (const lang in patterns) {
+          try {
+            if (window.__hyphenators[lang]) continue;
+            await new Promise((res, rej) => {
+              const sp = document.createElement('script');
+              sp.src = patterns[lang];
+              sp.onload = () => {
+                try {
+                  // Algunos paquetes exponen `Hyphenation` o `patterns`
+                  const pattern = window[Object.keys(window).find(k => k.toLowerCase().includes('hyphen') && window[k] && window[k].patterns && window[k].patterns[lang])];
+                } catch (e){}
+                res();
+              };
+              sp.onerror = rej;
+              document.head.appendChild(sp);
+            });
+
+            // Intenta extraer patterns desde variables globales comunes
+            const patKey = Object.keys(window).find(k => /hyphen|hypher|patterns/i.test(k));
+            const patObj = patKey ? window[patKey] : null;
+            if (patObj && patObj[lang]) {
+              window.__hyphenators[lang] = new Hypher(patObj[lang]);
+            }
+          } catch (e) {
+            // ignore pattern load errors
+          }
+        }
+      } catch (e) {
+        // loading failed, leave hyphenators empty - fallback will be used
+        console.warn('Hyphenators failed to load:', e);
+      }
+      return window.__hyphenators;
+    };
+
+    // Helper: insertar guiones suaves (soft hyphens) en texto dentro de un contenedor
+  const addSoftHyphensToContainer = (container, hyphenMap = {}, options = { fallback: true }) => {
+      if (!container) return;
+      const skipTags = new Set(['A', 'CODE', 'PRE', 'SCRIPT', 'STYLE', 'IMG', 'SVG']);
+      const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+
+      const matchCase = (orig, repl) => {
+        if (!orig) return repl;
+        if (orig.toUpperCase() === orig) return repl.toUpperCase();
+        if (orig[0] && orig[0].toUpperCase() === orig[0]) return repl[0].toUpperCase() + repl.slice(1);
+        return repl;
+      };
+
+  while ((node = walker.nextNode())) {
+        if (!node.nodeValue || !node.nodeValue.trim()) continue;
+        const parent = node.parentElement;
+        if (parent && skipTags.has(parent.tagName)) continue;
+
+        let text = node.nodeValue;
+
+        // Aplicar mapeo explícito (palabras a romper en puntos concretos)
+        for (const key in hyphenMap) {
+          try {
+            const repl = hyphenMap[key];
+            const re = new RegExp(key, 'gi');
+            text = text.replace(re, (m) => matchCase(m, repl));
+          } catch (e) {
+            // Si la clave no es un regex válido, saltarla
+            continue;
+          }
+        }
+
+        // Si hay hyphenators globales cargados (Hypher), úsalos para hyphenation precisa
+        try {
+          const hyphens = window.__hyphenators || null;
+          const lang = (container && container.lang) || document.documentElement.lang || 'en';
+          const chosen = hyphens && (hyphens[lang] || hyphens[lang.replace('-', '_')] || hyphens[lang.split('-')[0]]);
+          if (chosen) {
+            // aplicar hyphenation palabra por palabra
+            text = text.replace(/\S+/g, (word) => {
+              // evitar emails, urls y tokens con guiones/puntos
+              if (/https?:\/\//i.test(word) || /\w+@\w+\./.test(word) || /[\.\/\-]/.test(word)) return word;
+              // solo hyphenate palabras largas
+              if (word.length < (options.minLength || 6)) return word;
+              try {
+                const parts = chosen.hyphenate ? chosen.hyphenate(word) : (chosen.hypher ? chosen.hypher.hyphenate(word) : null);
+                if (Array.isArray(parts) && parts.length > 1) return parts.join('\u00AD');
+              } catch (e) {
+                return word;
+              }
+              return word;
+            });
+          } else if (options.fallback) {
+            // Fallback: insertar soft hyphen en palabras largas (evitar emails, urls y tokens con guiones/puntos)
+            if (!/https?:\/\//i.test(text) && !/\w+@\w+\./.test(text)) {
+              text = text.replace(/([A-Za-zÀ-ÖØ-öø-ÿ0-9]{10,})/g, (m) => {
+                if (/[\.\/\-]/.test(m)) return m;
+                return m.replace(/(.{6})/g, '$1\u00AD');
+              });
+            }
+          }
+        } catch (e) {
+          // Si cualquier fallo, usar fallback
+          if (options.fallback) {
+            if (!/https?:\/\//i.test(text) && !/\w+@\w+\./.test(text)) {
+              text = text.replace(/([A-Za-zÀ-ÖØ-öø-ÿ0-9]{10,})/g, (m) => {
+                if (/[\.\/\-]/.test(m)) return m;
+                return m.replace(/(.{6})/g, '$1\u00AD');
+              });
+            }
+          }
+        }
+
+        if (text !== node.nodeValue) node.nodeValue = text;
+      }
     };
 
     // Función para descargar PDF
@@ -738,6 +889,9 @@
         
         // Crear contenedor temporal para la primera página (hasta Banco FICENSA)
         const tempContainer1 = document.createElement('div');
+  tempContainer1.className = 'pdf-container';
+  // asignar idioma para que el motor de hyphenation use reglas correctas (es/en)
+  try { tempContainer1.lang = (typeof getLanguage === 'function' ? getLanguage() : document.documentElement.lang) || 'es'; } catch(e){}
         tempContainer1.style.cssText = `
           width: ${sheet.offsetWidth}px;
           padding: ${getComputedStyle(sheet).padding};
@@ -746,6 +900,17 @@
           font-size: ${getComputedStyle(sheet).fontSize};
           line-height: ${getComputedStyle(sheet).lineHeight};
           color: ${getComputedStyle(sheet).color};
+          hyphens: auto !important;
+          -webkit-hyphens: auto !important;
+          word-break: normal !important;
+          overflow-wrap: break-word !important;
+          white-space: normal !important;
+          -webkit-hyphenate-character: "\u00AD" !important;
+          hyphenate-character: "\u00AD" !important;
+          -webkit-hyphenate-limit-before: 3 !important;
+          -webkit-hyphenate-limit-after: 2 !important;
+          hyphenate-limit-chars: 6 3 2 !important;
+          text-align: justify !important;
         `;
         
         // Clonar header, summary y las primeras dos experiencias
@@ -765,6 +930,15 @@
         tempContainer1.appendChild(experienceSection);
         
         document.body.appendChild(tempContainer1);
+        // Aplicar guiones suaves específicos antes de capturar para controlar saltos
+        addSoftHyphensToContainer(tempContainer1, {
+          // Use visible hyphen + zero-width space so jsPDF/html2canvas preserve the hyphen
+          'optimization': 'optimi-\u200Bzation',
+          'optimisation': 'optimi-\u200Bsation',
+          'capabilities': 'capabili-\u200Bties',
+          'capability': 'capabi-\u200Blity',
+          'lift-and-shift': 'lift-and-\u200Bshift'
+        });
         
         // Capturar primera página
         const canvas1 = await html2canvas(tempContainer1, {
@@ -782,7 +956,9 @@
         
         // Crear contenedor temporal para la segunda página (desde Banco Atlántida)
         const tempContainer2 = document.createElement('div');
-        tempContainer2.style.cssText = tempContainer1.style.cssText;
+  tempContainer2.className = 'pdf-container';
+  try { tempContainer2.lang = (typeof getLanguage === 'function' ? getLanguage() : document.documentElement.lang) || 'es'; } catch(e){}
+  tempContainer2.style.cssText = tempContainer1.style.cssText;
         
         // Clonar el resto del contenido - EMPEZANDO con Banco Atlántida
         const experienceSection2 = sheet.querySelector('.section').cloneNode(false);
@@ -802,6 +978,14 @@
         });
         
         document.body.appendChild(tempContainer2);
+        // Aplicar guiones suaves al segundo contenedor también
+        addSoftHyphensToContainer(tempContainer2, {
+          'optimization': 'optimi-\u200Bzation',
+          'optimisation': 'optimi-\u200Bsation',
+          'capabilities': 'capabili-\u200Bties',
+          'capability': 'capabi-\u200Blity',
+          'lift-and-shift': 'lift-and-\u200Bshift'
+        });
         
         // Capturar segunda página
         const canvas2 = await html2canvas(tempContainer2, {
