@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gabriel Sosa — CV</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     /* ---- Reset / base ---- */
     *, *::before, *::after { box-sizing: border-box; }
@@ -48,7 +50,7 @@
     .contacts{ justify-self:end; text-align:right; font-size: 12.3px; color:#0f172a }
     .contacts a{ color:inherit; text-decoration:none; border-bottom: 1px dotted #94a3b8 }
 
-    .summary{ margin-top: 5mm; font-size: 13.6px; color:#0f172a }
+    .summary{ margin-top: 5mm; font-size: 13.6px; color:#0f172a; }
 
     /* Sections */
     .section{ margin-top: 9mm }
@@ -66,6 +68,17 @@
     /* Typographic helpers */
     .muted{ color: var(--muted) }
     .tag{ display:inline-block; border:1px solid #cbd5e1; padding:.18rem .5rem; border-radius:999px; font-size:12px; margin:.15rem .15rem 0 0 }
+    .tag i{ margin-right: 4px; }
+    .tag.tech-tag{ background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+    .tech-tag i{ color: #0ea5e9; }
+    
+    /* Justificación de texto para mejor presentación */
+    p, .bullets li, .location, .summary { 
+      text-align: justify; 
+      hyphens: auto; 
+      -webkit-hyphens: auto; 
+      -ms-hyphens: auto; 
+    }
 
     /* Avoid breaks within role entries */
     .role { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6mm; }
@@ -147,6 +160,14 @@
         font-size: 11.5px;
       }
       
+      /* Mantener justificación en impresión */
+      p, .bullets li, .location, .summary { 
+        text-align: justify !important; 
+        hyphens: auto !important; 
+        -webkit-hyphens: auto !important; 
+        -ms-hyphens: auto !important; 
+      }
+      
       /* Evitar que los títulos de sección queden solos al final de página */
       .section-title {
         break-after: avoid;
@@ -217,14 +238,15 @@
             <li>Designed multi-region architectures with automated disaster recovery</li>
           </ul>
           <div style="margin-top:3mm">
-            <span class="tag">AWS</span>
-            <span class="tag">React</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Terraform</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Docker</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Python</span>
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-aws"></i>AWS</span>
+            <span class="tag tech-tag"><i class="fab fa-react"></i>React</span>
+            <span class="tag tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="tag tech-tag"><i class="fas fa-layer-group"></i>Terraform</span>
+            <span class="tag tech-tag"><i class="fas fa-cubes"></i>Kubernetes</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>PostgreSQL</span>
+            <span class="tag tech-tag"><i class="fab fa-python"></i>Python</span>
           </div>
         </article>
 
@@ -240,15 +262,16 @@
             <li>Established CI/CD pipelines from scratch, reducing banking module deployment time from days to hours</li>
           </ul>
           <div style="margin-top:3mm">
-            <span class="tag">Java 8</span>
-            <span class="tag">Angular</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">DB2</span>
-            <span class="tag">RPG ILE</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">ETL</span>
-            <span class="tag">Cloud Integration</span>
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-java"></i>Java 8</span>
+            <span class="tag tech-tag"><i class="fab fa-angular"></i>Angular</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-cogs"></i>Jenkins</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>DB2</span>
+            <span class="tag tech-tag"><i class="fas fa-code"></i>RPG ILE</span>
+            <span class="tag tech-tag"><i class="fas fa-sync-alt"></i>CI/CD</span>
+            <span class="tag tech-tag"><i class="fas fa-exchange-alt"></i>ETL</span>
+            <span class="tag tech-tag"><i class="fas fa-cloud"></i>Cloud Integration</span>
           </div>
         </article>
 
@@ -264,15 +287,16 @@
             <li>Established containerization and orchestration standards that reduced deployment time by 70%</li>
           </ul>
           <div style="margin-top:3mm">
-            <span class="tag">Java Spring Boot</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">OpenShift</span>
-            <span class="tag">SAP HANA</span>
-            <span class="tag">DB2</span>
-            <span class="tag">RPG ILE</span>
-            <span class="tag">Microservices</span>
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-java"></i>Java Spring Boot</span>
+            <span class="tag tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-cubes"></i>Kubernetes</span>
+            <span class="tag tech-tag"><i class="fas fa-server"></i>OpenShift</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>SAP HANA</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>DB2</span>
+            <span class="tag tech-tag"><i class="fas fa-code"></i>RPG ILE</span>
+            <span class="tag tech-tag"><i class="fas fa-project-diagram"></i>Microservices</span>
           </div>
         </article>
       </div>
@@ -318,6 +342,71 @@
   <script src="./scripts/i18n-simple.js"></script>
 
   <script>
+    // Función para mapear tecnologías a iconos
+    const getTechIcon = (tech) => {
+      const techIcons = {
+        // Cloud Platforms
+        'AWS': 'fab fa-aws',
+        'Azure': 'fab fa-microsoft',
+        'Google Cloud': 'fab fa-google',
+        'GCP': 'fab fa-google',
+        
+        // Programming Languages
+        'Java': 'fab fa-java',
+        'Java 8': 'fab fa-java',
+        'Java Spring Boot': 'fab fa-java',
+        'Python': 'fab fa-python',
+        'Node.js': 'fab fa-node-js',
+        'JavaScript': 'fab fa-js-square',
+        'TypeScript': 'fab fa-js-square',
+        
+        // Frontend
+        'React': 'fab fa-react',
+        'Angular': 'fab fa-angular',
+        'Angular 17': 'fab fa-angular',
+        'Vue': 'fab fa-vuejs',
+        'HTML': 'fab fa-html5',
+        'CSS': 'fab fa-css3-alt',
+        
+        // DevOps & Tools
+        'Docker': 'fab fa-docker',
+        'Kubernetes': 'fas fa-cubes',
+        'Jenkins': 'fas fa-cogs',
+        'Git': 'fab fa-git-alt',
+        'GitHub': 'fab fa-github',
+        'GitLab': 'fab fa-gitlab',
+        'CI/CD': 'fas fa-sync-alt',
+        
+        // Databases
+        'PostgreSQL': 'fas fa-database',
+        'MySQL': 'fas fa-database',
+        'MongoDB': 'fas fa-leaf',
+        'DB2': 'fas fa-database',
+        'SQL Server': 'fas fa-database',
+        'SAP HANA': 'fas fa-database',
+        
+        // Infrastructure & Tools
+        'Terraform': 'fas fa-layer-group',
+        'CloudFormation': 'fas fa-layer-group',
+        'OpenShift': 'fas fa-server',
+        'Microservices': 'fas fa-project-diagram',
+        'ETL': 'fas fa-exchange-alt',
+        'Cloud Integration': 'fas fa-cloud',
+        'RPG ILE': 'fas fa-code',
+        
+        // Monitoring & Analytics
+        'Prometheus': 'fas fa-chart-line',
+        'Grafana': 'fas fa-chart-bar',
+        'ELK Stack': 'fas fa-search',
+        'Elasticsearch': 'fas fa-search',
+        
+        // Default
+        'default': 'fas fa-code'
+      };
+      
+      return techIcons[tech] || techIcons['default'];
+    };
+
     // Función para obtener el idioma del localStorage o URL
     const getLanguage = () => {
       // Primero, verificar si viene de una URL con parámetro de idioma
@@ -427,7 +516,8 @@
             </ul>
             ${job.technologies && job.technologies.length > 0 ? 
               `<div style="margin-top:3mm">
-                ${job.technologies.map(tech => `<span class="tag">${tech}</span>`).join('')}
+                <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">${lang === 'es' ? 'Tecnologías:' : 'Technologies:'}</div>
+                ${job.technologies.map(tech => `<span class="tag tech-tag"><i class="${getTechIcon(tech)}"></i>${tech}</span>`).join('')}
               </div>` : 
               ''}
           `;
