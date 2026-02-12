@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gabriel Sosa — CV</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ---- Reset / base ---- */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; background:#f5f7fb; color:#111827; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.45; }
+    h1,h2,h3{ margin:0 0 .2rem 0; line-height:1.2 }
+    p{ margin:.25rem 0 }
+    ul{ margin:.35rem 0 .75rem 1rem }
+    li{ margin:.2rem 0 }
+
+    /* ---- Layout sized to A4 ---- */
+    :root{
+      --sheet-width: 210mm; /* A4 */
+      --sheet-height: 297mm;
+      --sheet-margin: 14mm; /* visual margin inside sheet */
+      --accent: #0ea5e9; /* sky-500 */
+      --muted: #475569; /* slate-600 */
+    }
+
+    .toolbar {
+      position: sticky; top: 0; z-index: 50; background: #ffffffcc; backdrop-filter: blur(6px);
+      display:flex; gap:.5rem; align-items:center; justify-content:center; padding:.6rem .8rem; border-bottom:1px solid #e5e7eb;
+    }
+    .toolbar button{
+      appearance:none; border:1px solid #cbd5e1; background:white; border-radius:999px; padding:.55rem 1rem; font-weight:600; cursor:pointer;
+      box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    }
+    .toolbar button:hover{ border-color:#94a3b8 }
+
+    .sheet {
+      width: var(--sheet-width);
+      min-height: auto; /* Permitir crecimiento natural */
+      margin: 1.2rem auto; background:white; box-shadow: 0 10px 30px rgba(2,6,23,.08);
+      position: relative; overflow: hidden; border-radius: 10px;
+      padding: var(--sheet-margin);
+    }
+
+    /* Header */
+    .header{ display:grid; grid-template-columns: 1fr 1fr; gap:10mm; align-items:center; border-bottom:2px solid #e5e7eb; padding-bottom:6mm; }
+    .name{ 
+      font-size: 22px; 
+      font-weight: 800; 
+      letter-spacing: .2px; 
+      white-space: nowrap; 
+      line-height: 1.1; 
+    }
+    .subtitle{ color:var(--muted); font-weight:600; font-size: 13px; }
+    .contacts{ justify-self:end; text-align:right; font-size: 12.3px; color:#0f172a }
+    .contacts a{ color:inherit; text-decoration:none; border-bottom: 1px dotted #94a3b8 }
+    .contacts i{ color: #0ea5e9; margin-right: 4px; font-size: 11px; width: 12px; text-align: center; }
+
+    .summary{ margin-top: 5mm; font-size: 13.6px; color:#0f172a; }
+
+    /* Sections */
+    .section{ margin-top: 9mm }
+    .section-title{ font-size: 14.8px; text-transform: uppercase; letter-spacing: .12em; color:#0f172a; font-weight: 800; border-left: 4px solid var(--accent); padding-left: 8px; margin-bottom: 5mm }
+
+    /* Experience cards */
+    .role{ display:block; margin-bottom: 6mm; }
+    .role h3{ font-size: 14.6px; margin-bottom: 1mm; }
+    .role-header{ display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1mm; }
+    .role-title{ font-size: 14.6px; margin: 0; }
+    .role-meta{ font-size: 12.2px; color: var(--muted); margin: 0; }
+    .company{ font-weight:700; }
+    .location{ color: var(--muted); margin-bottom: 2mm; font-size: 11px; }
+    .bullets{ margin-top: 2mm; padding-left: 1rem; }
+    .bullets li{ margin-bottom: 1.5mm; line-height: 1.4; font-size: 12px; }
+
+    /* Typographic helpers */
+    .muted{ color: var(--muted) }
+    .tag{ display:inline-block; border:1px solid #cbd5e1; padding:.18rem .5rem; border-radius:999px; font-size:12px; margin:.15rem .15rem 0 0 }
+    .tag i{ margin-right: 4px; }
+    .tag.tech-tag{ background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+    .tech-tag i{ color: #0ea5e9; }
+    
+    /* Justificación de texto para mejor presentación */
+    p, .bullets li, .location, .summary { 
+      text-align: justify; 
+      hyphens: auto; 
+      -webkit-hyphens: auto; 
+      -ms-hyphens: auto;
+      word-spacing: -0.1em;
+      letter-spacing: -0.01em;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Avoid breaks within role entries */
+    .role { break-inside: avoid; page-break-inside: avoid; margin-bottom: 6mm; }
+    .section { break-inside: avoid-column; }
+    
+    /* Force page break */
+    .page-break { page-break-before: always; break-before: page; }
+
+    /* Print styles */
+    @media print {
+      @page { 
+        size: A4; 
+        margin: 12mm 10mm 12mm 10mm; 
+      }
+      
+      html, body { 
+        height: auto !important; 
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .sheet{ 
+        margin: 0 !important; 
+        box-shadow: none !important; 
+        border-radius: 0 !important; 
+        width: auto !important; 
+        min-height: auto !important; 
+        height: auto !important;
+        max-width: none !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      
+      .toolbar{ display: none !important; }
+      
+      /* Mejorar saltos de página */
+      .header { 
+        break-after: auto;
+        page-break-after: auto;
+      }
+      
+      .summary {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      
+      .section { 
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-top: 6mm;
+      }
+      
+      .section:first-of-type {
+        margin-top: 4mm;
+      }
+      
+      .role { 
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 3mm;
+      }
+      
+      .role:not(:last-child) {
+        margin-bottom: 4mm;
+      }
+      
+      .bullets {
+        margin-top: 0.8mm;
+        padding-left: 2.5mm;
+      }
+      
+      .bullets li {
+        margin-bottom: 0.8mm;
+        line-height: 1.35;
+        font-size: 9.5px;
+        text-align: justify !important;
+        hyphens: auto !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        word-spacing: -0.05em !important;
+        letter-spacing: -0.005em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        -webkit-hyphenate-limit-before: 3;
+        -webkit-hyphenate-limit-after: 2;
+        hyphenate-limit-chars: 6 3 2;
+      }
+      
+      /* Mantener justificación en impresión */
+      p, .location, .summary { 
+        text-align: justify !important; 
+        hyphens: auto !important; 
+        -webkit-hyphens: auto !important; 
+        -ms-hyphens: auto !important; 
+        word-spacing: -0.08em !important;
+        letter-spacing: -0.008em !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        -webkit-hyphenate-limit-before: 3;
+        -webkit-hyphenate-limit-after: 2;
+        hyphenate-limit-chars: 6 3 2;
+      }
+      
+      /* Evitar que los títulos de sección queden solos al final de página */
+      .section-title {
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+      
+      /* Asegurar que los enlaces se vean bien en impresión */
+      a { 
+        color: black !important; 
+        text-decoration: none !important; 
+      }
+      
+      /* Mantener iconos de contacto visibles en impresión */
+      .contacts i { 
+        color: #0ea5e9 !important; 
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      
+      /* Ajustar tamaños de fuente para mejor legibilidad en impresión */
+      .name { 
+        font-size: 20px; 
+        white-space: nowrap; 
+        line-height: 1.1; 
+      }
+      .subtitle { font-size: 11.5px; }
+      .section-title { font-size: 14px; }
+      .role-title { font-size: 12px; }
+      .role-meta { font-size: 10.5px; }
+      .location { font-size: 9.5px; }
+      .summary { font-size: 12px; }
+      .tag { font-size: 9px; padding: 0.15rem 0.4rem; }
+      .tag.tech-tag { font-size: 9px; }
+    }
+
+    /* Small screens preview */
+    @media (max-width: 820px){
+      .header{ grid-template-columns: 1fr; text-align:left }
+      .contacts{ justify-self:start; text-align:left }
+      .sheet{ margin:0; border-radius:0 }
+    }
+          @media print {
+          .pdf-container * {
+            hyphens: auto !important;
+            -webkit-hyphens: auto !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+            -webkit-hyphenate-limit-before: 3 !important;
+            -webkit-hyphenate-limit-after: 2 !important;
+            hyphenate-limit-chars: 6 3 2 !important;
+            text-align: justify !important;
+          }
+          
+          .pdf-container p, .pdf-container li, .pdf-container div {
+            hyphens: auto !important;
+            -webkit-hyphens: auto !important;
+          }
+        }
+      </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()" title="Print CV">🖨️ Print</button>
+    <button onclick="downloadPDF()" title="Download CV as PDF" id="download-btn">📄 Download PDF</button>
+  </div>
+
+  <main class="sheet" role="document">
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <h1 class="name">Gabriel Alexander Sosa Ramírez</h1>
+        <div class="subtitle">Software Developer · Full Stack</div>
+      </div>
+      <div class="contacts">
+        <i class="fas fa-map-marker-alt" style="color: #0ea5e9; margin-right: 4px;"></i>Tegucigalpa, Honduras ·  <i class="fab fa-linkedin" style="color: #0ea5e9; margin-right: 4px;"></i><a href="https://linkedin.com/in/gabrielsosar">GabrielSosaR</a><br />
+       
+        <i class="fas fa-phone" style="color: #0ea5e9; margin-right: 4px;"></i><a href="tel:+50495153072">+504 9515-3072</a> · 
+        <i class="fas fa-envelope" style="color: #0ea5e9; margin-right: 4px;"></i><a href="mailto:gabriel@gsosa.dev">gabriel@gsosa.dev</a>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section class="summary">
+      <p>Cloud infrastructure specialist and full stack developer with experience in AWS, Azure, Kubernetes and modern web applications. I combine cloud expertise with end-to-end development to create complete solutions.</p>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">Professional Experience</h2>
+      <!-- Las experiencias se cargan dinámicamente desde JSON -->
+      
+      <!-- Fallback content mientras carga JavaScript -->
+      <div id="experience-fallback">
+        <article class="role">
+          <div class="role-header">
+            <h3 class="role-title"><span class="company">Stefanini Group S.A.</span> — Senior Cloud Engineer & Full Stack Developer</h3>
+            <div class="role-meta">2022 - Present</div>
+          </div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Successfully migrated 25+ legacy applications to AWS with 99.9% uptime</li>
+            <li>Developed 15+ full stack web applications with Java/Python/Angular/Node.js</li>
+            <li>Reduced cloud costs by 40% through optimization and rightsizing</li>
+            <li>Implemented CI/CD pipelines that reduced deployment time by 80%</li>
+            <li>Designed multi-region architectures with automated disaster recovery</li>
+          </ul>
+          <div style="margin-top:3mm">
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-aws"></i>AWS</span>
+            <span class="tag tech-tag"><i class="fab fa-react"></i>React</span>
+            <span class="tag tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="tag tech-tag"><i class="fas fa-layer-group"></i>Terraform</span>
+            <span class="tag tech-tag"><i class="fas fa-cubes"></i>Kubernetes</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>PostgreSQL</span>
+            <span class="tag tech-tag"><i class="fab fa-python"></i>Python</span>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="role-header">
+            <h3 class="role-title"><span class="company">Banco FICENSA</span> — Senior Cloud Developer</h3>
+            <div class="role-meta">2020 - 2022</div>
+          </div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Developed and implemented cloud-ready modules for ATM systems processing 10,000+ daily transactions</li>
+            <li>Designed and integrated software products that optimized internal processes reducing operational times by 45%</li>
+            <li>Implemented automated ETLs and real-time log analysis for critical applications using cloud technologies</li>
+            <li>Facilitated secure integrations with external providers improving banking connectivity and regulatory compliance</li>
+            <li>Established CI/CD pipelines from scratch, reducing banking module deployment time from days to hours</li>
+          </ul>
+          <div style="margin-top:3mm">
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-java"></i>Java 8</span>
+            <span class="tag tech-tag"><i class="fab fa-angular"></i>Angular</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-cogs"></i>Jenkins</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>DB2</span>
+            <span class="tag tech-tag"><i class="fas fa-code"></i>RPG ILE</span>
+            <span class="tag tech-tag"><i class="fas fa-sync-alt"></i>CI/CD</span>
+            <span class="tag tech-tag"><i class="fas fa-exchange-alt"></i>ETL</span>
+            <span class="tag tech-tag"><i class="fas fa-aws"></i>AWS</span>
+          </div>
+        </article>
+
+        <article class="role page-break">
+          <div class="role-header">
+            <h3 class="role-title"><span class="company">Banco Atlántida</span> — Backend Developer</h3>
+            <div class="role-meta">2018 - 2020</div>
+          </div>
+          <div class="location muted">Tegucigalpa, Honduras</div>
+          <ul class="bullets">
+            <li>Executed complete banking core migration from IBS to SAP with zero service interruptions</li>
+            <li>Developed containerized microservices architecture with Docker and orchestrated with Kubernetes on OpenShift</li>
+            <li>Implemented critical Jteller application migration from RPG legacy to modern Java with Node.js backend</li>
+            <li>Optimized enterprise banking operations through proactive monitoring and automated incident resolution</li>
+            <li>Established containerization and orchestration standards that reduced deployment time by 70%</li>
+          </ul>
+          <div style="margin-top:3mm">
+            <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">Technologies:</div>
+            <span class="tag tech-tag"><i class="fab fa-java"></i>Java Spring Boot</span>
+            <span class="tag tech-tag"><i class="fab fa-node-js"></i>Node.js</span>
+            <span class="tag tech-tag"><i class="fab fa-docker"></i>Docker</span>
+            <span class="tag tech-tag"><i class="fas fa-cubes"></i>Kubernetes</span>
+            <span class="tag tech-tag"><i class="fas fa-server"></i>OpenShift</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>SAP HANA</span>
+            <span class="tag tech-tag"><i class="fas fa-database"></i>DB2</span>
+            <span class="tag tech-tag"><i class="fas fa-code"></i>RPG ILE</span>
+            <span class="tag tech-tag"><i class="fas fa-project-diagram"></i>Microservices</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2 class="section-title">Education / Certifications</h2>
+      <article class="role" style="margin-bottom:4mm">
+        <div class="role-header" style="margin-bottom: 0.2mm;">
+          <h3 class="role-title">UNAH — <span class="company">Systems Engineering</span></h3>
+          <div class="role-meta muted">August 2017</div>
+        </div>
+        <div class="location muted" style="margin-top: 0; margin-bottom: 0; font-size: 11px;"><strong>Cum Laude: 83%</strong></div>
+      </article>
+      <article class="role" style="margin-bottom:4mm">
+        <div class="role-header">
+          <h3 class="role-title">CERTIPROF — <span class="company">SFPC</span></h3>
+          <div class="role-meta muted">June 2020</div>
+        </div>
+      </article>
+      <article class="role">
+        <div class="role-header">
+          <h3 class="role-title">GOOGLE — <span class="company">Digital Leader</span></h3>
+          <div class="role-meta muted">June 2024</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Additional Skills</h2>
+      <!-- Las skills se cargan dinámicamente desde JSON como lista de bullets -->
+      <div id="skills-content">
+        <article class="role" style="margin-bottom:0">
+          <ul class="bullets">
+          </ul>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- jsPDF Library con fallbacks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" 
+          onerror="this.onerror=null;this.src='https://unpkg.com/jspdf@2.5.1/dist/jspdf.umd.min.js'"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+          onerror="this.onerror=null;this.src='https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js'"></script>
+  
+  <!-- Verificación de librerías -->
+  <script>
+    // Verificar y cargar librerías PDF con retries
+    let libraryRetries = 0;
+    const maxRetries = 3;
+    
+    function checkLibraries() {
+      const hasJsPDF = window.jspdf && window.jspdf.jsPDF;
+      const hasHtml2Canvas = window.html2canvas;
+      
+      if (!hasJsPDF || !hasHtml2Canvas) {
+        libraryRetries++;
+        console.warn(`Intento ${libraryRetries}: Librerías PDF no cargadas completamente`);
+        
+        if (libraryRetries < maxRetries) {
+          setTimeout(checkLibraries, 1000);
+        } else {
+          console.error('No se pudieron cargar las librerías PDF después de varios intentos');
+          // Deshabilitar botón de descarga si las librerías fallan
+          const downloadBtn = document.getElementById('download-btn');
+          if (downloadBtn) {
+            downloadBtn.disabled = true;
+            downloadBtn.textContent = '❌ PDF no disponible';
+            downloadBtn.title = 'Las librerías de PDF no se pudieron cargar';
+          }
+        }
+        return false;
+      }
+      
+      console.log('✅ Librerías PDF cargadas correctamente');
+      return true;
+    }
+    
+    // Verificar después de que el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(checkLibraries, 500);
+    });
+  </script>
+  
+  <!-- i18n System -->
+  <script src="./scripts/i18n-simple.js"></script>
+
+  <script>
+    // Detección de navegador y capacidades
+    const BrowserSupport = {
+      isIE: navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > -1,
+      isEdge: navigator.userAgent.indexOf('Edge/') !== -1,
+      isFirefox: navigator.userAgent.indexOf('Firefox') !== -1,
+      isChrome: navigator.userAgent.indexOf('Chrome') !== -1,
+      isSafari: navigator.userAgent.indexOf('Safari') !== -1 && navigator.userAgent.indexOf('Chrome') === -1,
+      isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+      
+      supportsDownload: function() {
+        const a = document.createElement('a');
+        return typeof a.download !== 'undefined';
+      },
+      
+      supportsBlob: function() {
+        try {
+          return !!new Blob();
+        } catch (e) {
+          return false;
+        }
+      },
+      
+      supportsCanvas: function() {
+        const canvas = document.createElement('canvas');
+        return !!(canvas.getContext && canvas.getContext('2d'));
+      }
+    };
+    
+    // Log de compatibilidad para debugging
+    console.log('🔍 Detección de navegador:', {
+      userAgent: navigator.userAgent,
+      isIE: BrowserSupport.isIE,
+      isEdge: BrowserSupport.isEdge,
+      isFirefox: BrowserSupport.isFirefox,
+      isChrome: BrowserSupport.isChrome,
+      isSafari: BrowserSupport.isSafari,
+      isMobile: BrowserSupport.isMobile,
+      supportsDownload: BrowserSupport.supportsDownload(),
+      supportsBlob: BrowserSupport.supportsBlob(),
+      supportsCanvas: BrowserSupport.supportsCanvas()
+    });
+    
+    // Función para mapear tecnologías a iconos
+    const getTechIcon = (tech) => {
+      const techIcons = {
+        // Cloud Platforms
+        'AWS': 'fab fa-aws',
+        'Azure': 'fab fa-microsoft',
+        'Google Cloud': 'fab fa-google',
+        'GCP': 'fab fa-google',
+        
+        // Programming Languages
+        'Java': 'fab fa-java',
+        'Java 8': 'fab fa-java',
+        'Java Spring Boot': 'fab fa-java',
+        'Python': 'fab fa-python',
+        'Node.js': 'fab fa-node-js',
+        'JavaScript': 'fab fa-js-square',
+        'TypeScript': 'fab fa-js-square',
+        
+        // Frontend
+        'React': 'fab fa-react',
+        'Angular': 'fab fa-angular',
+        'Angular 17': 'fab fa-angular',
+        'Vue': 'fab fa-vuejs',
+        'HTML': 'fab fa-html5',
+        'CSS': 'fab fa-css3-alt',
+        
+        // DevOps & Tools
+        'Docker': 'fab fa-docker',
+        'Kubernetes': 'fas fa-cubes',
+        'Jenkins': 'fas fa-cogs',
+        'Git': 'fab fa-git-alt',
+        'GitHub': 'fab fa-github',
+        'GitLab': 'fab fa-gitlab',
+        'CI/CD': 'fas fa-sync-alt',
+        
+        // Databases
+        'PostgreSQL': 'fas fa-database',
+        'MySQL': 'fas fa-database',
+        'MongoDB': 'fas fa-leaf',
+        'DB2': 'fas fa-database',
+        'SQL Server': 'fas fa-database',
+        'SAP HANA': 'fas fa-database',
+        
+        // Infrastructure & Tools
+        'Terraform': 'fas fa-layer-group',
+        'CloudFormation': 'fas fa-layer-group',
+        'OpenShift': 'fas fa-server',
+        'Microservices': 'fas fa-project-diagram',
+        'ETL': 'fas fa-exchange-alt',
+        'Cloud Integration': 'fas fa-cloud',
+        'RPG ILE': 'fas fa-code',
+        
+        // Monitoring & Analytics
+        'Prometheus': 'fas fa-chart-line',
+        'Grafana': 'fas fa-chart-bar',
+        'ELK Stack': 'fas fa-search',
+        'Elasticsearch': 'fas fa-search',
+        
+        // Default
+        'default': 'fas fa-code'
+      };
+      
+      return techIcons[tech] || techIcons['default'];
+    };
+
+    // Función para obtener el idioma del localStorage o URL
+    const getLanguage = () => {
+      // Primero, verificar si viene de una URL con parámetro de idioma
+      const urlParams = new URLSearchParams(window.location.search);
+      const langFromUrl = urlParams.get('lang');
+      if (langFromUrl && (langFromUrl === 'es' || langFromUrl === 'en')) {
+        return langFromUrl;
+      }
+      
+      // Segundo, verificar localStorage (del portfolio principal)
+      const savedLang = localStorage.getItem('portfolio-lang');
+      if (savedLang && (savedLang === 'es' || savedLang === 'en')) {
+        return savedLang;
+      }
+      
+      // Por defecto, inglés (en.json)
+      return 'en';
+    };
+
+    // Función para actualizar el contenido del CV
+    const updateCV = async (lang) => {
+      console.log('Actualizando CV con idioma:', lang);
+      
+      // Intentar cargar las traducciones manualmente si i18n no está disponible
+      if (!window.I18n) {
+        console.log('Sistema i18n no disponible, cargando manualmente...');
+        try {
+          const response = await fetch(`./lang/${lang}.json`);
+          const translations = await response.json();
+          
+          await loadCVContent(translations.cv, translations.experience, lang);
+          return;
+        } catch (error) {
+          console.error('Error cargando traducciones:', error);
+          return;
+        }
+      }
+      
+      // Usar el sistema i18n existente si está disponible
+      await window.I18n.changeLanguage(lang);
+      const data = window.I18n.getCurrentTranslations().cv;
+      const experienceData = window.I18n.getCurrentTranslations().experience;
+      
+      await loadCVContent(data, experienceData, lang);
+    };
+
+    // Función auxiliar para cargar el contenido del CV
+    const loadCVContent = async (data, experienceData, lang) => {
+      if (!data) {
+        console.error('No se encontraron datos del CV para el idioma:', lang);
+        return;
+      }
+      
+      console.log('Cargando contenido CV:', data);
+      
+      // Cargar datos del hero también
+      let heroData = null;
+      try {
+        if (!window.I18n) {
+          const response = await fetch(`./lang/${lang}.json`);
+          const translations = await response.json();
+          heroData = translations.hero;
+        } else {
+          heroData = window.I18n.getCurrentTranslations().hero;
+        }
+      } catch (error) {
+        console.error('Error cargando datos del hero:', error);
+      }
+      
+      // Actualizar título de la página y idioma del documento
+      document.title = data.title || 'Gabriel Sosa — CV';
+      document.documentElement.lang = lang;
+      
+      // Actualizar botones de la toolbar
+      const printBtn = document.querySelector('.toolbar button[onclick="window.print()"]');
+      const downloadBtn = document.getElementById('download-btn');
+      if (printBtn && data.buttons) printBtn.innerHTML = data.buttons.print;
+      if (downloadBtn && data.buttons) downloadBtn.innerHTML = data.buttons.download;
+      
+      // Actualizar header con datos del hero
+      const subtitle = document.querySelector('.subtitle');
+      if (subtitle && heroData && heroData.role) {
+        subtitle.textContent = heroData.role;
+      } else if (subtitle && data.subtitle) {
+        subtitle.textContent = data.subtitle;
+      }
+      
+      // Actualizar summary con hero.description
+      const summaryP = document.querySelector('.summary p');
+      if (summaryP && heroData && heroData.description) {
+        summaryP.innerHTML = heroData.description;
+      } else if (summaryP && data.summary) {
+        summaryP.innerHTML = data.summary;
+      }
+        
+      // Actualizar títulos de sección
+      const sectionTitles = document.querySelectorAll('.section-title');
+      if (data.sections) {
+        if (sectionTitles[0]) sectionTitles[0].textContent = data.sections.experience;
+        if (sectionTitles[1]) sectionTitles[1].textContent = data.sections.education;
+        if (sectionTitles[2]) sectionTitles[2].textContent = data.sections.skills;
+      }
+      
+      // Actualizar experiencias dinámicamente
+      // Priorizar experience.jobs que tiene más detalles
+      if (experienceData && experienceData.jobs) {
+        const experienceSection = document.querySelector('.section');
+        
+        // Ocultar fallback content
+        const fallback = document.getElementById('experience-fallback');
+        if (fallback) fallback.style.display = 'none';
+        
+        // Limpiar experiencias existentes (excepto el fallback)
+        const roles = experienceSection.querySelectorAll('.role');
+        roles.forEach(role => role.remove());
+        
+        // Generar nuevas experiencias desde experience.jobs
+        experienceData.jobs.forEach((job, index) => {
+          const article = document.createElement('article');
+          article.className = 'role';
+          if (index === 2) article.className += ' page-break';
+          
+          article.innerHTML = `
+            <div class="role-header">
+              <h3 class="role-title"><span class="company">${job.company}</span> — ${job.title}</h3>
+              <div class="role-meta">${job.period}</div>
+            </div>
+            <div class="location muted">${job.location}</div>
+            <ul class="bullets">
+              ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+            </ul>
+            ${job.technologies && job.technologies.length > 0 ? 
+              `<div style="margin-top:3mm">
+                <div style="font-weight:bold; font-size:12px; margin-bottom:2mm; color:#0f172a;">${lang === 'es' ? 'Tecnologías:' : 'Technologies:'}</div>
+                ${job.technologies.map(tech => `<span class="tag tech-tag"><i class="${getTechIcon(tech)}"></i>${tech}</span>`).join('')}
+              </div>` : 
+              ''}
+          `;
+          
+          experienceSection.appendChild(article);
+        });
+      }
+      // Fallback: usar cv.experiences si experience.jobs no está disponible
+      else if (data.experiences) {
+        const experienceSection = document.querySelector('.section');
+        
+        // Ocultar fallback content
+        const fallback = document.getElementById('experience-fallback');
+        if (fallback) fallback.style.display = 'none';
+        
+        // Limpiar experiencias existentes (excepto el fallback)
+        const roles = experienceSection.querySelectorAll('.role');
+        roles.forEach(role => role.remove());
+        
+        // Generar nuevas experiencias desde cv.experiences
+        data.experiences.forEach((job, index) => {
+          const article = document.createElement('article');
+          article.className = 'role';
+          if (index === 2) article.className += ' page-break';
+          
+          article.innerHTML = `
+            <div class="role-header">
+              <h3 class="role-title"><span class="company">${job.company}</span> — ${job.title}</h3>
+              <div class="role-meta">${job.period}</div>
+            </div>
+            <div class="location muted">${job.location}</div>
+            <ul class="bullets">
+              ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+            </ul>
+          `;
+          
+          experienceSection.appendChild(article);
+        });
+      }
+      
+      // Actualizar educación
+      if (data.education) {
+        const eduSection = document.querySelectorAll('.section')[1];
+        const eduArticles = eduSection.querySelectorAll('article');
+        data.education.forEach((edu, index) => {
+          if (eduArticles[index]) {
+            const article = eduArticles[index];
+            const roleHeader = article.querySelector('.role-header');
+            const roleTitle = roleHeader.querySelector('.role-title');
+            const roleMeta = roleHeader.querySelector('.role-meta');
+            
+            roleTitle.innerHTML = `${edu.institution} — <span class="company">${edu.degree}</span>`;
+            roleMeta.textContent = edu.date;
+            
+            // Manejar honors si existen
+            if (edu.honors) {
+              let locationDiv = article.querySelector('.location');
+              if (!locationDiv) {
+                locationDiv = document.createElement('div');
+                locationDiv.className = 'location muted';
+                locationDiv.style.marginTop = '0';
+                locationDiv.style.marginBottom = '0';
+                locationDiv.style.fontSize = '11px';
+                roleHeader.style.marginBottom = '0.2mm';
+                roleHeader.insertAdjacentElement('afterend', locationDiv);
+              }
+              locationDiv.innerHTML = `<strong>${edu.honors}</strong>`;
+            }
+          }
+        });
+      }
+      
+      // Actualizar skills
+      if (data.skills) {
+        const skillsSection = document.querySelectorAll('.section')[2];
+        const skillsList = skillsSection.querySelector('.bullets');
+        skillsList.innerHTML = '';
+        data.skills.forEach(skill => {
+          const li = document.createElement('li');
+          li.textContent = skill;
+          skillsList.appendChild(li);
+        });
+      }
+    };
+
+    // Inicializar CV con el idioma correcto
+    const initCV = async () => {
+      console.log('Inicializando CV...');
+      const lang = getLanguage();
+      console.log('Idioma detectado:', lang);
+      
+      try {
+  await updateCV(lang);
+  // precargar hyphenators para mejor experiencia en PDF
+  loadHyphenators().then(h => console.log('Hyphenators ready', Object.keys(h))).catch(e => console.warn('Hyphenators preload failed', e));
+        console.log('CV actualizado correctamente');
+      } catch (error) {
+        console.error('Error inicializando CV:', error);
+      }
+      
+      // Escuchar cambios en localStorage para sincronizar con el portfolio
+      window.addEventListener('storage', async (e) => {
+        if (e.key === 'portfolio-lang') {
+          console.log('Cambio de idioma detectado:', e.newValue);
+          try {
+            await updateCV(e.newValue || 'en');
+          } catch (error) {
+            console.error('Error cambiando idioma:', error);
+          }
+        }
+      });
+    };
+    const fitToViewport = () => {
+      const sheet = document.querySelector('.sheet');
+      if(!sheet) return;
+      const vw = Math.min(window.innerWidth, document.documentElement.clientWidth);
+      const desired = parseFloat(getComputedStyle(sheet).width);
+      const pad = 24;
+      const scale = Math.min(1, (vw - pad) / desired);
+      sheet.style.transformOrigin = 'top center';
+      sheet.style.transform = `scale(${scale})`;
+    };
+
+    // Cargar Hypher (hyphenation) dinámicamente y patrones para en/es si es posible
+    const loadHyphenators = async () => {
+      if (window.__hyphenators) return window.__hyphenators;
+      window.__hyphenators = window.__hyphenators || {};
+      try {
+        // Cargar Hypher (constructor)
+        if (!window.Hypher) {
+          await new Promise((res, rej) => {
+            const s = document.createElement('script');
+            s.src = 'https://cdn.jsdelivr.net/npm/hypher@0.2.5/dist/hypher.min.js';
+            s.onload = res; s.onerror = rej; document.head.appendChild(s);
+          });
+        }
+
+        // Cargar patterns para english y spanish
+        const patterns = {
+          en: 'https://cdn.jsdelivr.net/npm/hyphenation.en-us@1.0.2/index.js',
+          es: 'https://cdn.jsdelivr.net/npm/hyphenation.es@1.0.2/index.js'
+        };
+
+        for (const lang in patterns) {
+          try {
+            if (window.__hyphenators[lang]) continue;
+            await new Promise((res, rej) => {
+              const sp = document.createElement('script');
+              sp.src = patterns[lang];
+              sp.onload = () => {
+                try {
+                  // Algunos paquetes exponen `Hyphenation` o `patterns`
+                  const pattern = window[Object.keys(window).find(k => k.toLowerCase().includes('hyphen') && window[k] && window[k].patterns && window[k].patterns[lang])];
+                } catch (e){}
+                res();
+              };
+              sp.onerror = rej;
+              document.head.appendChild(sp);
+            });
+
+            // Intenta extraer patterns desde variables globales comunes
+            const patKey = Object.keys(window).find(k => /hyphen|hypher|patterns/i.test(k));
+            const patObj = patKey ? window[patKey] : null;
+            if (patObj && patObj[lang]) {
+              window.__hyphenators[lang] = new Hypher(patObj[lang]);
+            }
+          } catch (e) {
+            // ignore pattern load errors
+          }
+        }
+      } catch (e) {
+        // loading failed, leave hyphenators empty - fallback will be used
+        console.warn('Hyphenators failed to load:', e);
+      }
+      return window.__hyphenators;
+    };
+
+    // Helper: insertar guiones suaves (soft hyphens) en texto dentro de un contenedor
+  const addSoftHyphensToContainer = (container, hyphenMap = {}, options = { fallback: true }) => {
+      if (!container) return;
+      const skipTags = new Set(['A', 'CODE', 'PRE', 'SCRIPT', 'STYLE', 'IMG', 'SVG']);
+      const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+
+      const matchCase = (orig, repl) => {
+        if (!orig) return repl;
+        if (orig.toUpperCase() === orig) return repl.toUpperCase();
+        if (orig[0] && orig[0].toUpperCase() === orig[0]) return repl[0].toUpperCase() + repl.slice(1);
+        return repl;
+      };
+
+  while ((node = walker.nextNode())) {
+        if (!node.nodeValue || !node.nodeValue.trim()) continue;
+        const parent = node.parentElement;
+        if (parent && skipTags.has(parent.tagName)) continue;
+
+        let text = node.nodeValue;
+
+        // Aplicar mapeo explícito (palabras a romper en puntos concretos)
+        for (const key in hyphenMap) {
+          try {
+            const repl = hyphenMap[key];
+            const re = new RegExp(key, 'gi');
+            text = text.replace(re, (m) => matchCase(m, repl));
+          } catch (e) {
+            // Si la clave no es un regex válido, saltarla
+            continue;
+          }
+        }
+
+        // Si hay hyphenators globales cargados (Hypher), úsalos para hyphenation precisa
+        try {
+          const hyphens = window.__hyphenators || null;
+          const lang = (container && container.lang) || document.documentElement.lang || 'en';
+          const chosen = hyphens && (hyphens[lang] || hyphens[lang.replace('-', '_')] || hyphens[lang.split('-')[0]]);
+          if (chosen) {
+            // aplicar hyphenation palabra por palabra
+            text = text.replace(/\S+/g, (word) => {
+              // evitar emails, urls y tokens con guiones/puntos
+              if (/https?:\/\//i.test(word) || /\w+@\w+\./.test(word) || /[\.\/\-]/.test(word)) return word;
+              // solo hyphenate palabras largas
+              if (word.length < (options.minLength || 6)) return word;
+              try {
+                const parts = chosen.hyphenate ? chosen.hyphenate(word) : (chosen.hypher ? chosen.hypher.hyphenate(word) : null);
+                if (Array.isArray(parts) && parts.length > 1) return parts.join('\u00AD');
+              } catch (e) {
+                return word;
+              }
+              return word;
+            });
+          } else if (options.fallback) {
+            // Fallback: insertar soft hyphen en palabras largas (evitar emails, urls y tokens con guiones/puntos)
+            if (!/https?:\/\//i.test(text) && !/\w+@\w+\./.test(text)) {
+              text = text.replace(/([A-Za-zÀ-ÖØ-öø-ÿ0-9]{10,})/g, (m) => {
+                if (/[\.\/\-]/.test(m)) return m;
+                return m.replace(/(.{6})/g, '$1\u00AD');
+              });
+            }
+          }
+        } catch (e) {
+          // Si cualquier fallo, usar fallback
+          if (options.fallback) {
+            if (!/https?:\/\//i.test(text) && !/\w+@\w+\./.test(text)) {
+              text = text.replace(/([A-Za-zÀ-ÖØ-öø-ÿ0-9]{10,})/g, (m) => {
+                if (/[\.\/\-]/.test(m)) return m;
+                return m.replace(/(.{6})/g, '$1\u00AD');
+              });
+            }
+          }
+        }
+
+        if (text !== node.nodeValue) node.nodeValue = text;
+      }
+    };
+    
+    // Función para mostrar notificaciones
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      const bgColor = type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#3b82f6';
+      
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${bgColor};
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 500;
+        z-index: 10000;
+        max-width: 90%;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        animation: slideInDown 0.3s ease-out;
+      `;
+      notification.textContent = message;
+      
+      // Agregar animación CSS
+      if (!document.getElementById('notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+          @keyframes slideInDown {
+            from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+      
+      document.body.appendChild(notification);
+      
+      // Remover notificación después de 5 segundos
+      setTimeout(() => {
+        if (notification.parentNode) {
+          document.body.removeChild(notification);
+        }
+      }, 5000);
+    }
+
+    // Mapa de iconos Font Awesome a SVG inline profesionales para PDF
+    const iconSVGMap = {
+      'fa-envelope': `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>`,
+      
+      'fa-phone': `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3l49.4-40.4c13.7-11.1 18.4-30 11.6-46.3l-40-96z"/></svg>`,
+      
+      'fa-map-marker-alt': `<svg viewBox="0 0 384 512" fill="currentColor"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>`,
+      
+      'fa-linkedin': `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>`,
+      
+      'fa-aws': `<svg viewBox="0 0 640 512" fill="currentColor"><path d="M180.41 203.01c-.72 22.65 10.6 32.68 10.88 39.05a8.164 8.164 0 0 1-4.1 6.27l-12.8 8.96a10.66 10.66 0 0 1-5.63 1.92c-.43-.02-8.19 1.83-20.48-25.61a78.608 78.608 0 0 1-62.61 29.45c-16.28.89-60.4-9.24-58.13-56.21-1.59-38.28 34.06-62.06 70.93-60.05 7.1.02 21.6.37 46.99 6.27v-15.62c2.69-26.46-14.7-46.99-44.81-43.91-2.4.01-19.4-.87-45.84 10.11q-2.59.92-7.78 2.81c-.09.8-.79 1.73-1.97 1.64l-13.61-1.73a7.624 7.624 0 0 1-5.84-3.43c-.43-.73-.24-1.78.73-3.43 21.9-23.22 48.49-35.82 81.21-27.91C155.29 78.67 180.25 120.16 180.41 203.01zM93.99 235.4c32.43-.47 46.16-19.97 49.29-30.47 2.46-10.05 2.05-16.41 2.05-27.4-9.67-2.32-23.59-4.85-39.56-4.87-15.15-1.14-42.82 5.63-41.74 32.26-1.24 16.79 11.12 31.4 29.96 30.48zm170.92 23.05c-7.86.72-11.52-4.86-12.68-10.37l-49.8-164.65c-.97-2.78-1.61-5.65-1.92-8.58a4.61 4.61 0 0 1 3.86-5.25c.24-.04-2.13 0 22.25 0 8.78-.88 11.64 6.03 12.55 10.37l35.72 140.83 33.16-140.83c.53-3.22 2.94-11.07 12.8-10.24h17.16c2.17-.18 11.11-.5 12.68 10.37l33.42 142.63L420.98 80.1c.48-2.18 2.72-11.37 12.68-10.37h19.72c.85-.13 6.15-.81 5.25 8.58-.43 1.85 3.41-10.66-52.75 169.9-1.15 5.51-4.82 11.09-12.68 10.37h-18.69c-10.94 1.15-12.51-9.66-12.68-10.75L328.67 110.7l-32.78 136.99c-.16 1.09-1.73 11.9-12.68 10.75h-18.3zm273.48 5.63c-5.88.01-33.92-.3-57.36-29.25-23.4-28.94-20.08-49.85-6.85-65.63 13.23-15.78 33.44-9.66 49.74.86 16.3 10.52 14.61 24.75 14.61 24.75l-.37 23.72c-.15 11.37-5.88 34.91-22.39 50.13l-.37.49a93.099 93.099 0 0 0 75.81-31.39c.63-1.05 2.63-2.06 4.37-1.95l11.1 1.85a7.321 7.321 0 0 1 4.24 3.11c.33.48.75 1.18.01 1.95-4.15 6.37-10.3 12.83-18.42 19.35C531.71 263.74 505.96 267.09 494.39 264.08zM484.69 221.99c-1.24 14.1-13.58 14.1-13.58 14.1-16.54 0-29.84-7.8-35.9-18.15-6.04-10.35-5.5-18.35-5.5-29.04 0-1.15-.12-3.07.61-4.37 1.15-1.83 3.38-3.11 5.87-3.11 16.02.01 24.15 18.45 48.5 40.57zm-273.24 91.88c-4.69 3.95-11.53 5.92-20.52 5.91-8.99.01-16.17-1.96-21.52-5.91l-97.6-85.9c-4.35-3.95-6.53-8.5-6.53-13.65s2.18-9.7 6.53-13.65L170.4 115.8c5.35-3.95 12.53-5.92 21.52-5.91 8.99-.01 15.83 1.96 20.52 5.91l97.6 85.9c4.35 3.95 6.53 8.5 6.53 13.65s-2.18 9.7-6.53 13.65l-97.6 85.87z"/></svg>`,
+      
+      'fa-react': `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1.9-3.7 1.7-7.4 2.5-11.1 12.3-59.6 4.2-107.5-23.1-123.3-26.3-15.1-69.2.6-112.6 38.4-4.3 3.7-8.5 7.6-12.5 11.5-2.7-2.6-5.5-5.2-8.3-7.7-45.5-40.4-91.1-57.4-118.4-41.5-26.2 15.2-34 60.3-23 116.7 1.1 5.6 2.3 11.1 3.7 16.7-6.4 1.8-12.7 3.8-18.6 5.9C38.3 196.2 0 225.4 0 256s38.3 59.8 101.8 71.4c5.8 1.6 11.9 3.1 18 4.4-1.5 6-2.9 12-4.1 18.1-11.1 58.2-2.6 108.6 25.1 124.4 28.1 16.1 75.8-.5 120.8-39.9 4-3.5 8-7.2 12-11 4.4 4.3 9 8.4 13.6 12.4 42.8 36.8 85.1 51.7 111.2 36.6 27-15.7 35.8-62.1 24.4-120.5-.9-4.7-1.9-9.3-2.9-14 5.8-1.6 11.5-3.4 17-5.2 67.2-13.4 105.3-41.6 105.3-71.8s-38.1-58.4-105.3-71.8zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/></svg>`,
+      
+      'fa-node-js': `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M224 508c-6.7 0-13.5-1.8-19.4-5.2l-61.7-36.5c-9.2-5.2-4.7-7-1.7-8 12.3-4.3 14.8-5.2 27.9-12.7 1.4-.8 3.2-.5 4.6.4l47.4 28.1c1.7 1 4.1 1 5.7 0l184.7-106.6c1.7-1 2.8-3 2.8-5V149.3c0-2.1-1.1-4-2.8-5L226.5 37.7c-1.7-1-4-1-5.7 0L36.1 144.3c-1.8 1-2.8 3-2.8 5v213.1c0 2 1.1 4 2.8 5l50.4 29.1c27.3 13.6 44-.2 44-17.8V164.2c0-3 2.4-5.3 5.4-5.3h23.4c2.9 0 5.4 2.4 5.4 5.3V378.6c0 46.3-25.2 72.9-69.1 72.9-13.5 0-24-.1-53.4-14.6L4.4 408.8c-12-6.9-19.4-20.1-19.4-34.2V137.4c0-14.1 7.4-27.3 19.4-34.2l184.7-106.5c11.8-6.8 27-6.8 38.8 0L412.2 103.2c12 6.9 19.4 20.1 19.4 34.2v237.1c0 14.1-7.4 27.3-19.4 34.2L227.4 515.1c-5.9 3.4-12.6 5.1-19.4 5.1z"/></svg>`,
+      
+      'fa-docker': `<svg viewBox="0 0 640 512" fill="currentColor"><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24.6-15.7-46-35.4-62.4l-7.2-6.2-6.2 7.2c-23.2 27.2-29.3 75.6-1.9 106.9-8.4 2.6-33.7 8.7-42.5 9.1H6.4c-5.3 0-10.9.7-15.8 5.4-22.3 21.8-24.5 49.8-4.9 77.2 23.8 33 72.9 53.3 131.4 53.3 94.5 0 155.1-34.3 191.4-94.2h4.2c22.6 0 36.7-3.3 52.6-16.8 11.5-9.8 20.1-22.9 25.6-34.9l2.9-7.7-7.9-2.6c.1 0 .1 0 .1 0zm-511.1-27.9h-66.1v59.4H37.7v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4z"/></svg>`,
+      
+      'fa-python': `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6H101.9c-31.2 0-58.5 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101.9v-48.8c0-35.3 30.5-66.4 66.9-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9.1 20.3-20.1 20.3z"/></svg>`,
+      
+      'fa-java': `<svg viewBox="0 0 384 512" fill="currentColor"><path d="M277.74 312.9c9.8-6.7 23.4-12.5 23.4-12.5s-38.7 7-77.2 10.2c-47.1 3.9-97.7 4.7-123.1 1.3-60.1-8 33-30.1 33-30.1s-36.1-2.4-80.6 19c-52.5 25.4 130 37 224.5 12.1zm-85.4-32.1c-19-42.7-83.1-80.2 0-145.8C296 53.2 242.84 0 242.84 0c21.5 84.5-75.6 110.1-110.7 162.6-23.9 35.9 11.7 74.4 60.2 118.2zm114.6-176.2c.1 0-175.2 43.8-91.5 140.2 24.7 28.4-6.5 54-6.5 54s62.7-32.4 33.9-72.9c-26.9-37.8-47.5-56.6 64.1-121.3zm-6.1 270.5a12.19 12.19 0 0 1-2 2.6c128.3-33.7 81.1-118.9 19.8-97.3a17.33 17.33 0 0 0-8.2 6.3 70.45 70.45 0 0 1 11-3c31-6.5 75.5 41.5-20.6 91.4zM348.7 333.5c-25.7-10.6-58.1-27.6-58.1-27.6s13.1 16.1 37.4 34.8c51.9 40 57.9 55.2 25.4 63.1 0 0 3.6-1.7 10.8-8.7 30.1-29.1 21.4-70.2-15.5-61.6z"/></svg>`,
+      
+      'fa-angular': `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M185.7 268.1h76.2l-38.1-91.6-38.1 91.6zM223.8 32L16 106.4l31.8 275.7 176 97.9 176-97.9 31.8-275.7L223.8 32zM354 373.8h-48.6l-26.2-65.4H168.6l-26.2 65.4H93.7L223.8 81.5 354 373.8z"/></svg>`,
+      
+      'fa-database': `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg>`,
+      
+      'fa-code': `<svg viewBox="0 0 640 512" fill="currentColor"><path d="M392.8 1.2c-17-4.9-34.7 5.2-39.6 22.2L275.7 390.9c-4.9 17 5.2 34.7 22.2 39.6s34.7-5.2 39.6-22.2l77.7-367.5c4.9-17-5.2-34.7-22.2-39.6zm-326.2 140c-6.3-6.3-16.4-6.3-22.6 0l-112 112c-6.3 6.3-6.3 16.4 0 22.6l112 112c6.3 6.3 16.4 6.3 22.6 0s6.3-16.4 0-22.6L65.4 256l101.1-101.2c6.3-6.3 6.3-16.4 0-22.6zm573.1 0l-112 112c-6.3 6.3-6.3 16.4 0 22.6l112 112c6.3 6.3 16.4 6.3 22.6 0s6.3-16.4 0-22.6L574.6 256l101.1-101.2c6.3-6.3 6.3-16.4 0-22.6s-16.4-6.3-22.6 0z"/></svg>`,
+      
+      'fa-cogs': `<svg viewBox="0 0 640 512" fill="currentColor"><path d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.9 8.4 167.2 8 160.4 8h-.7c-6.8 0-13.5.4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.5c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6L16 262.6c3 4.9 6.3 9.8 9.8 14.5c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7.8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.6 9.8-14.5l3.1-5.4c2.8-5 5.3-10.2 7.6-15.6c3.7-8.7.9-18.6-6.2-25L2.6 176z"/></svg>`,
+      
+      'fa-layer-group': `<svg viewBox="0 0 576 512" fill="currentColor"><path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/></svg>`,
+      
+      'fa-cubes': `<svg viewBox="0 0 576 512" fill="currentColor"><path d="M290.8 48.6l78.4 29.7L288 109.5 207.8 78.3l78.4-29.7c1.8-.7 3.8-.7 5.7 0zM136 92.5l79.2 30L136 152.8V92.5zm32 265.9L79 388.1 79 338.4l89-39.6v60.2zM568.2 336.3c13.1 17.8 9.3 42.8-8.5 55.9L433.1 485.5c-6.7 4.9-15 7.7-23.3 7.4l-120.6-4.1c-4.7-.2-9.4-1.4-13.6-3.7L75.5 379.4c-12.3-6.7-16.8-22.1-10.1-34.4s22.1-16.8 34.4-10.1L234.8 432.3l103.4 3.5 96.8-71.4c17.8-13.1 42.8-9.3 55.9 8.5zM193.6 384c0 0 0 0 0 0s0 0 0 0zM416 174.7V232c0 13.3-10.7 24-24 24s-24-10.7-24-24V174.7L288 137.5v63.9c0 3.4-.8 6.8-2.3 9.8L245.5 273c-4.8 9.5-16.5 13.3-26 8.5s-13.3-16.5-8.5-26l34-67.4v-80.2L162.3 162.5 288 218.8l125.7-56.3L331 117.9v56.2L416 174.7z"/></svg>`,
+      
+      'fa-sync-alt': `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M142.9 142.9c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5c0 0 0 0 0 0H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3zm192-34.8c4.7-9 1.7-20.2-6.9-26.2L290.8 55c-6.9-4.8-16.4-4.8-23.3 0L230.3 81.9c-8.6 6-11.6 17.2-6.9 26.2s14.8 14.8 24.8 14.8h8.3c43.4 0 78.6 35.2 78.6 78.6v24c0 11 9 20 20 20s20-9 20-20v-24c0-65.1-52.9-118-118-118h-8.3c-10 0-18.1-5.8-24.8-14.8z"/></svg>`,
+      
+      'fa-exchange-alt': `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M0 168v-16c0-13.3 10.7-24 24-24h360V80c0-21.4 25.9-32.1 41-17l80 72c9.4 8.5 9.4 23.1 0 31.6l-80 72c-15.1 15.1-41 4.4-41-17v-48H24c-13.3 0-24-10.7-24-24zm488 152H128v-48c0-21.4-25.9-32.1-41-17l-80 72c-9.4 8.5-9.4 23.1 0 31.6l80 72c15.1 15.1 41 4.4 41-17v-48h360c13.3 0 24-10.7 24-24v-16c0-13.3-10.7-24-24-24z"/></svg>`
+    };
+
+    // Función para reemplazar iconos Font Awesome con SVG inline profesionales para PDF
+    const replaceIconsForPDF = (container) => {
+      if (!container) return;
+
+      // Buscar todos los elementos i con clases fas o fab (Font Awesome)
+      const icons = container.querySelectorAll('i.fas, i.fab, i[class*="fa-"]');
+      
+      icons.forEach(icon => {
+        // Obtener todas las clases del elemento
+        const classes = Array.from(icon.classList);
+        let svgCode = '';
+        
+        // Buscar la primera clase que coincida con nuestro mapa
+        for (const className of classes) {
+          if (iconSVGMap[className]) {
+            svgCode = iconSVGMap[className];
+            break;
+          }
+        }
+        
+        // Si no encontramos un SVG específico, usar uno genérico basado en el contenido
+        if (!svgCode) {
+          console.log('Icono no encontrado:', classes); // Para debug
+          if (classes.some(c => c.includes('envelope') || c.includes('mail'))) {
+            svgCode = iconSVGMap['fa-envelope'];
+          } else if (classes.some(c => c.includes('phone') || c.includes('mobile'))) {
+            svgCode = iconSVGMap['fa-phone'];
+          } else if (classes.some(c => c.includes('location') || c.includes('map'))) {
+            svgCode = iconSVGMap['fa-map-marker-alt'];
+          } else if (classes.some(c => c.includes('calendar') || c.includes('date'))) {
+            svgCode = `<svg viewBox="0 0 448 512" fill="currentColor"><path d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></svg>`;
+          } else if (classes.some(c => c.includes('briefcase') || c.includes('work'))) {
+            svgCode = `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M176 56V96H336V56c0-4.4-3.6-8-8-8H184c-4.4 0-8 3.6-8 8zM128 96V56c0-30.9 25.1-56 56-56H328c30.9 0 56 25.1 56 56V96h80c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H48c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64H128z"/></svg>`;
+          } else if (classes.some(c => c.includes('graduation') || c.includes('education'))) {
+            svgCode = `<svg viewBox="0 0 640 512" fill="currentColor"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-119.8c-.9-5.3-1.7-10.7-2.4-16.1l228.2 81.9c7.6 2.7 15.6 2.7 23.2 0L557.3 297c10.5-3.7 16.7-14.5 14.2-25.5L320 32z"/></svg>`;
+          } else {
+            // SVG genérico para iconos no reconocidos - un círculo simple
+            svgCode = `<svg viewBox="0 0 512 512" fill="currentColor"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>`;
+          }
+        }
+        
+        if (svgCode) {
+          // Crear un span con el SVG y aplicar estilos similares
+          const replacement = document.createElement('span');
+          replacement.innerHTML = svgCode;
+          
+          // Obtener estilos del icono original
+          const computedStyle = getComputedStyle(icon);
+          const fontSize = computedStyle.fontSize || '1rem';
+          const color = computedStyle.color || 'inherit';
+          const margin = computedStyle.margin || '0';
+          const padding = computedStyle.padding || '0';
+          
+          // Aplicar estilos al contenedor
+          replacement.style.cssText = `
+            display: inline-block;
+            width: ${fontSize};
+            height: ${fontSize};
+            color: ${color};
+            margin: ${margin};
+            padding: ${padding};
+            vertical-align: middle;
+            line-height: 1;
+          `;
+          
+          // Configurar el SVG interno
+          const svg = replacement.querySelector('svg');
+          if (svg) {
+            svg.style.cssText = `
+              width: 100%;
+              height: 100%;
+              display: block;
+            `;
+          }
+          
+          // Reemplazar el icono original
+          icon.parentNode.replaceChild(replacement, icon);
+        }
+      });
+    };
+
+    // Función para descargar PDF mejorada para compatibilidad entre navegadores
+    const downloadPDF = async () => {
+      const downloadBtn = document.getElementById('download-btn');
+      const originalText = downloadBtn.textContent;
+      
+      // Verificar compatibilidad del navegador
+      if (!BrowserSupport.supportsCanvas()) {
+        showNotification('❌ Tu navegador no soporta la generación de PDFs. Por favor actualízalo.', 'error');
+        return;
+      }
+      
+      if (!BrowserSupport.supportsBlob() && !BrowserSupport.supportsDownload()) {
+        showNotification('❌ Tu navegador no soporta descargas de archivos. Por favor actualízalo.', 'error');
+        return;
+      }
+      
+      try {
+        // Verificar que las librerías estén cargadas
+        if (!window.jspdf || !window.html2canvas) {
+          throw new Error('PDF libraries not loaded');
+        }
+        
+        // Cambiar texto del botón mientras se genera
+        downloadBtn.textContent = '⏳ Generando PDF...';
+        downloadBtn.disabled = true;
+        
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('portrait', 'mm', 'a4');
+        
+        // Obtener elementos principales
+        const sheet = document.querySelector('.sheet');
+        const toolbar = document.querySelector('.toolbar');
+        
+        // Ocultar toolbar temporalmente para el PDF
+        const originalToolbarDisplay = toolbar.style.display;
+        toolbar.style.display = 'none';
+        
+        // Remover escala temporal para captura
+        const originalTransform = sheet.style.transform;
+        sheet.style.transform = 'none';
+        
+        // Crear contenedor temporal para la primera página (hasta Banco FICENSA)
+        const tempContainer1 = document.createElement('div');
+  tempContainer1.className = 'pdf-container';
+  // asignar idioma para que el motor de hyphenation use reglas correctas (es/en)
+  try { tempContainer1.lang = (typeof getLanguage === 'function' ? getLanguage() : document.documentElement.lang) || 'es'; } catch(e){}
+        tempContainer1.style.cssText = `
+          width: ${sheet.offsetWidth}px;
+          padding: ${getComputedStyle(sheet).padding};
+          background: white;
+          font-family: ${getComputedStyle(sheet).fontFamily};
+          font-size: ${getComputedStyle(sheet).fontSize};
+          line-height: ${getComputedStyle(sheet).lineHeight};
+          color: ${getComputedStyle(sheet).color};
+          hyphens: auto !important;
+          -webkit-hyphens: auto !important;
+          word-break: normal !important;
+          overflow-wrap: break-word !important;
+          white-space: normal !important;
+          -webkit-hyphenate-character: "\u00AD" !important;
+          hyphenate-character: "\u00AD" !important;
+          -webkit-hyphenate-limit-before: 3 !important;
+          -webkit-hyphenate-limit-after: 2 !important;
+          hyphenate-limit-chars: 6 3 2 !important;
+          text-align: justify !important;
+        `;
+        
+        // Clonar header, summary y las primeras dos experiencias
+        const header = sheet.querySelector('.header').cloneNode(true);
+        const summary = sheet.querySelector('.summary').cloneNode(true);
+        const experienceSection = sheet.querySelector('.section').cloneNode(false);
+        const sectionTitle = sheet.querySelector('.section-title').cloneNode(true);
+        const stefanini = sheet.querySelectorAll('.role')[0].cloneNode(true);
+        const ficensa = sheet.querySelectorAll('.role')[1].cloneNode(true);
+        
+        experienceSection.appendChild(sectionTitle);
+        experienceSection.appendChild(stefanini);
+        experienceSection.appendChild(ficensa);
+        
+        tempContainer1.appendChild(header);
+        tempContainer1.appendChild(summary);
+        tempContainer1.appendChild(experienceSection);
+        
+        document.body.appendChild(tempContainer1);
+        // Aplicar guiones suaves específicos antes de capturar para controlar saltos
+        addSoftHyphensToContainer(tempContainer1, {
+          // Use visible hyphen + zero-width space so jsPDF/html2canvas preserve the hyphen
+          'optimization': 'optimi-\u200Bzation',
+          'optimisation': 'optimi-\u200Bsation',
+          'capabilities': 'capabili-\u200Bties',
+          'capability': 'capabi-\u200Blity',
+          'lift-and-shift': 'lift-and-\u200Bshift'
+        });
+        
+        // ⭐ NUEVO: Reemplazar iconos Font Awesome con emojis Unicode para el PDF
+        replaceIconsForPDF(tempContainer1);
+        
+        // Capturar primera página con configuración optimizada para impresión de calidad
+        const canvas1 = await html2canvas(tempContainer1, {
+          scale: 2, // Aumentado a 2 para mejor calidad de impresión
+          useCORS: true,
+          allowTaint: false, // Prevenir problemas con CORS
+          logging: false,
+          backgroundColor: '#ffffff',
+          removeContainer: false, // No remover automáticamente
+          imageTimeout: 15000, // Timeout para imágenes
+          onclone: function(clonedDoc) {
+            // Asegurar que el documento clonado tenga los estilos correctos
+            const clonedStyle = clonedDoc.createElement('style');
+            clonedStyle.textContent = `
+              * { 
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif !important;
+              }
+              .pdf-container { 
+                hyphens: auto !important; 
+                word-break: normal !important; 
+              }
+              /* Mantener el nombre en una sola línea */
+              .name {
+                white-space: nowrap !important;
+                line-height: 1.1 !important;
+              }
+              /* Estilos para SVG icons */
+              span svg {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                fill: currentColor !important;
+              }
+            `;
+            clonedDoc.head.appendChild(clonedStyle);
+          }
+        });
+        
+        // Optimizar imagen para calidad de impresión manteniendo tamaño controlado
+        const imgData1 = canvas1.toDataURL('image/jpeg', 0.92); // Aumentado a 0.92 para mejor calidad de impresión
+        const imgWidth = 210; // A4 width in mm
+        const imgHeight1 = (canvas1.height * imgWidth) / canvas1.width;
+        
+        pdf.addImage(imgData1, 'JPEG', 0, 0, imgWidth, imgHeight1);
+        
+        // Crear contenedor temporal para la segunda página (desde Banco Atlántida)
+        const tempContainer2 = document.createElement('div');
+  tempContainer2.className = 'pdf-container';
+  try { tempContainer2.lang = (typeof getLanguage === 'function' ? getLanguage() : document.documentElement.lang) || 'es'; } catch(e){}
+  tempContainer2.style.cssText = tempContainer1.style.cssText;
+        
+        // Clonar el resto del contenido - EMPEZANDO con Banco Atlántida
+        const experienceSection2 = sheet.querySelector('.section').cloneNode(false);
+        const sectionTitle2 = sheet.querySelector('.section-title').cloneNode(true);
+        const atlantida = sheet.querySelectorAll('.role')[2].cloneNode(true);
+        
+        experienceSection2.appendChild(sectionTitle2);
+        experienceSection2.appendChild(atlantida);
+        
+        // PRIMERO agregar la experiencia con Atlántida
+        tempContainer2.appendChild(experienceSection2);
+        
+        // DESPUÉS agregar otras secciones (educación, skills)
+        const otherSections = Array.from(sheet.querySelectorAll('.section')).slice(1);
+        otherSections.forEach(section => {
+          tempContainer2.appendChild(section.cloneNode(true));
+        });
+        
+        document.body.appendChild(tempContainer2);
+        // Aplicar guiones suaves al segundo contenedor también
+        addSoftHyphensToContainer(tempContainer2, {
+          'optimization': 'optimi-\u200Bzation',
+          'optimisation': 'optimi-\u200Bsation',
+          'capabilities': 'capabili-\u200Bties',
+          'capability': 'capabi-\u200Blity',
+          'lift-and-shift': 'lift-and-\u200Bshift'
+        });
+        
+        // ⭐ NUEVO: Reemplazar iconos Font Awesome con emojis Unicode para el PDF
+        replaceIconsForPDF(tempContainer2);
+        
+        // Capturar segunda página con la misma configuración optimizada para impresión
+        const canvas2 = await html2canvas(tempContainer2, {
+          scale: 2, // Aumentado para mejor calidad de impresión
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+          backgroundColor: '#ffffff',
+          removeContainer: false,
+          imageTimeout: 15000,
+          onclone: function(clonedDoc) {
+            const clonedStyle = clonedDoc.createElement('style');
+            clonedStyle.textContent = `
+              * { 
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif !important;
+              }
+              .pdf-container { 
+                hyphens: auto !important; 
+                word-break: normal !important; 
+              }
+              /* Mantener el nombre en una sola línea */
+              .name {
+                white-space: nowrap !important;
+                line-height: 1.1 !important;
+              }
+              /* Estilos para SVG icons */
+              span svg {
+                display: block !important;
+                width: 100% !important;
+                height: 100% !important;
+                fill: currentColor !important;
+              }
+            `;
+            clonedDoc.head.appendChild(clonedStyle);
+          }
+        });
+        
+        const imgData2 = canvas2.toDataURL('image/jpeg', 0.92); // Calidad alta para impresión
+        const imgHeight2 = (canvas2.height * imgWidth) / canvas2.width;
+        
+        pdf.addPage();
+        pdf.addImage(imgData2, 'JPEG', 0, 0, imgWidth, imgHeight2);
+        
+        // Limpiar contenedores temporales
+        if (tempContainer1 && tempContainer1.parentNode) {
+          document.body.removeChild(tempContainer1);
+        }
+        if (tempContainer2 && tempContainer2.parentNode) {
+          document.body.removeChild(tempContainer2);
+        }
+        
+        // Restaurar estilos
+        toolbar.style.display = originalToolbarDisplay;
+        sheet.style.transform = originalTransform;
+        
+        // Descargar el PDF con mejor compatibilidad y nombre limpio
+        const fileName = 'CV_Gabriel_Sosa.pdf';
+        
+        // Método mejorado para descarga compatible con todos los navegadores
+        try {
+          // Método moderno (Chrome, Firefox, Edge)
+          pdf.save(fileName);
+          showNotification('✅ CV descargado exitosamente', 'success');
+        } catch (saveError) {
+          console.warn('Método save() falló, usando método alternativo:', saveError);
+          // Método alternativo para navegadores más antiguos
+          const pdfOutput = pdf.output('blob');
+          
+          if (navigator.msSaveBlob) {
+            // Internet Explorer / Edge Legacy
+            navigator.msSaveBlob(pdfOutput, fileName);
+            showNotification('✅ CV descargado exitosamente', 'success');
+          } else if (BrowserSupport.supportsBlob() && BrowserSupport.supportsDownload()) {
+            // Fallback universal
+            const url = window.URL.createObjectURL(pdfOutput);
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            downloadLink.download = fileName;
+            downloadLink.style.display = 'none';
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            showNotification('✅ CV descargado exitosamente', 'success');
+            
+            // Limpiar el objeto URL después de un breve delay
+            setTimeout(() => {
+              window.URL.revokeObjectURL(url);
+            }, 1000);
+          } else {
+            // Si nada funciona, al menos mostrar el PDF en nueva ventana
+            const pdfDataUri = pdf.output('dataurlstring');
+            window.open(pdfDataUri, '_blank');
+            showNotification('💡 PDF abierto en nueva ventana. Usa Ctrl+S para guardarlo.', 'info');
+          }
+        }
+        
+      } catch (error) {
+        console.error('Error generando PDF:', error);
+        
+        // Mostrar mensaje de error más específico
+        let errorMessage = 'Error al generar el PDF. ';
+        
+        if (error.message.includes('PDF libraries not loaded')) {
+          errorMessage += 'Las librerías de PDF no se cargaron correctamente. Por favor recarga la página.';
+        } else if (error.name === 'NetworkError') {
+          errorMessage += 'Error de conectividad. Verifica tu conexión a internet.';
+        } else if (error.message.includes('html2canvas')) {
+          errorMessage += 'Error al capturar el contenido. Intenta de nuevo.';
+        } else if (BrowserSupport.isIE || BrowserSupport.isEdge) {
+          errorMessage += 'Tu navegador tiene compatibilidad limitada. Intenta con Chrome o Firefox.';
+        } else if (BrowserSupport.isSafari) {
+          errorMessage += 'Safari puede tener problemas. Intenta permitir descargas o usa Chrome.';
+        } else {
+          errorMessage += 'Por favor intenta de nuevo o usa un navegador actualizado.';
+        }
+        
+        // Usar el nuevo sistema de notificaciones
+        showNotification(errorMessage, 'error');
+        
+        // También limpiar contenedores en caso de error
+        const containers = [
+          document.querySelector('[style*="pdf-container"]'),
+          ...document.querySelectorAll('.pdf-container')
+        ];
+        containers.forEach(container => {
+          if (container && container.parentNode) {
+            container.parentNode.removeChild(container);
+          }
+        });
+      } finally {
+        // Restaurar botón
+        downloadBtn.textContent = originalText;
+        downloadBtn.disabled = false;
+      }
+    };
+
+    window.addEventListener('load', async () => {
+      console.log('Página cargada, inicializando CV...');
+      // Esperar un poco para que todos los scripts se carguen
+      setTimeout(async () => {
+        await initCV();
+        fitToViewport();
+      }, 500);
+    });
+    window.addEventListener('resize', fitToViewport);
+  </script>
+</body>
+</html>

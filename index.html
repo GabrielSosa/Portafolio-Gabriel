@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gabriel Sosa - DevOps Engineer & Cloud Specialist from Tegucigalpa, Honduras">
+    <title>Gabriel Sosa | DevOps Engineer</title>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/certifications-fallback.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <p data-i18n="loading">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app" style="display: none;">
+        <!-- Header/Navigation -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <span class="nav-logo">GS</span>
+                    <span class="nav-name">Gabriel Sosa</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav.about">About Me</a></li>
+                    <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+                    <li><a href="#certifications" class="nav-link" data-i18n="nav.certifications">Certifications</a></li>
+                    <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Change theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button id="lang-toggle" class="lang-toggle" aria-label="Change language">
+                        <span>EN</span>
+                    </button>
+                    <button class="nav-toggle" aria-label="Open menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Hero Section -->
+            <section id="home" class="section hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            <span data-i18n="hero.greeting">Hello, I'm</span> <span class="highlight">Gabriel Sosa</span>
+                        </h1>
+                        <h2 class="hero-subtitle" data-i18n="hero.role">
+                            DevOps Engineer & Cloud Specialist
+                        </h2>
+                        <p class="hero-description" data-i18n="hero.description">
+                            Cloud infrastructure specialist, automation and DevOps with experience in AWS, Azure, Kubernetes and container technologies.
+                        </p>
+                        
+                        <div class="hero-actions">
+                            <a href="#contact" class="btn btn-primary">
+                                <i class="fas fa-envelope"></i>
+                                <span data-i18n="hero.contact_me">Contact Me</span>
+                            </a>
+                            <a href="#projects" class="btn btn-secondary">
+                                <i class="fas fa-eye"></i>
+                                <span data-i18n="hero.view_projects">View Projects</span>
+                            </a>
+                            <button id="download-cv-btn" class="btn btn-cv">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-i18n="hero.download_cv">Download CV</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <div class="hero-avatar">
+                            <img src="./assets/images/gabo.png" alt="Gabriel Sosa" class="avatar">
+                            <div class="avatar-status">
+                                <span class="status-dot"></span>
+                                <span class="status-text" data-i18n="hero.status">Available for work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tech Stack Slider -->
+                <div class="tech-stack">
+                    <div class="tech-slider">
+                        <div class="tech-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Azure</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-dharmachakra"></i>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Terraform</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <!-- Duplicate for continuous scroll -->
+                        <div class="tech-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-microsoft"></i>
+                            <span>Azure</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-dharmachakra"></i>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-code-branch"></i>
+                            <span>Terraform</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="section about">
+                <div class="container">
+                    <h2 class="section-title" data-i18n="about.title">About Me</h2>
+                    
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p class="about-intro" data-i18n="about.intro">
+                                I'm a DevOps Engineer passionate about automation and cloud infrastructure, located in <strong>Tegucigalpa, Honduras</strong>.
+                            </p>
+                            
+                            <p data-i18n="about.description">
+                                With experience in design, implementation and management of scalable infrastructures on AWS and Azure, specialized in containers, Kubernetes orchestration and CI/CD practices.
+                            </p>
+
+                            <div class="about-stats">
+                                <div class="stat">
+                                    <h3>7+</h3>
+                                    <p data-i18n="about.stats.experience">Years of Experience</p>
+                                </div>
+                                <div class="stat">
+                                    <h3>15+</h3>
+                                    <p data-i18n="about.stats.projects">Completed Projects</p>
+                                </div>
+                                <div class="stat">
+                                    <h3>3+</h3>
+                                    <p data-i18n="about.stats.certifications">Cloud Certifications</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h3 data-i18n="about.skills.cloud_platforms">Cloud Platforms</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">AWS</span>
+                                    <span class="skill-tag">Azure</span>
+                                    <span class="skill-tag">Google Cloud</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h3 data-i18n="about.skills.devops_sre">DevOps & Infrastructure as Code</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Docker</span>
+                                    <span class="skill-tag">Kubernetes</span>
+                                    <span class="skill-tag">Jenkins</span>
+                                    <span class="skill-tag">Git CI</span>
+                                    <span class="skill-tag">CloudFormation</span>
+                                    <span class="skill-tag">Terraform</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h3 data-i18n="about.skills.monitoring">Monitoring</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Prometheus</span>
+                                    <span class="skill-tag">Grafana</span>
+                                    <span class="skill-tag">ELK Stack</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category">
+                                <h3 data-i18n="about.skills.development">Full Stack Development</h3>
+                                <div class="skill-tags">
+                                    <span class="skill-tag">Java</span>
+                                    <span class="skill-tag">Python</span>
+                                    <span class="skill-tag">Angular/React/Vue</span>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="section experience">
+                <div class="container">
+                    <h2 class="section-title" data-i18n="experience.title">Experience</h2>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 data-i18n="experience.jobs.0.title">Senior DevOps Engineer</h3>
+                                <h4 data-i18n="experience.jobs.0.company">Tech Company</h4>
+                                <span class="timeline-date" data-i18n="experience.jobs.0.period">2022 - Present</span>
+                                <p data-i18n="experience.jobs.0.description">
+                                    Leadership in legacy infrastructure migration to containers and implementation of automated CI/CD pipelines.
+                                </p>
+                                <ul>
+                                    <li data-i18n="experience.jobs.0.achievements.0">75% reduction in deployment time</li>
+                                    <li data-i18n="experience.jobs.0.achievements.1">Implementation of proactive monitoring</li>
+                                    <li data-i18n="experience.jobs.0.achievements.2">Automation of backup and recovery processes</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 data-i18n="experience.jobs.1.title">Cloud Engineer</h3>
+                                <h4 data-i18n="experience.jobs.1.company">Cloud Solutions Inc.</h4>
+                                <span class="timeline-date" data-i18n="experience.jobs.1.period">2021 - 2022</span>
+                                <p data-i18n="experience.jobs.1.description">
+                                    Design and implementation of cloud-native architectures for enterprise clients.
+                                </p>
+                                <ul>
+                                    <li data-i18n="experience.jobs.1.achievements.0">Migration of 20+ applications to AWS</li>
+                                    <li data-i18n="experience.jobs.1.achievements.1">Cloud cost optimization (30% reduction)</li>
+                                    <li data-i18n="experience.jobs.1.achievements.2">High availability implementation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h3 data-i18n="experience.jobs.2.title">DevOps Engineer & Backend Developer</h3>
+                                <h4 data-i18n="experience.jobs.2.company">TechStart Solutions</h4>
+                                <span class="timeline-date" data-i18n="experience.jobs.2.period">2020 - 2021</span>
+                                <p data-i18n="experience.jobs.2.description">
+                                    Development of continuous integration pipelines, automation of development processes and creation of APIs for agile teams.
+                                </p>
+                                <ul>
+                                    <li data-i18n="experience.jobs.2.achievements.0">Created CI/CD pipelines from scratch for 10+ microservices</li>
+                                    <li data-i18n="experience.jobs.2.achievements.1">Developed robust REST APIs with Node.js and Python</li>
+                                    <li data-i18n="experience.jobs.2.achievements.2">Implemented automated testing and quality gates</li>
+                                    <li data-i18n="experience.jobs.2.achievements.3">Reduced production bugs by 60% through automation</li>
+                                    <li data-i18n="experience.jobs.2.achievements.4">Established DevOps culture in the organization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications" class="section certifications">
+                <div class="container">
+                    <h2 class="section-title" data-i18n="certifications.title">Certifications</h2>
+                    <p class="section-subtitle" data-i18n="certifications.subtitle">Active professional certifications in cloud technologies and development</p>
+                    
+                    <div class="certifications-grid">
+                        <div class="certification-card">
+                            <div class="cert-header">
+                                <h3 data-i18n="certifications.active.0.name">AWS Certified Solutions Architect - Associate</h3>
+                                <span class="cert-level" data-i18n="certifications.active.0.level">Associate</span>
+                            </div>
+                            <p class="cert-issuer" data-i18n="certifications.active.0.issuer">Amazon Web Services</p>
+                            <span class="cert-date" data-i18n="certifications.active.0.date">2025</span>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-header">
+                                <h3 data-i18n="certifications.active.1.name">Google Cloud Engineer</h3>
+                                <span class="cert-level" data-i18n="certifications.active.1.level">Associate</span>
+                            </div>
+                            <p class="cert-issuer" data-i18n="certifications.active.1.issuer">Google</p>
+                            <span class="cert-date" data-i18n="certifications.active.1.date">2025</span>
+                        </div>
+
+                        <div class="certification-card">
+                            <div class="cert-header">
+                                <h3 data-i18n="certifications.active.2.name">Google Digital Leader</h3>
+                                <span class="cert-level" data-i18n="certifications.active.2.level">Foundational</span>
+                            </div>
+                            <p class="cert-issuer" data-i18n="certifications.active.2.issuer">Google</p>
+                            <span class="cert-date" data-i18n="certifications.active.2.date">2025</span>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section projects">
+                <div class="container">
+                    <h2 class="section-title" data-i18n="projects.title">Featured Projects</h2>
+                    
+                    <div class="projects-grid">
+                        <article class="project-card">
+                            <div class="project-image">
+                                <img src="./assets/images/project1.svg" alt="Kubernetes Cluster">
+                                <div class="project-overlay">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 data-i18n="projects.items.0.title">Multi-Cloud Kubernetes Platform</h3>
+                                <p data-i18n="projects.items.0.description">
+                                    Distributed container platform on AWS and Azure with auto-scaling and high availability.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Kubernetes</span>
+                                    <span class="tech-tag">Terraform</span>
+                                    <span class="tech-tag">Helm</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-image">
+                                <img src="./assets/images/gibson.png" alt="CI/CD Pipeline">
+                                <div class="project-overlay">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 data-i18n="projects.items.1.title">Automated CI/CD Pipeline</h3>
+                                <p data-i18n="projects.items.1.description">
+                                    Fully automated pipeline with testing, security and deployment for microservices applications.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">AWS</span>
+                                    <span class="tech-tag">Python/React</span>
+                                    <span class="tech-tag">SonarQube</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <div class="project-image">
+                                <img src="./assets/images/trochez.png" alt="Monitoring Dashboard">
+                                <div class="project-overlay">
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 data-i18n="projects.items.2.title">Observability Stack</h3>
+                                <p data-i18n="projects.items.2.description">
+                                    Complete monitoring stack with metrics, logs and distributed traces for cloud-native applications.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">GCP</span>
+                                    <span class="tech-tag">Kubernetes</span>
+                                    <span class="tech-tag">Javascript</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section contact">
+                <div class="container">
+                    <h2 class="section-title" data-i18n="contact.title">Let's Connect!</h2>
+                    
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3 data-i18n="contact.info.location">Location</h3>
+                                    <p>Tegucigalpa, Honduras</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3 data-i18n="contact.info.phone">Phone</h3>
+                                    <p>+504 9515-3072</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3 data-i18n="contact.info.email">Email</h3>
+                                    <p>gabriel@gsosa.dev</p>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <a href="https://linkedin.com/in/gabrielsosar/" class="social-link" aria-label="LinkedIn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/GabrielSosa" class="social-link" aria-label="GitHub" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://x.com/GabrielSosaR" class="social-link" aria-label="X (Twitter)" target="_blank">
+                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <form class="contact-form" id="contact-form">
+                            <!-- Honeypot para bots -->
+                            <input type="text" name="bot-field" style="display: none;" tabindex="-1" autocomplete="off">
+                            
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact.form.name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact.form.email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" data-i18n="contact.form.subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form.message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span data-i18n="contact.form.send">Send Message</span>
+                            </button>
+
+                            <!-- Success/Error Messages -->
+                            <div id="form-status" class="form-status" style="display: none;"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2025 Gabriel Sosa. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <p data-i18n="footer.made_with">Made with ❤️ in Tegucigalpa, Honduras</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- EmailJS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- jsPDF Library for CV generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="./scripts/i18n-simple.js"></script>
+    <script src="./scripts/anti-spam.js"></script>
+    <script src="./scripts/contact-form.js"></script>
+    <script src="./scripts/emailjs-setup.js"></script>
+    <script src="./scripts/cv-generator.js"></script>
+    <script type="module" src="./scripts/main.js"></script>
+</body>
+</html>

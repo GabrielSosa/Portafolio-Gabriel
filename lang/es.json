@@ -1,0 +1,271 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "experience": "Experiencia", 
+    "projects": "Proyectos",
+    "certifications": "Certificaciones",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "role": "Cloud Engineer & Full Stack Developer",
+    "description": "Especialista en infraestructura cloud y desarrollo full stack con experiencia en AWS, Azure, Kubernetes y aplicaciones web modernas. Combino expertise en cloud con desarrollo end-to-end para crear soluciones completas.",
+    "contact_me": "Contáctame",
+    "view_projects": "Ver Proyectos", 
+    "download_cv": "Descargar CV",
+    "status": "Disponible para trabajar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "intro": "Soy un Cloud Engineer y Full Stack Developer especializado en diseñar e implementar infraestructuras escalables en la nube y aplicaciones web robustas, ubicado en <strong>Tegucigalpa, Honduras</strong>.",
+    "description": "Con más de 7 años de experiencia combinando tecnologías cloud y desarrollo full stack, me especializo en migración de aplicaciones legacy, implementación de arquitecturas cloud-native, desarrollo de aplicaciones web modernas y optimización de costos. Mi enfoque está en crear soluciones completas que impulsen la transformación digital desde el frontend hasta la infraestructura.",
+    "stats": {
+      "experience": "Años de Experiencia",
+      "projects": "Proyectos Cloud & Web Completados", 
+      "certifications": "Certificaciones Activas"
+    },
+    "skills": {
+      "cloud_platforms": "Plataformas Cloud",
+      "devops_tools": "Herramientas DevOps",
+      "development": "Desarrollo Full Stack",
+      "monitoring": "Monitoreo y Observabilidad",
+      "containers": "Contenedores y Orquestación",
+      "frontend": "Desarrollo Frontend",
+      "backend": "Desarrollo Backend",
+      "databases": "Bases de Datos"
+    }
+  },
+  "skills_detailed": {
+    "cloud_platforms": {
+      "aws": ["EC2", "S3", "RDS", "Lambda", "EKS", "VPC", "IAM", "CloudFormation", "CloudWatch"],
+      "azure": ["Virtual Machines", "Storage", "AKS", "Functions", "Resource Manager", "Monitor"],
+      "gcp": ["Compute Engine", "GKE", "Cloud Storage", "Cloud Functions"]
+    },
+    "devops_tools": {
+      "ci_cd": ["Jenkins", "GitLab CI", "GitHub Actions", "Azure DevOps"],
+      "version_control": ["Git", "GitHub", "GitLab", "Bitbucket"],
+      "automation": ["Ansible", "Puppet", "Chef"]
+    },
+    "infrastructure_code": {
+      "tools": ["Terraform", "CloudFormation", "ARM Templates", "Pulumi"],
+      "practices": ["GitOps", "State Management", "Module Development"]
+    },
+    "containers": {
+      "containerization": ["Docker", "Podman"],
+      "orchestration": ["Kubernetes", "Docker Swarm", "Amazon EKS", "Azure AKS"],
+      "tools": ["Helm", "Kustomize", "ArgoCD"]
+    },
+    "monitoring": {
+      "metrics": ["Prometheus", "Grafana", "CloudWatch", "Azure Monitor"],
+      "logging": ["ELK Stack", "Fluentd", "Splunk"],
+      "apm": ["Datadog", "New Relic", "Jaeger"]
+    },
+    "programming": {
+      "languages": ["Python", "JavaScript", "TypeScript", "Bash", "PowerShell", "Go", "Java"],
+      "frameworks": ["Flask", "FastAPI", "Django", "React", "Vue.js", "Node.js", "Express"]
+    },
+    "frontend": {
+      "frameworks": ["React", "Vue.js", "Angular", "Svelte"],
+      "styling": ["CSS3", "Sass", "Tailwind CSS", "Bootstrap", "Material UI"],
+      "tools": ["Webpack", "Vite", "Parcel", "npm", "yarn"]
+    },
+    "backend": {
+      "languages": ["Node.js", "Python", "Java", "Go"],
+      "frameworks": ["Express", "NestJS", "Flask", "Django", "Spring Boot"],
+      "apis": ["REST", "GraphQL", "gRPC", "WebSockets"]
+    },
+    "databases": {
+      "relational": ["PostgreSQL", "MySQL", "SQL Server", "Oracle"],
+      "nosql": ["MongoDB", "DynamoDB", "Redis", "Elasticsearch"],
+      "cloud": ["RDS", "CosmosDB", "Cloud SQL", "DocumentDB"]
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "jobs": [
+      {
+        "title": "Senior Cloud Engineer & Full Stack Developer",
+        "company": "Stefanini Group S.A.",
+        "period": "2022 - Presente",
+        "location": "Tegucigalpa, Honduras",
+        "description": "Liderazgo en proyectos de migración cloud y desarrollo de aplicaciones full stack para empresas medianas y grandes, combinando expertise en infraestructura y desarrollo.",
+        "achievements": [
+          "Lideré la migración exitosa de 25+ aplicaciones legacy a AWS con 99.9% de uptime durante el proceso de 8 meses, implementando estrategias de lift-and-shift y re-arquitectura según las necesidades específicas de cada aplicación",
+          "Desarrollo completo de 15+ aplicaciones web full stack utilizando arquitecturas modernas (Java Spring Boot, Python FastAPI, Angular 14+, Node.js), incluyendo sistemas de gestión empresarial, dashboards analíticos y APIs RESTful",
+          "Logré una reducción del 40% en costos cloud (aproximadamente $50K USD anuales) mediante análisis detallado de rightsizing, implementación de Reserved Instances, y optimización de recursos infrautilizados usando CloudWatch y Cost Explorer",
+          "Diseñé e implementé pipelines CI/CD robustos con AWS CodePipeline, Jenkins y GitLab CI que redujeron el tiempo de deployment de 4 horas a 45 minutos (reducción del 80%), incluyendo testing automatizado y rollback capabilities",
+          "Arquitecté soluciones multi-región altamente disponibles con recuperación automática ante desastres (RTO < 15 minutos, RPO < 5 minutos) utilizando AWS Auto Scaling, ELB, RDS Multi-AZ y S3 Cross-Region Replication"
+        ],
+        "technologies": ["Azure", "React", "Node.js", "Terraform", "Kubernetes", "Docker", "PostgreSQL", "Python"]
+      },
+      {
+        "title": "Senior Cloud Developer",
+        "company": "Banco FICENSA", 
+        "period": "2020 - 2022",
+        "location": "Tegucigalpa, Honduras",
+        "description": "Liderazgo en modernización de infraestructura bancaria mediante cloud computing, desarrollo de módulos críticos y implementación de pipelines CI/CD para aplicaciones financieras mission-critical.",
+        "achievements": [
+          "Desarrollé e implementé módulos cloud-ready críticos para el sistema de autobancos que procesa 10,000+ transacciones diarias con 99.97% de disponibilidad, incluyendo validación en tiempo real, logging de auditoría y manejo de excepciones bancarias específicas",
+          "Diseñé e integré 12+ productos de software personalizados que optimizaron procesos operativos internos, logrando una reducción del 45% en tiempos de procesamiento (de 2 horas a 1.1 horas promedio) y mejorando la eficiencia del personal bancario",
+          "Implementé ETLs automatizados robustos y sistemas de análisis de logs en tiempo real para 8+ aplicativos críticos utilizando tecnologías cloud native, procesando 500GB+ de datos transaccionales diarios con alertas proactivas para anomalías",
+          "Facilité integraciones seguras con 15+ proveedores externos (procesadores de pago, sistemas de clearing, APIs gubernamentales) mejorando la conectividad bancaria en un 60% y asegurando el cumplimiento con regulaciones CNBS y estándares PCI DSS",
+          "Establecí pipelines CI/CD desde cero para el entorno bancario, reduciendo el deployment time de módulos críticos de 3-5 días a 2-4 horas, incluyendo pruebas de regresión automatizadas y validación de compliance",
+          "Lideré el desarrollo de 45+ aplicaciones web full stack con Java 8/Spring Boot y Angular, incluyendo portales de banca empresarial, sistemas de reportería gerencial y dashboards operativos en tiempo real"
+        ],
+        "technologies": ["Java 8", "Angular", "Docker", "Jenkins", "DB2", "RPG ILE", "CI/CD", "ETL", "AWS"]
+      },
+      {
+        "title": "Backend Developer",
+        "company": "Banco Atlántida",
+        "period": "2018 - 2020", 
+        "location": "Tegucigalpa, Honduras",
+        "description": "Liderazgo en migración crítica del core bancario de IBS a SAP, implementando arquitecturas cloud-native con microservicios en Kubernetes y modernización de aplicaciones legacy.",
+        "achievements": [
+          "Ejecuté exitosamente la migración completa del core bancario de IBS a SAP durante un período crítico de 6 meses con cero interrupciones del servicio, coordinando equipos multidisciplinarios y gestionando riesgos operativos en tiempo real para 500,000+ clientes activos",
+          "Desarrollé una arquitectura de microservicios containerizada de clase empresarial utilizando Docker y orquestación avanzada con Kubernetes en Red Hat OpenShift, mejorando la escalabilidad del sistema en un 300% y reduciendo los tiempos de respuesta promedio de 2.5s a 800ms",
+          "Lideré la migración técnica completa de la aplicación crítica Jteller desde RPG legacy a una stack moderna Java/Spring Boot con backend Node.js, incluyendo re-diseño de base de datos, APIs RESTful y interfaz de usuario responsive, procesando 25,000+ transacciones diarias",
+          "Optimicé las operaciones de banca empresarial mediante implementación de monitoreo proactivo con ELK Stack (Elasticsearch, Logstash, Kibana) y sistemas de resolución automatizada de incidentes, reduciendo el MTTR (Mean Time To Resolution) de 45 minutos a 8 minutos",
+          "Establecí estándares corporativos de containerización y orquestación que fueron adoptados por todo el departamento de TI, reduciendo deployment time en 70% (de 5 horas a 1.5 horas) y mejorando la consistencia entre ambientes de desarrollo, testing y producción"
+        ],
+        "technologies": ["Java Spring Boot", "Node.js", "Docker", "Kubernetes", "OpenShift", "SAP HANA", "DB2", "RPG ILE", "Microservices"]
+      }
+    ]
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "subtitle": "Certificaciones profesionales activas en tecnologías cloud y desarrollo",
+    "active": [
+      {
+        "name": "AWS Certified Solutions Architect",
+        "issuer": "Amazon Web Services",
+        "date": "2025",
+        "id": "AWS-SAP-2025",
+        "level": "Associate"
+      },
+      {
+        "name": "Google Cloud Engineer",
+        "issuer": "Google", 
+        "date": "2025",
+        "id": "GCP-2025",
+        "level": "Associate"
+      },
+      {
+        "name": "Google Digital Leader",
+        "issuer": "Google",
+        "date": "2024", 
+        "id": "GCP-2024",
+        "level": "Foundational"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "items": [
+      {
+        "title": "Migración Multi-Cloud Empresarial",
+        "description": "Migración completa de infraestructura on-premise a arquitectura híbrida AWS/Azure para empresa financiera con 500+ usuarios, incluyendo portal web administrativo.",
+        "technologies": ["AWS", "Azure", "React", "Node.js", "Terraform", "Kubernetes", "PostgreSQL"],
+        "duration": "8 meses",
+        "role": "Lead Cloud Architect & Full Stack Developer",
+        "achievements": [
+          "Cero downtime durante la migración",
+          "35% de reducción en costos operacionales", 
+          "Implementación de DR cross-cloud",
+          "Portal administrativo con dashboard en tiempo real"
+        ]
+      },
+      {
+        "title": "Gibson - Plataforma de Avalúo Vehicular Cloud",
+        "description": "Desarrollo completo desde cero de aplicación web para avalúo de vehículos con arquitectura de microservicios, formularios reactivos y infraestructura AWS optimizada con CloudFront para máximo rendimiento.",
+        "technologies": ["React", "Node.js", "AWS S3", "CloudFront", "Microservices", "JWT Auth", "MongoDB", "Lambda"],
+        "duration": "5 meses",
+        "role": "Lead Full Stack Developer & Cloud Architect", 
+        "achievements": [
+          "Desarrollo de módulo de autenticación JWT robusto y seguro",
+          "Implementación de sistema de reportes dinámicos con exportación PDF/Excel",
+          "Creación de configurador avanzado de vehículos con validación en tiempo real",
+          "Gestión completa de usuarios con roles y permisos granulares",
+          "Optimización de carga con CloudFront reduciendo latencia en 60%"
+        ]
+      },
+      {
+        "title": "Avalúos Trochez - Automatización & Digitalización",
+        "description": "Desarrollo de plataforma integral para automatizar y digitalizar procesos de avalúos inmobiliarios, implementando dashboards inteligentes para reducción de costos y optimización operacional.",
+        "technologies": ["React", "Node.js", "AWS Lambda", "CloudWatch", "MongoDB", "Python", "Terraform", "S3"],
+        "duration": "6 meses",
+        "role": "Lead Cloud Developer & Process Automation Specialist",
+        "achievements": [
+          "Digitalización completa de procesos de avalúo reduciendo tiempo de procesamiento en 70%",
+          "Implementación de dashboards predictivos que optimizaron costos operacionales en 50%",
+          "Automatización de generación de reportes con validación inteligente y export multi-formato",
+          "Integración de APIs para conectar múltiples fuentes de datos inmobiliarios",
+          "Establecimiento de infraestructura cloud escalable para operaciones en Costa Rica"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "title": "¡Conectemos!",
+    "info": {
+      "location": "Ubicación",
+      "phone": "Teléfono",
+      "email": "Email",
+      "linkedin": "LinkedIn", 
+      "github": "GitHub"
+    },
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "made_with": "Hecho con ❤️ en Tegucigalpa, Honduras"
+  },
+  "loading": "Cargando Portafolio...",
+  "cv": {
+    "title": "Gabriel Sosa — CV",
+    "sections": {
+      "experience": "Experiencia profesional",
+      "education": "Educación / Certificaciones",
+      "skills": "Skills adicionales"
+    },
+    "buttons": {
+      "print": "🖨️ Imprimir",
+      "download": "📄 Descargar PDF"
+    },
+    "education": [
+      {
+        "institution": "UNAH",
+        "degree": "Ingeniería en Sistemas",
+        "date": "Agosto 2017",
+        "honors": "Cum Laude: 83%"
+      },
+      {
+        "institution": "CERTIPROF",
+        "degree": "Scrum Foundations Professional Certificate (SFPC)",
+        "date": "Junio 2020"
+      },
+      {
+        "institution": "GOOGLE",
+        "degree": "Google Digital Leader",
+        "date": "Junio 2024"
+      }
+    ],
+    "skills": [
+      "Liderazgo técnico de equipos multidisciplinarios de hasta 15 desarrolladores; gestión de stakeholders y comunicación efectiva con C-level executives.",
+      "Arquitectura y diseño de soluciones tecnológicas end-to-end; toma de decisiones críticas en proyectos de $500K+ con impacto directo en el negocio.",
+      "Gestión de proyectos complejos con metodologías ágiles (Scrum, Kanban); entrega consistente de proyectos dentro del presupuesto y cronograma establecido.",
+      "Mentoría y desarrollo de talento técnico; implementación de mejores prácticas de desarrollo y procesos de calidad que aumentaron la productividad del equipo en 35%.",
+      "Análisis estratégico de costos y ROI en transformaciones digitales; optimización de procesos que generaron ahorros de $200K+ anuales en operaciones.",
+      "Comunicación técnica avanzada bilingüe (español nativo, inglés avanzado B1+); presentaciones ejecutivas y documentación técnica para audiencias diversas."
+    ]
+  },
+  "meta": {
+    "title": "Gabriel Sosa | Cloud Engineer & Full Stack Developer",
+    "description": "Gabriel Sosa - Cloud Engineer y Full Stack Developer especializado en AWS, Azure, React y Node.js desde Tegucigalpa, Honduras"
+  }
+}
