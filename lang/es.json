@@ -457,39 +457,4 @@
     "title": "Gabriel Sosa | Platform Engineer & AI Deployment Specialist",
     "description": "Gabriel Sosa - Platform Engineer especializado en despliegue con IA, arquitecturas cloud-native y automatización de infraestructura desde Tegucigalpa, Honduras"
   }
-}{
-  "nav": {
-    "home": "Inicio",
-    "about": "Sobre Mí",
-    "experience": "Experiencia", 
-    "projects": "Proyectos",
-    "certifications": "Certificaciones",
-    "contact": "Contacto"
-  },
-  "hero": {
-    "greeting": "Hola, soy",
-    "role": "Platform Engineer & AI Deployment Specialist",
-    "description": "Platform Engineer especializado en despliegue de plataformas con IA, automatización de infraestructura y arquitecturas cloud-native. Diseño pipelines inteligentes, orquesto plataformas con Kubernetes y acelero equipos con herramientas de IA generativa.",
-    "contact_me": "Contáctame",
-    "view_projects": "Ver Proyectos", 
-    "download_cv": "Descargar CV",
-    "status": "Disponible para trabajar"
-  },
-  "about": {
-    "title": "Sobre Mí",
-    "intro": "Soy un Cloud Engineer y Full Stack Developer especializado en diseñar e implementar infraestructuras escalables en la nube y aplicaciones web robustas, ubicado en <strong>Tegucigalpa, Honduras</strong>.",
-    "description": "Con más de 7 años de experiencia combinando tecnologías cloud y desarrollo full stack, me especializo en migración de aplicaciones legacy, implementación de arquitecturas cloud-native, desarrollo de aplicaciones web modernas y optimización de costos. Mi enfoque está en crear soluciones completas que impulsen la transformación digital desde el frontend hasta la infraestructura.",
-    "stats": {
-      "experience": "Años de Experiencia",
-      "projects": "Proyectos Cloud & Web Completados", 
-      "certifications": "Certificaciones Activas"
-    },
-    "skills": {
-      "cloud_platforms": "Plataformas Cloud",
-      "devops_tools": "Herramientas DevOps",
-      "development": "Desarrollo Full Stack",
-      "monitoring": "Monitoreo y Observabilidad",
-      "containers": "Contenedores y Orquestación",
-      "frontend": "Desarrollo Frontend",
-      "backend": "Desarrollo Backend",
-      "databases": "Bases de Datos"
+}
