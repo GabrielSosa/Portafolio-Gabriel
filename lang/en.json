@@ -10,42 +10,7 @@
   "hero": {
     "greeting": "Hello, I'm",
     "role": "Platform Engineer & AI Deployment Specialist",
-    "description": "Platform Engineer specialized in AI-driven platform deployment, infrastructure automation and cloud-native architectures. I design intelligent pipelines, orchestrate platforms with Kubernetes and empower teams with generative AI tools.",
-    "contact_me": "Contact Me",
-    "view_projects": "View Projects",
-    "download_cv": "Download CV",
-    "status": "Available for work"
-  },
-  "about": {
-    "title": "About Me",
-    "intro": "I'm a Cloud Engineer and Full Stack Developer specialized in designing and implementing scalable cloud infrastructures and robust web applications, located in <strong>Tegucigalpa, Honduras</strong>.",
-    "description": "With over 7 years of experience combining cloud technologies and full stack development, I specialize in legacy application migration, cloud-native architecture implementation, modern web application development, and cost optimization. My focus is on creating complete solutions that drive digital transformation from frontend to infrastructure.",
-    "stats": {
-      "experience": "Years of Experience",
-      "projects": "Cloud & Web Projects Completed",
-      "certifications": "Active Certifications"
-    },
-    "skills": {
-      "cloud_platforms": "Cloud Platforms",
-      "devops_tools": "DevOps Tools",
-      "development": "Full Stack Development",
-      "monitoring": "Monitoring & Observability",
-      "containers": "Containers & Orchestration",
-      "frontend": "Frontend Development",
-      "backend": "Backend Development",
-      "databases": "Databases"{
-  "nav": {
-    "home": "Home",
-    "about": "About Me",
-    "experience": "Experience",
-    "projects": "Projects",
-    "certifications": "Certifications",
-    "contact": "Contact"
-  },
-  "hero": {
-    "greeting": "Hello, I'm",
-    "role": "Cloud Engineer & Full Stack Developer",
-    "description": "Cloud infrastructure specialist and full stack developer with experience in AWS, Azure, Kubernetes and modern web applications. I combine cloud expertise with end-to-end development to create complete solutions.",
+    "description": "Platform Engineer specialized in AI-powered platform deployment, infrastructure automation, and cloud-native architectures. I design intelligent pipelines, orchestrate platforms with Kubernetes, and accelerate teams with generative AI tools.",
     "contact_me": "Contact Me",
     "view_projects": "View Projects",
     "download_cv": "Download CV",
@@ -333,7 +298,7 @@
   "certifications": {
     "title": "Certifications",
     "subtitle": "Active professional certifications in cloud technologies and development",
-     "active": [
+    "active": [
       {
         "name": "AWS Certified Solutions Architect",
         "issuer": "Amazon Web Services",
@@ -343,7 +308,7 @@
       },
       {
         "name": "Google Cloud Engineer",
-        "issuer": "Google", 
+        "issuer": "Google",
         "date": "2025",
         "id": "GCP-2025",
         "level": "Associate"
@@ -351,7 +316,7 @@
       {
         "name": "Google Digital Leader",
         "issuer": "Google",
-        "date": "2024", 
+        "date": "2024",
         "id": "GCP-2024",
         "level": "Foundational"
       }
@@ -471,7 +436,7 @@
     ]
   },
   "meta": {
-    "title": "Gabriel Sosa | Cloud Engineer & Full Stack Developer",
-    "description": "Gabriel Sosa - Cloud Engineer and Full Stack Developer specialized in AWS, Azure, React and Node.js from Tegucigalpa, Honduras"
+    "title": "Gabriel Sosa | Platform Engineer & AI Deployment Specialist",
+    "description": "Gabriel Sosa - Platform Engineer specialized in AI deployment, cloud-native architectures, and infrastructure automation from Tegucigalpa, Honduras"
   }
 }
